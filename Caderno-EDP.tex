@@ -295,11 +295,11 @@ Fórmulas de Green para \( u,v \in C^2 (\overline{U}) \)
 \textbf{Relação IMPA / Evans:}
 
 \begin{center}
-	\begin{tabular}{r | p{8.5cm}}
-		Laplace - Solução Fundamental: \textbf{Aula 05} & \textbf{2.2} Laplace's equation\newline \textbf{2.2.1} Fundamental Solution \\
-		Prop. Média e Princípio do Máximo: \textbf{Aula 06} & \textbf{2.2.2} Mean-value formulas\newline \textbf{2.2.3} Properties of Harmonic Functions \newline \textbf{a.} Maximum principle \newline \textbf{b.} Regularity \\
+	\begin{tabular}{r | p{7.5cm}}
+		Laplace - Solução Fundamental: \textbf{Aula 05} & \textbf{2.2} Laplace's equation \newline \textbf{2.2.1} Fundamental Solution \\
+		Propriedade da Média: \textbf{Aula 06} & \textbf{2.2.2} Mean-value formulas  \newline \textbf{2.2.3} Properties of Harmonic Functions \newline \textbf{a.} Maximum principle \newline \textbf{b.} Regularity \\
 		
-		Regularidade das Funções Harmônicas: \textbf{Aula 07} & \textbf{c.} Derivatives \newline \textbf{d.} Liouville \newline \textbf{e.} Analiticity \newline \textbf{f.} Harnack \\
+		Regularidade das F. Harmônicas: \textbf{Aula 07} & \textbf{c.} Derivatives \newline \textbf{d.} Liouville \newline \textbf{e.} Analiticity \newline \textbf{f.} Harnack \\
 
 		Função de Green: \textbf{Aula 08} & \textbf{2.2.4} Green's function \\
 
@@ -434,7 +434,7 @@ Queremos provar que \(\norm{f * g}{r} \leq \norm{f}{p} \norm{g}{q}\) para \( 1 +
 		\norm{f * g}{\infty} &\leq \norm{f}{\infty} \norm{g}{1}
 	\end{align*}
 
-	\item Usando Riesz-Thorin nas duas desigualdades acima, temos que a desigualdade vai para \( (p, 1, p) \).
+	\item Usando Riesz-Thorin nas duas desigualdades acima, a desigualdade vai para \( (p, 1, p) \).
 	
 	\item \((p, p', \infty)\) Usando a desigualdade de Hölder, \(| f * g | \leq \int_\Rn |f(y) g(x-y) dy|dy \leq \norm{f}{p} \norm{g}{q}\)
 	
@@ -577,7 +577,7 @@ Definição de \href{https://en.wikipedia.org/wiki/Locally_integrable_function}{
 
 Seja \( g \in L^1_{loc} \) e \( f \in C^k_c \), então \( f * g \in C^k \)
 
-A propriedade de regularidade da \(f\) se transfere pra convolução. Queremos mostrar que \(\pde{}{x_1}\left( f*g(x)\right) = \left(\pde{f}{x_1} * g \right)(x)\)
+A regularidade da \(f\) se transfere pra convolução. Queremos mostrar que \[\pde{}{x_1}\left( f*g(x)\right) = \left(\pde{f}{x_1} * g \right)(x)\]
 
 A convolução só existe em um compacto porque \(f\) tem suporte compacto. Em um compacto, a \(g\) é \(L^1\). Então, podemos aplicar o teorema da convergência dominada, e desata forma está provado.
 
@@ -755,7 +755,7 @@ Agora que provamos para uma classe densa, vamos para o argumento de densidade. D
 
 \subsection{Classe de Schwartz}
 
-As funções da \href{https://en.wikipedia.org/wiki/Schwartz_space}{classe de Schwartz} são funções com derivadas que decrescem \textit{muito} rápido, especificamente que decrescem mais rápido que qualquer polinômio. 
+As funções da \href{https://en.wikipedia.org/wiki/Schwartz_space}{classe de Schwartz (link)} são funções com derivadas que decrescem muito rápido, especificamente que decrescem mais rápido que qualquer polinômio. 
 
 \(f:\Rn \rightarrow \C\), \(f \in \mathcal{S}\) se para todos multiíndices \(\alpha, \beta\) temos que  \[ \left| x^\beta \partial^\alpha f \right| \leq C_{\alpha, \beta} \qquad \Rightarrow |\partial^\alpha f| \leq \frac{C}{x^\beta}\] para todo \(x \in \Rn\).
 
@@ -1489,7 +1489,7 @@ Agora temos que checar que realmente a solução acima resolve o problema inicia
 
 \subsection{Função de Green para a bola}
 
-Vamos começar com a bola unitária. Aqui, também vamos usar simetria para remover a singularidade da bola unitária.
+Vamos começar com a bola unitária. Assim como antes, vamos usar simetria para remover a singularidade da bola unitária.
 
 \textbf{Ponto Dual}. O ponto dual de \(x \in \R^{n*}\) em relação à borda da bola unitária é \[\tilde{x} = \frac{x}{|x|^2}\]
 
@@ -1758,7 +1758,7 @@ Se necessário, faça \(u^j = \max(u^j, m)\). Então, \(m \leq u^j \leq M\).
 
 Troque \(u^j\) por \(u^j_{p,r}\) (a função que é igual à original fora da bola e harmônica no interior). A propriedade acima continua valendo, pois \(u^j \leq u^j_{p,r}\). Agora, \(u^j\) são harmônicas em \(B(p,r)\).
 
-Agora, tenho uma sequência de funções harmônicas em \(B(p,r)\) equilimitadas \(m \leq u^j \leq M\). Pelas estimativas da derivada, as derivadas também são equilimitadas. Se uma função é limitada com derivada limitada, é lipschitz contínua. Um conjunto de funções lipschitz contínua é equicontínua. Pelo \href{https://en.wikipedia.org/wiki/Arzel\%C3\%A0\%E2\%80\%93Ascoli_theorem}{Teorema de Ascoli-Arzelà}, existe uma subsequência uniformemente convergente em todo compacto \(K \subset B(p,r)\). Já vimos antes que uma sequência uniformemente convergente de funções harmônicas converge para uma função harmônica.
+Agora, tenho uma sequência de funções harmônicas em \(B(p,r)\) equilimitadas \(m \leq u^j \leq M\). Pelas estimativas da derivada, as derivadas também são equilimitadas. Se uma função é limitada com derivada limitada, é lipschitz contínua. Um conjunto de funções lipschitz contínua é equicontínua. Pelo \href{https://en.wikipedia.org/wiki/Arzel\%C3\%A0\%E2\%80\%93Ascoli_theorem}{Teorema de Ascoli-Arzelà (link)}, existe uma subsequência uniformemente convergente em todo subconjunto compacto \(K \subset B(p,r)\). Já vimos antes que uma sequência uniformemente convergente de funções harmônicas converge para uma função harmônica.
 
 \(\exists\) subsequência \(u^j\) uniformemente convergente em \(\overline{B}(p, r')\) e \(u^j \rightarrow W\) harmônica. Também sabemos que a \(u^j\) converge pontualmente para \(w_f\), para os pontos \(x_k\). Então, \[w_f(x_k) = W(x_k)\]Então, provamos que a \(w_f\) é harmônica, igual a \(W\) para uma sequência de pontos \(x_k\). A princípio,  \(W\) pode depender da sequência de pontos original e da subsequência escolhida.
 
@@ -2321,7 +2321,7 @@ Mandando \(\e \rightarrow 0\), temos que a primeira integral fica \[
 	\int_\Omega  vu\ dx (T) = \int_\Omega\Phi(x-\xi, \e) u(x,T)\ dx \rightarrow u(\xi, T)\]
 	
 Reorganizando, \begin{align*}
-	 \int_\Omega\Phi(x\mi \xi, \e) u(x,T)\ dx &=  \int_\Omega\Phi(x\mi \xi, T+\e) u(x,0)\ dx  +  \int_0^T \int_{\p\Omega} \left(\Phi(x\mi \xi, T+\e\mi t) \dirdev{u} - u(x,t)\dirdev{\Phi}\right)\ dSdt
+	 \int_\Omega\Phi(x\mi \xi, \e) u(x,T)\ dx &=  \int_\Omega\Phi(x\mi \xi, T+\e) u(x,0)\ dx  \\ &+  \int_0^T \int_{\p\Omega} \left(\Phi(x\mi \xi, T+\e\mi t) \dirdev{u} - u(x,t)\dirdev{\Phi}\right)\ dSdt
 \end{align*}
 
 O vídeo acabou :(
@@ -2794,7 +2794,7 @@ Continuando, temos que \[ \begin{cases}
 
 Consequentemente, \begin{align*}
 	 \int_{\R^n_+} |Dw_m - Du|^p\ dx &\leq C \int_{\R^n_+} |\zeta_m|^p |Du|^p \ dx  \\
-	  & +Cm^p \int_0^{2/m} \int_{\R^{n-1}} |u|^p \ dx'dt \\
+	  & +C m^p \int_0^{2/m} \int_{\R^{n-1}} |u|^p \ dx'dt \\
 	 =: A + B
 \end{align*}
 
@@ -2820,7 +2820,7 @@ Para o termo $B$, vamos usar uma desigualdade provada logo acima. \begin{align*}
 	&\leq C \int_0^{2/m} \int_{\R^{n-1}} |Du|^p \ dx'dx_n \rightarrow 0 \text{ enquanto } m \rightarrow \infty
 \end{align*}
 
-Portanto, descobrimos que $ Dw_m \rightarrow Du \text{ em } L^{p}(\R^n_+)$. Como, pela definição de $w_m$, $w_m\rightarrow u \text{ em } L^p(\R^n_+)$, concluímos que \[ w_m \rightarrow u \text{ em } W^{1,p}(\R^n_+) \]
+Portanto, descobrimos que $ Dw_m \rightarrow Du \text{ em } L^{p}(\R^n_+)$. Como, pela definição de $w_m$, $w_m\rightarrow u$ em $ L^p(\R^n_+)$, concluímos que \[ w_m \rightarrow u \text{ em } W^{1,p}(\R^n_+) \]
 
 Agora, como $ w_m=0 $ se $ 0 < x_n < 1/m $, podemos molificar $ w_m $ para produzir funções $ u_m \in C^\infty_c(\R^n_+) $ tal que $ u_m \rightarrow u \text{ em } W^{1,p}(\R^n_+)$. Logo, $ u \in W^{1,p}_0 (\R^n_+) $
 
@@ -2851,7 +2851,7 @@ Combinando isso na desigualdade, encontramos que \[ \nor{u}{L^q(\Rn)} \leq C \la
 
 \paragraph{Teorema 1 (Desigualdade de Gagliardo-Nirenberg-Sobolev)}\label{t:sobolev-ineq-t1} Seja $ 1 \leq p < n $. Existe uma constante $C$, dependendo apenas de $p$ e $n$, tal que \[ ||u||_{L^{p^*}(\Rn)} \leq C \left|\left|Du\right|\right|_{L^{p}(\Rn)} \] para toda $u \in C^1_c(\Rn)$
 
-Realmente precisamos que $u$ tenha suporte compacto. Por exemplo, $u \equiv 1$ não satisfaz a desigualdade. Mas, a constante não depende do tamanho desse suporte.
+Realmente precisamos que $u$ tenha suporte compacto. Por exemplo, a função $u \equiv 1$ não satisfaz a desigualdade. Mas, a constante não depende do tamanho desse suporte.
 
 \textit{Demonstração.} Seja $p=1$. Logo, $p^* = \frac{n}{n-1}$. Como $u$ tem suporte compacto, para cada $i=1,\ldots,n$ e $x \in \Rn$, temos que \[ u(x) = \int_{-\infty}^{x_i} u_{x_i}(x_1, \ldots, y_i, \ldots, x_n) \ dy_i\] pois o valor de $u$ em $x_i \rightarrow -\infty$ é zero. Portanto, \[ |u(x)| \leq \int_{-\infty}^{+\infty} \left| Du(x_1, \ldots, y_i, \ldots, x_n) \right|\ dy_i \quad (i=1, \ldots, n)\]
 
@@ -3193,7 +3193,7 @@ Da mesma forma, lembrando que $D\eta_\e(x) = \frac{1}{\e^n} D\eta(\frac{x}{\e}) 
 	|Du_m^\e(x)| &\leq \int_{B(x,\e)} D\eta_\e(x-y)| u_m(y) |\ dy\\
 	&\leq ||D\eta_\e||_{ L^\infty(\Rn)} ||u_m||_{L^1(V) } \leq \frac{C}{\e^{n+1}} < \infty 
 \end{align*}
-Logo, $\{u_m^\e\}_{m=1}^\infty$ é equilimitada e equicontínua. Agora precisamos mostrar que existe uma subsequência convergente em $L^q(V)$. Para isso, vamos lembrar que a sequência $\{u_m^\e\}_{m=1}^\infty$ possui suporte compacto em $V \subset \rn$, e é equilimitada e equicontínua. Logo, pelo teorema de Ascoli-Arzela, podemos obter uma subsequência $\{u_{m_j}^\e\}_{j=1}^\infty$ que converge uniformemente em $V$. Logo, \[
+Logo, $\{u_m^\e\}_{m=1}^\infty$ é equilimitada e equicontínua. Agora, devemos mostrar que existe uma subsequência convergente em $L^q(V)$. Para isso, vamos lembrar que a sequência $\{u_m^\e\}_{m=1}^\infty$ possui suporte compacto em $V \subset \rn$, e é equilimitada e equicontínua. Logo, pelo teorema de Ascoli-Arzela, podemos obter uma subsequência $\{u_{m_j}^\e\}_{j=1}^\infty$ que converge uniformemente em $V$. Logo, \[
 \lim_{j,k\rightarrow\infty} || u_{m_j}^\e - u_{m_k}^\e ||_{L^q(V)} = 0 \Rightarrow 	\limsup_{j,k\rightarrow\infty} || u_{m_j}^\e - u_{m_k}^\e ||_{L^q(V)} = 0 
 \]
 
