@@ -7,24 +7,20 @@
 \usepackage{lmodern}
 
 \usepackage{amsmath, amsfonts, amssymb, cancel}
-\usepackage{changepage}   % for the adjustwidth environment
 \parindent 0px
 \usepackage{parskip}
 \usepackage{enumerate}  
 \usepackage{multirow} 
 \usepackage{wrapfig}
-\usepackage{tikz} 			% used to make a lot of math graphics
+\usepackage{tikz}
 \usetikzlibrary{arrows} 
 \usepackage{wrapfig}
-\usepackage{bigfoot} %includes the perpage package
-%\usepackage{perpage} OLD
-\MakePerPage{footnote} %the perpage package command, resets the footenote in each page
-\renewcommand{\thefootnote}{\fnsymbol{footnote}} %changes footnote numbers to symbols
-\usepackage[hidelinks]{hyperref}
-
+\usepackage{bigfoot} %inclui o pacote perpage
+\MakePerPage{footnote} %reinicia o contador das notas de rodapé a cada página
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} %muda de núm. para símbolo
+\usepackage[hidelinks]{hyperref} %esconde as caixas de links
 \usepackage{chngcntr}
-\counterwithin*{section}{part} %resets section counter after each part
-
+\counterwithin*{section}{part} %reinicia o número do capítulo a cada parte
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \setlength{\headheight}{15pt}
@@ -42,8 +38,9 @@
 \newcommand{\Rn}{{\mathbb{R}^n}}
 \newcommand{\rn}{{\mathbb{R}^n}}
 \newcommand{\prn}{{(\mathbb{R}^n)}}
-
 \newcommand{\p}{\partial}
+\newcommand{\pu}{\partial U}
+
 \newcommand{\e}{\epsilon}
 \newcommand{\dd}{\delta}
 \newcommand{\degree}{^{\circ}}
@@ -51,15 +48,12 @@
 \newcommand{\pde}[2]{\frac{\p #1}{\p #2}}
 \newcommand{\dirdev}[1]{\pde{#1}{\vec{\nu}}}
 
-\newcommand{\rarrow}{\rightarrow}
 \newcommand{\parentesis}[1]{\left(#1\right)}
 \newcommand{\mi}{\text{-}}
 
 \newcommand{\norm}[2]{\left|\left|#1\right|\right|_{L^{#2}}}
 \newcommand{\nor}[2]{||#1||_{#2}}
 \newcommand{\holder}[2][k,\gamma]{{C^{#1}(\overline{#2})}}
-
-\newcommand{\pu}{\partial U}
 
 \renewcommand{\v}{,\hspace{-2pt}}
 
@@ -1812,7 +1806,7 @@ Além disso, como \(u\) é contínua, temos:\begin{enumerate}[(i)]
 Então, para \(x \in U\),
 \begin{align*}
 	f(\eta) - \e = \lim_{x \rightarrow \eta} u(x) = \liminf_{x \rightarrow \eta} u(x) &\leq \liminf_{x \rightarrow \eta}  w_f(x) \\
-	f(\eta) &\leq  \liminf_{x \rightarrow \eta} w_f(x) \qquad \text{ se } \e \rarrow 0 
+	f(\eta) &\leq  \liminf_{x \rightarrow \eta} w_f(x) \qquad \text{ se } \e \rightarrow 0 
 \end{align*}
 
 \subsection*{Lema 9}
