@@ -472,7 +472,7 @@ Agora, a norma \( L^r \) é \begin{align*}
 
 Do mesmo modo, \( \norm{f_\dd}{p} = \frac{1}{\dd^{n/p}}  \norm{f}{p}\), e \( \norm{g_\dd}{q} = \frac{1}{\dd^{n/q}} \norm{g}{q} \).
 
-De acordo com a desigualde de de Young, para \( \frac{1}{q} + \frac{1}{p} = 1 + \frac{1}{r} \), 
+De acordo com a desigualdade de de Young, para \( \frac{1}{q} + \frac{1}{p} = 1 + \frac{1}{r} \), 
 \begin{align*}
 	\norm{f_\dd * g_\dd}{r} &\leq C \norm{f_\dd}{p} \norm{g_\dd}{q}\\
 	\norm{f * g}{r} &\leq C \dd^{n \left( 1 + \frac{1}{r} - \frac{1}{p} - \frac{1}{q}\right) } \norm{f}{p} \norm{g}{q}
@@ -815,7 +815,7 @@ Se \( f \in L^1 \cap L^2 \Rightarrow \hat{f} \in L ^2 \), então \( || \hat{f} |
 
 
 
-Agora, usando a fórmulade multiplicação de Fourier: \begin{align*}
+Agora, usando a fórmula de multiplicação de Fourier: \begin{align*}
 	\int_\Rn \hat{f}(x) g(x)\ dx &= \int_\Rn f(x) \hat{g}(x)\ dx \\
 	\int_\Rn \hat{f}(x) \overline{\hat{f}}(x) \ dx &= \int_\Rn f(x) \left( \check{\overline{f}} \right)^{\hat{}}  \ dx\\
 	\int_\Rn | \hat{f}(x) |^2\ dx &= \int_\Rn | f(x) |^2    \ dx\\
@@ -832,7 +832,7 @@ Fazendo um argumento de densidade, podemos concluir que \(\mathcal{F}: L^2 \righ
 
 \section{Equação de Laplace}
 
-O laplaciano é definido como \[ \Delta u = \sum u_{x_i x_i} \] (a soma da diagoal principal da matriz Hessiana)
+O laplaciano é definido como \[ \Delta u = \sum u_{x_i x_i} \] (a soma da diagonal principal da matriz Hessiana)
 
 A partir daí, queremos resolver a equação de Laplace \(\Delta u =0\) ou, de uma maneira mais geral, queremos resolver o problema com aberto \(U \subset \Rn\) \begin{equation}\label{problaplace}
 	\begin{cases}
@@ -843,7 +843,7 @@ A partir daí, queremos resolver a equação de Laplace \(\Delta u =0\) ou, de u
 
 As funções que resolvem o problema com \(f=0\) são chamadas de \textbf{funções harmônicas}. Esse problema é fácil de resolver sem restrições. Quando temos condições de borda fica mais difícil.
 
-\subsection*{Interpertação Física}
+\subsection*{Interpretação Física}
 
 O laplaciano surge a partir da concentração de um composto, por exemplo. Digamos que exista um domínio com um sal em uma dada concentração. Se o sal está em equilíbrio no interior, então dentro de cada sub-domínio, tudo que entra sai. 
 \[ \text{div} F = 0 \]
@@ -904,7 +904,7 @@ A solução para o problema \(-\Delta u =f\) com \(f \in C^2_c\) é dada por \(u
 	\item \(-\Delta u =f\)
 \end{enumerate}
 
-\textit{Demonstração.} (i) Pelo Teorema da Convergência Dominada, vamos passar o limite da derivada para a \(f\). Lembremos que a \(\Phi\) é integrável perto de 0, por isso, nesse contexto, ela é \(L^1\). A \(\Phi\) não é integravel no \(\infty\). Porém, a \(f\) tem suporte compacto, então tudo bem. Passando o limite duas vezes, pois \(f \in C^2_c\), temos que \(\Phi * f \in C^2\).
+\textit{Demonstração.} (i) Pelo Teorema da Convergência Dominada, vamos passar o limite da derivada para a \(f\). Lembremos que a \(\Phi\) é integrável perto de 0, por isso, nesse contexto, ela é \(L^1\). A \(\Phi\) não é integrável no \(\infty\). Porém, a \(f\) tem suporte compacto, então tudo bem. Passando o limite duas vezes, pois \(f \in C^2_c\), temos que \(\Phi * f \in C^2\).
 
 Prova de (ii). Primeiro, \(\Delta_xf(x-y)=\Delta_yf(x-y)\) (sinal troca duas vezes). Então, \begin{align*}
 	\Delta u &= \int \Phi(y) \Delta_x f(x-y)\ dy = \int \Phi(y) \Delta_y f(x-y)\ dy\\
@@ -923,7 +923,7 @@ Logo \begin{align*}
 Na segunda integral, podemos tirar o sup do gradiente da \(f\), pois \(\dirdev{f}=Df \cdot \vec{\nu}\). Lembrando que como a \(\Phi\) é radial, é constante na borda da bola.
 \[\int_{\partial B(0, \epsilon)} \Phi(y) \dirdev{f}(x-y) dS(y) \leq C \norm{Df}{\infty} \frac{1}{\e^{n-2}} \int_{\partial B(0, \epsilon)}\ dS \leq  C \frac{\e^{n-1}}{\e^{n-2}}= C\e \]
 
-Na primeira integaral, vamos usar o teorema de Green para passar o laplaciano para a \(\Phi\). \begin{align*}
+Na primeira integral, vamos usar o teorema de Green para passar o laplaciano para a \(\Phi\). \begin{align*}
 	 - \int_{\mathbb{R}^n - B(0, \epsilon)} D \Phi (y)\cdot D f(x-y) dy &= \int_{\mathbb{R}^n - B(0, \epsilon)} \Delta \Phi (y)\cdot f(x-y) dy \\ &-  \int_{\partial B(0, \epsilon)} \dirdev{\Phi }(y) f(x-y) dS(y)
 \end{align*}
 
@@ -970,7 +970,7 @@ Além disso, o delta de Dirac e a função constante \(1\) também formam um par
 \end{align*}
 
 \paragraph{Encontrando a Solução}
-Então, podemos usar o conhecimento das distrbuições temperadas para resolver 
+Então, podemos usar o conhecimento das distribuições temperadas para resolver 
 \[ -\Delta \Phi = \delta \]
 Aplicando Fourier nos dois lados, temos que \begin{align*}
 	- 4\pi^2 i^2 |\xi|^2 \hat{\Phi}(\xi) &= 1 \\
@@ -1108,7 +1108,7 @@ Basicamente, mudamos para coordenadas polares para conseguir a integral na super
 
 Para \( k=0 \), surge da propriedade da média.
 
-Para \( k=1 \), vamos lembrar que \( u \in C^\infty \) e que todas derivadas de funções harmônicas são harmônicas, porque é só trocar a ordem das derivadas no laplaciano \( u_{x_1x_1x_i} = (u_{x_i})_{x_1x_1} \). Então, podeoms fazer a propriedade da média com a derivada.
+Para \( k=1 \), vamos lembrar que \( u \in C^\infty \) e que todas derivadas de funções harmônicas são harmônicas, porque é só trocar a ordem das derivadas no laplaciano \( u_{x_1x_1x_i} = (u_{x_i})_{x_1x_1} \). Então, popedoms fazer a propriedade da média com a derivada.
 \begin{align*}
 	u_{x_i} &= \overline{\int}_{B(x, r/2)} u(y) dy \\
 	u_{x_i} &= \frac{2^n}{\alpha (n) r^n} \int_{B(x, r/2)} u_{x_i} (y) dy \\
@@ -1351,7 +1351,7 @@ Então, na borda, \(\phi^x = \Phi(y-\tilde{x}) = \Phi(y-x)\).
 Se \(y \in \partial\mathbb{R}^n_+\), então
 \[ \frac{\partial G}{\partial y_n}(x,y) = \frac{-1}{n \alpha(n)}\frac{-2x_n}{|y-x|^n} \]
 
-O vetor normal apotando pra fora do domínio tem componentes \((0,\ldots,-1)\), fazendo o dot product com o gradiente, temos que
+O vetor normal apontando pra fora do domínio tem componentes \((0,\ldots,-1)\), fazendo o dot product com o gradiente, temos que
 
 \[ \dirdev{G} = - \pde{G}{y_n} = \frac{-1}{n \alpha(n)}\frac{2x_n}{|y-x|^n}\]
 
@@ -1446,7 +1446,7 @@ Agora temos que checar que realmente a solução acima resolve o problema inicia
 	\end{align*}
 	Agora, vamos dividir essa integral em \(\p\seR \cap B(p, \delta)\) e \(\p\seR - B(p, \delta)\). Perceba que a Bola centrada em \(p\) é uma bola de dimensão \(n-1\). Dentro do primeiro domínio, temos que \(|y-p| < \delta\), para aplicar a desigualdade logo acima.
 	\[ \int_{\p\seR \cap B(p,\delta)}\hspace{-0.5cm} K(x,y) \left| g(y) - g(p) \right| dy \leq \e \int_{\p\seR \cap B(p,\delta)}\hspace{-0.5cm} K(x,y) dy \leq \e \int_{\p\seR} K(x,y) dy = \e \]
-	Podemos manter a desiguladade aumentando o domínio pois \(K(x,y)>0\).
+	Podemos manter a desigualdade aumentando o domínio pois \(K(x,y)>0\).
 	
 	Agora, para a integral fora da bola, temos que \(|y - p| \geq \delta\), lembrando também que \(|x - p| \leq \frac{\delta}{2}\), então:
 	\begin{align*}
@@ -1942,7 +1942,7 @@ Temos que \begin{align*}
 
 Então, como \(u \in A\), para toda \(w \in A\) \[I[u] = \min_{w \in A} I[w]\]
 
-(\(\Leftarrow\)) Suponha que \(u \in A\) é o mínimo do funcional definido anteriormente. Então, seja qualquer \(\phi \in C^\infty_c (U)\), definindo a função \[i(t) = I[u + t\phi]\] temos que \(i'(0)=0\) se sua derivada existe, pois o mínimo é atingido quando \(t=0\). \(u+t\phi\) está no espaço admitível de funções pois \(\phi=0\) na borda, porque tem suporte compacto, daí \(u+t\phi=u=g\) na borda. \begin{align*}
+(\(\Leftarrow\)) Suponha que \(u \in A\) é o mínimo do funcional definido anteriormente. Então, seja qualquer \(\phi \in C^\infty_c (U)\), definindo a função \[i(t) = I[u + t\phi]\] temos que \(i'(0)=0\) se sua derivada existe, pois o mínimo é atingido quando \(t=0\). \(u+t\phi\) está no espaço admissível de funções pois \(\phi=0\) na borda, porque tem suporte compacto, daí \(u+t\phi=u=g\) na borda. \begin{align*}
 	i(t)&=\int_U \frac{1}{2}\left| Du + tD\phi \right|^2 - (u + t\phi)f \ dx \\
 	 &= \int_U \frac{1}{2} |Du|^2 + t Du \cdot D\phi + \frac{t^2}{2} |D\phi|^2 -uf + t\phi f\ dx
 \end{align*}
@@ -1980,7 +1980,7 @@ Agora, vamos começar em \(U = \Rn\), \(f=0\), e ignorar a condição de borda, 
 Aplicando a Fourier inversa (que no caso da Gaussiana é só calcular a Fourier normal), sendo \(\lambda = 4\pi t\), temos que
 \begin{equation}\label{calor-fundamental}
 	\Phi(x,t) = \frac{1}{\parentesis{4\pi t}^\frac{n}{2}}e^{-\frac{|x|^2}{4t}}
-\end{equation} é a nossa solução fundamental (sem se preocupar com a condição de borda).\footnote{Lá em equaçõs diferenciais, aprendemos que a solução da eq. do calor era uma série de cossenos e senos. Isso porque, naquele caso, tinha a suposição de que a solução \(u(x)\) poderia ser escrita como \(\Phi(x)\Psi(t)\), separando as variáveis.}
+\end{equation} é a nossa solução fundamental (sem se preocupar com a condição de borda).\footnote{Lá em equações diferenciais, aprendemos que a solução da eq. do calor era uma série de cossenos e senos. Isso porque, naquele caso, tinha a suposição de que a solução \(u(x)\) poderia ser escrita como \(\Phi(x)\Psi(t)\), separando as variáveis.}
 
 A integral da solução fundamental é 1, pois é o valor da Fourier em 0, que dá 1. \[\int \Phi(x,t)\ dx = \hat{\Phi}(0,t) = 1\]
 
@@ -2133,7 +2133,7 @@ Resolve o problema \ref{prob-calor} para \(U=\Rn\).
 
 \subsection{Propriedade da Média}
 
-(apenas no Evans) Aqui, não serã tão simples como na equação de laplace. Assim como as esferas \(\p B(x,r)\) são curvas de nível da solução fundamental \(\Phi(x-y)\) de laplace, aqui vamos fazer a média nas curvas de nível da equação do calor.
+(apenas no Evans) Aqui, não será tão simples como na equação de laplace. Assim como as esferas \(\p B(x,r)\) são curvas de nível da solução fundamental \(\Phi(x-y)\) de laplace, aqui vamos fazer a média nas curvas de nível da equação do calor.
 
 \begin{wrapfigure}{L}{0.33\textwidth}
 	\begin{tikzpicture}
@@ -2169,7 +2169,7 @@ Então, se temos que \(\Phi(x,t)\geq \frac{1}{r^n}\), então sendo \(x=rx'\) e \
 	&= A + B
 \end{align*}
 Vamos definir \[\psi := \frac{-n}{2}\log (-4\pi s) + \frac{|y|^2}{4s} + n\log r\]
-Todos os termos de borda nas integraçõs por partes darão zero pois, na borda \(\p E(r)\) temos que \(\Phi(y,-s)=r^{-n}\) e então\begin{align*}
+Todos os termos de borda nas integrações por partes darão zero pois, na borda \(\p E(r)\) temos que \(\Phi(y,-s)=r^{-n}\) e então\begin{align*}
 	\frac{1}{(-4\pi s)^{n/2}} e^{\frac{-|y|^2}{-4s}}&=r^{-n} \\
 	e^{\frac{|y|^2}{4s}} &= r^{-n}\cdot (-4\pi s)^{n/2} \\
 	&\Rightarrow \psi = \frac{|y|^2}{4s} +n \log r -\frac{n}{2}\log(-4\pi s) =0
@@ -2400,7 +2400,7 @@ Contradição. \qed
 
 \subsection{Tychonoff}
 
-Se \( g \equiv 0 \), a solução esperada (que satisfaz o crescimento) é \( u \equiv 0 \), pois não há nenhum calor no tempo inicial. Agora vamos encontrar soluçãões da equação do calor que não satisfazem o crescimento menor que exponencial. 
+Se \( g \equiv 0 \), a solução esperada (que satisfaz o crescimento) é \( u \equiv 0 \), pois não há nenhum calor no tempo inicial. Agora vamos encontrar soluções da equação do calor que não satisfazem o crescimento menor que exponencial. 
 
 Para \( n=1 \), vamos considerar \[ \begin{cases}
 	u_t - \Delta u =0 & \R\times(0,\infty) \\
@@ -2910,7 +2910,7 @@ Agora, como sabemos que \[ ||\overline{u}||_{W^{1,p}(\Rn)} = \left( \int_\Rn |\o
 
 \paragraph{Teorema 3 (Desigualdade de Poincaré)}\label{t:sobolev-ineq-t3} Estimativas para \( W^{1,p}_0, 1 \leq p < n\). Seja \(U\) aberto e limitado. Seja $u \in W^{1,p}_0(\mathbb{R}^n)$ para algum \(1 \leq p < n\). Então, temos que \[ ||u||_{L^q(U)} \leq C ||Du||_{L^p(U)} \] para todo \( q \in [1, p^*]\). 
 
-\textit{Demonstração.} Como $u \in W^{1,p}_0(U)$, existem funções $u_m \in C^\infty_c(U)$ convergindo para $u$ em $ W^{1,p}(U)$. Extendemos cada função $u_m$ para ser 0 em $\Rn-\overline{U}$ e aplicamos o Teorema 1 para provar que \[ ||u||_{L^{p^*}(U)} \leq C ||Du||_{L^p(U)} \] Como $ |U| < \infty  $ (ver a parte I), \[ ||u||_{L^q(U)} \leq C||u||_{L^{p^*}(U)} \] se $1 \leq q \leq p^*$. \qed
+\textit{Demonstração.} Como $u \in W^{1,p}_0(U)$, existem funções $u_m \in C^\infty_c(U)$ convergindo para $u$ em $ W^{1,p}(U)$. Estendemos cada função $u_m$ para ser 0 em $\Rn-\overline{U}$ e aplicamos o Teorema 1 para provar que \[ ||u||_{L^{p^*}(U)} \leq C ||Du||_{L^p(U)} \] Como $ |U| < \infty  $ (ver a parte I), \[ ||u||_{L^q(U)} \leq C||u||_{L^{p^*}(U)} \] se $1 \leq q \leq p^*$. \qed
 
 Em decorrência da desigualdade de Poincaré, em $ W^{1,p}_0(U) $ a norma $ ||Du||_{L^p(U)} $ é equivalente a $ ||u||_{W^{1,p}}(U) $ se $U$ é limitado. Isso porque \begin{align*}
 	 ||u||_{W^{1,p}(U)}^p &= \nor{u}{L^p(U)}^p + \nor{Du}{L^p(U)}^p \leq (C + 1) \nor{Du}{L^p(U)}^p \\
@@ -3210,9 +3210,9 @@ Não podemos usar o limite porque não sabemos se o limite estará definido no l
 
 Agora, aplicamos um argumento tradicional de diagonalização. Dado $\delta=1$, encontramos uma subsequência $\{u_{m_j}\}$ tal que \[\limsup_{j,k\rightarrow\infty} || u_{m_j} - u_{m_k} ||_{L^q(V)} \leq 1 \qquad u_{m_1}, u_{m_2}, u_{m_3}\]
 
-Não é possível garantir a convergência desta subsequência. Agora, tomamos ela como sequência original $\{u_m\}$, e fazesmo a mesma coisa, agora para $\delta=\frac{1}{2}$, e obtemos uma subsequência da subsequência anterior em que $\limsup \leq \delta/2$.
+Não é possível garantir a convergência desta subsequência. Agora, tomamos ela como sequência original $\{u_m\}$, e fazemos a mesma coisa, agora para $\delta=\frac{1}{2}$, e obtemos uma subsequência da subsequência anterior em que $\limsup \leq \delta/2$.
 
-Fazemos isso infinitamente, e pegamos um elemento de cada subsequência. Lembrando que cada subsequência é subsequência da anterior. Pegamos o primeiro elemento tal que a norma da diferença entre este e os outros é $\leq \frac{\delta}{n}$. Assim, vamos conseguir uma subsequência (da 'diagonal') em que os temors ficam arbitrariamente próximos. Então, extraímos uma subsequência $\{u_{m_l}\}$ tal que \[ \limsup_{l,k\rightarrow\infty} ||u_{m_l} - u_{m_k}||_{L^q(V)} =0  \] 
+Fazemos isso infinitamente, e pegamos um elemento de cada subsequência. Lembrando que cada subsequência é subsequência da anterior. Pegamos o primeiro elemento tal que a norma da diferença entre este e os outros é $\leq \frac{\delta}{n}$. Assim, vamos conseguir uma subsequência (da 'diagonal') em que os termos ficam arbitrariamente próximos. Então, extraímos uma subsequência $\{u_{m_l}\}$ tal que \[ \limsup_{l,k\rightarrow\infty} ||u_{m_l} - u_{m_k}||_{L^q(V)} =0  \] 
 \qed
 
 \paragraph{Observação.} Como $p^*>p$ e $p^* \rightarrow \infty$ quando $p\rightarrow n$, então temos em particular \[W^{1,p}(U) \subset\subset L^p(U)\] para todo $1\leq p \leq \infty $. Observe que se $n < p \leq \infty$, então isso segue da desigualdade de Morrey e do teorema de Ascoli-Arzela. Primeiramente, sabemos que $W^{1,p}(U) \subset\subset L^p(U)$ para $1\leq p < n$ pela demonstração acima, já que $p^*>p$. Agora, se $p>n$, pelo \nameref{t:sobolev-ineq-t5}, sabemos que existe uma versão contínua $u^* \in C^{0, \gamma}(\overline{U})$, que, por ser contínua, está em $L^p(U)$. Agora, como provar que \[ ||u||_{L^p(U)} \leq C ||u||_{W^{1,p}(U)} \] \textbf{???}
