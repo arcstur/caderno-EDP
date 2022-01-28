@@ -1,5 +1,5 @@
 # caderno-EDP
-Caderno pessoal para o estudo de Equações Diferenciais Parciais, por meio de uma bolsa de Iniciação Científica da UFRGS.
+Caderno pessoal para o estudo de Equações Diferenciais Parciais, parte da atividade desenvolvida em uma bolsa de Iniciação Científica da UFRGS.
 
 Bolsista: Artur Corrêa Souza
 
