@@ -69,51 +69,26 @@
 \def\ddashint{\Xint=}
 \def\dashint{\Xint-}
 
+\newtheorem{remark}{Observação}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%opening
 \title{Estudo de Equações Diferenciais Parciais}
 \author{\textit{Iniciação Científica}\\   Artur Corrêa \\ Orientadora: Patrícia Guidolin}
+
+
 
 \begin{document}
 
 \maketitle
-
 \tableofcontents
-
-
-
-
-
-
 
 %\setcounter{section}{-1}
 \pagebreak
 \part{Preâmbulo}
-
 \section{Misc}
-
 \subsection{Multiíndices}
 
 \( \alpha \) é um multiíndice se é um vetor da forma \( \alpha = (\alpha_1, \ldots, \alpha_n) \) com todos \( \alpha_i \) inteiros positivos. Ele tem ordem ou módulo dada por \( |\alpha| = \alpha_1 + \ldots \alpha_n \).
@@ -2452,28 +2427,77 @@ Os espaços de Hölder exigem bastante das funções, o que não é tão bom par
 
 \subsection*{Derivada fraca}
 
+\subsubsection*{Motivação}
+
+Considere o seguinte problema: dada $f \in C([a,b])$, encontre uma função $u$ satisfazendo
+
+\[ \begin{cases}
+-u'' +u =f \ \ \mbox{ em } \ \ [a,b] \\
+	u(a)=u(b)=0.
+\end{cases} \]
+Uma solução clássica deste problema é uma função $C^2([a,b])$ satisfazendo o problema acima no sentido usual. Mas agora, ignore esse fato e multiplique a equação $-u'' +u =f $ por $\phi \in C^1([a,b])$ com $\phi(a)=\phi(b)=0$ e integre por partes.
+\begin{align}\label{mot1}
+\int_a^b -u'' \phi dx +  \int_a^b u \phi dx =  \int_a^b f \phi dx\nonumber \\
+\underbrace{\left. u' \phi \right]_a^b}_{0} + \int_a^b -u' \phi' dx +  \int_a^b u \phi dx =  \int_a^b f \phi dx \nonumber\\
+\int_a^b -u' \phi' dx +  \int_a^b u \phi dx =  \int_a^b f \phi dx .
+\end{align}
+Note que \eqref{mot1} faz sentido quando $u \in C^1([a,b])$, enquanto que a equação  $-u'' +u =f $ requer duas derivas para $u$. Na verdade é suficiente que $u, u' \in L^1([a,b])$, onde $u'$ tem um significado que ainda precisa ser formulado. A ideia é obter uma solução mais "fraca" para a equação $-u'' +u =f $.
+
+Na tentativa de motivar a definição de derivada fraca, considere $C^{\infty}_c (U)$ o espaço das funções $ \phi :U \longrightarrow \mathbb{R}$ infinitamente diferenciáveis com suporte compacto. Chamaremos $\phi$ de função teste.
+
+Dada uma função $u \in C^1(U)$, se $\phi \in C^{\infty}_c (U)$, por integração por partes vale
+
+\begin{equation}
+	\int_{U} u \phi_{x_i} dx = - \int_{U} u_{x_i} \phi dx.
+\end{equation}
+
+Mais geralmente, se $u \in C^k(U)$ e $\alpha=(\alpha_1, \alpha_2, \cdots, \alpha_n)$ um multi-índice com $|\alpha|= \alpha_1 + \cdots +\alpha_n= k$, então
+
+\begin{equation}\label{mot2}
+\int_{U} u D^{\alpha}\phi dx = (-1)^k \int_{U} D^{\alpha}u \phi dx,
+\end{equation}
+
+onde $D^{\alpha} \phi= \frac{\partial ^{\alpha_1}}{\partial x_1^{\alpha_1}}\cdots \frac{\partial ^{\alpha_n}}{\partial x_n^{\alpha_n}}\phi$.
+
+Note que \eqref{mot2} vale se $u \in C^k(U)$, ou seja, $u$ é $k$ vezes continuamente diferenciável e $D^{\alpha}u$ é a derivada clássica (derivada no sentido usual) de $u$. Note também, que o lado direito  da igualdade faz sentido para $u \in L^1_{loc}(U)$. Como podemos exigir menos de $u$ e manter a igualdade \eqref{mot2}?
+
+Para responder a essa pergunta que definimos o conceito de derivada fraca:
+
+\paragraph{Definição} Sejam $u,v \in L^1_{loc}(U)$ e $\alpha$ um multi-índice. Dizemos que $v$ é a $\alpha-$ésima derivada parcial fraca de $u$, e denotamos por $D^{\alpha}u,$ se 
+
+\begin{equation}\label{derivadafraca}
+   \int_{U} u D^{\alpha}\phi dx = (-1)^{|\alpha|} \int_{U} v \phi dx  \ \ \ \ \forall \phi \in C^{\infty}_c(U).
+   \end{equation}
+
 Seja \( C^{\infty}_c (U) \) o espaço das funções infinitamente diferenciáveis \( \phi:U\rightarrow \R \), com suporte compacto em \( U \), chamadas de \textit{funções teste}. 
 
 Utilizando-as, podemos definir a derivada fraca de uma função com \[ \int_U u D^\alpha\phi\ dx = (-1)^{|\alpha|} \int_U D^\alpha u \phi\ dx \] o termo de borda é zero pois \( \phi \) tem suporte compacto em \( U \). Diremos que uma função em \( L^1_{loc}(U) \) é uma derivada fraca de \( u \in L^1_{loc}(U) \) se substitui a derivada na equação acima para todas funções teste \( \phi \in C^\infty_c(U) \).
 
-A derivada fraca é única qtp (só não é única em um espaço de medida zero)
-
+\paragraph{Lema}(Unicidade da derivada fraca) A $\alpha$- ésima derivada parcial fraca de uma função $u$, se existir, é definida de maneira única, a menos de um conjunto de medida zero.
+\textit{Demonstração.} Sejam $v, \tilde{v} \in L^1_{loc}(U)$ soluções fracas de $u$, então
+ \begin{align*}
+     \int_{U}u D^{\alpha}\phi \ dx = (-1)^{|\alpha|} \int _U v \phi \ dx= (-1)^{|\alpha|} \int _U \tilde{v} \phi \ dx,
+ \end{align*}
+isto é,
+\begin{align*}
+    \int_{U} (v - \tilde{v}) \phi \ dx = 0 \ \ \ \forall \phi \in C^{\infty}_c(U).
+\end{align*}
+Concluindo assim que $v-\tilde{v}=0$ q.t.p \qed
 \subsection*{Definição}
 
 Seja \( 1\leq p \leq \infty \) e \( k \in \N \). O espaço de sobolev \[ W^{k,p}(U) \] consiste de todas funções somáveis \( u:U\rightarrow\R \) que tenham derivadas \( D^\alpha u \), com \( |\alpha|\leq k \), no sentido das distribuições (derivada fraca), e que elas pertençam a \( L^p(U) \).
 
-Se \( p=2 \) escrevemos \( H^k(U) = W^{k,2}(U) \) pois é um espaço de Hilbert.
-
+\begin{remark}
+	Mais adiante veremos que $W^{k,p}(U)$ são espaços de Banach e $ W^{k,2}(U) = H^k(U)$ é um espaço de Hilbert.
+\end{remark}
 \paragraph{Norma} para \( u \in W^{k,p}(U) \) é \[ ||u||_{W^{k,p}(U)} := \begin{cases}
 	\left[ \sum_{|\alpha|\leq k} \int_U \left| D^{\alpha} u\right|^p\ dx  \right]^{1/p}\\
 	\sum_{|\alpha|\leq k} \text{ess}\sup_U \left| D^{\alpha} u \right| & p=\infty
-\end{cases}\]\footnote{A ideia do supremo essencial é que valores em conjuntos de medida zero \textit{não} interferem no supremo}
-
-No caso de \( p=2 \), temos o espaço de Hilbert \( H^k(U) \) com a norma acima induzida pelo produto interno \( (u,v) =\sum_{|\alpha|\leq k} \int_U D^{\alpha}u \cdot D^\alpha v   \)
+\end{cases}\]Para o supremo essencial, valores de conjuntos de medida zero não interferem no supremo. No caso de \( p=2 \), temos o espaço de Hilbert \( H^k(U) \) com a norma acima induzida pelo produto interno \( (u,v) =\sum_{|\alpha|\leq k} \int_U D^{\alpha}u \cdot D^\alpha v   \)
 
 \paragraph{Convergência} Dizemos que \( u_m \rightarrow u\) em \( W^{k,p}(U) \) se \( \lim_{n\rightarrow \infty} ||u_m - u||_{W^{k,p}(U)} =0\)
 
-\paragraph{Fecho} Denotamos \( W^{k,p}_0 (U) \) o fecho de \( C^{\infty}_c(U) \in W^{k,p}(U) \). Ou seja, \( u \in W^{k,p}_0(U) \) se existem funções \( \phi_i \in C^{\infty}_c(U) \) tal que \( \phi_i \rightarrow u \) em \( W^{k,p}(U) \). As funções nesse conjunto possuem valor zero na fronteira de \( U \).
+\paragraph{Fecho} Denotamos \( W^{k,p}_0 (U) \) o fecho de \( C^{\infty}_c(U) \in W^{k,p}(U) \). Ou seja, \( u \in W^{k,p}_0(U) \) se existem funções \( \phi_i \in C^{\infty}_c(U) \) tal que \( \phi_i \rightarrow u \) em \( W^{k,p}(U) \). As funções nesse conjunto possuem valor zero na fronteira de \( U \). Na verdade, veremos mais adiante que $u \in  W^{k,p}_0 (U)$ se, e somente se, $u$ se anula na fronteira.
 
 %\paragraph{Teorema de Poincaré} Dado \( U \subset \R^n \) conjunto limitado em uma direção, então existe uma constante \( C>0 \) tal que para todo \( u \in H^1_0(U) \) temos \[ \int_U|u|^2\ dx \leq C\int_U | Du|^2\ dx \] Se definimos \( |u|_1 = \left(\int_U |Du|^2\ dx\right)^{1/2} \) em \( H^1_0(U) \) obtemos uma norma equivalente (com desigualdades por cima e por baixo) a norma definida anteriormente. Uma consequência do Teorema é que \( H^1_0 (U) \neq H^1(U) \).
 
@@ -2510,7 +2534,6 @@ Seja \( \phi \in C^\infty_c(U) \)
 	&= (-1)^{|\alpha| }\int  \lim_{m \rightarrow \infty} D^\alpha  u_m \phi \ dx		\\
 	&= (-1)^{|\alpha| }\int  u_\alpha \phi \ dx
 \end{align*}
-
 Então, \( u \in W^{k,p}(U) \), porque todo \( D^\alpha u = u_\alpha \) está em \( L^p(U) \).\qed
 
 
