@@ -2597,10 +2597,7 @@ Defina \( V:= U \cap B(p, r/2) \).
 
 Seja o ponto deslocado \( x_\e := x + \lambda\e e_n \) para \( x \in V, \e>0 \). Para um \( \lambda \) suficiente, a bola \( B(x_\e, \e) \) está completamente em \( U \cap B(p,r) \) para todo \( x \in V \) e pequeno \( \e>0 \).
 
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{Imagens/SobolevAproximaçãoGlobal.png}
-\end{center}
-
+%ver imagem na p.253 do Evans
 
 2. Agora, seja \( u_\e(x) := u(x_\e) = u(x + \lambda\e e_n ) \) (\( x \in V \)). É a função \( u \) transladada. Ou seja, podemos pegar qualquer valor de \( x \in V \), e vamos calcular a \( u \) com o valor de um ponto mais pra cima, que esteja com uma bolinha dentro de \( U \cap B(p,r) \), conforme a explicação acima.
 
@@ -2708,9 +2705,21 @@ Como a borda tem medida n-dimensional de Lebesgue nula, não há sentido em dize
 
 Escolha $\zeta \in C^\infty_c(B)$ com $\zeta\geq0$ em $B$, e com $\zeta\equiv1$ (identicamente 1) em $\hat{B}$. Seja $\Gamma$ a parte de $\pu$ contida em $\hat{B}$. Seja $x'=(x_1, \ldots, x_{n-1}) \in \R^{n-1}= \{x_n=0\}$.
 
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{Imagens/Sobolev-5}
-\end{center}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=1.2]
+	\node[left] at (0,0) {$\partial U$};
+	\draw (0,0) -- (6,0);
+	\node[right] at (4.258, 1.058) {$B$};
+	\node[right] at (3.629, 0.529) {$\hat{B}$};
+	\draw (3,0) circle [radius=1.5];
+	\draw (3,0) circle [radius=0.75];	
+	\draw [red] (2.25,0) -- (3.75,0);
+	\node[above,red] at (3,0) {$r$};
+	\draw[green, thick] (1.5,0) to [out=0, in=180] (2.4, 0.45) -- (3.6, 0.45) to [out=0, in=180] (4.5,0);
+	\node[above, green] at (2.4, 0.45) {$\zeta$};
+	\end{tikzpicture}
+\end{figure}
 
 Aí, \[
 	\int_\Gamma |u|^p dx' = \int_\Gamma 1|u|^p dx' = \int_\Gamma \zeta |u|^p dx' \leq \int_{\{x_n=0\}} \zeta |u|^p dx'
