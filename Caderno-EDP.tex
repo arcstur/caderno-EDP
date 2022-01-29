@@ -2427,8 +2427,6 @@ Os espaços de Hölder exigem bastante das funções, o que não é tão bom par
 
 \subsection*{Derivada fraca}
 
-\subsubsection*{Motivação}
-
 Considere o seguinte problema: dada $f \in C([a,b])$, encontre uma função $u$ satisfazendo
 
 \[ \begin{cases}
@@ -2436,12 +2434,12 @@ Considere o seguinte problema: dada $f \in C([a,b])$, encontre uma função $u$ 
 	u(a)=u(b)=0.
 \end{cases} \]
 Uma solução clássica deste problema é uma função $C^2([a,b])$ satisfazendo o problema acima no sentido usual. Mas agora, ignore esse fato e multiplique a equação $-u'' +u =f $ por $\phi \in C^1([a,b])$ com $\phi(a)=\phi(b)=0$ e integre por partes.
-\begin{align}\label{mot1}
+\begin{align}\label{sobolev-fraca-1}
 \int_a^b -u'' \phi dx +  \int_a^b u \phi dx =  \int_a^b f \phi dx\nonumber \\
 \underbrace{\left. u' \phi \right]_a^b}_{0} + \int_a^b -u' \phi' dx +  \int_a^b u \phi dx =  \int_a^b f \phi dx \nonumber\\
 \int_a^b -u' \phi' dx +  \int_a^b u \phi dx =  \int_a^b f \phi dx .
 \end{align}
-Note que \eqref{mot1} faz sentido quando $u \in C^1([a,b])$, enquanto que a equação  $-u'' +u =f $ requer duas derivas para $u$. Na verdade é suficiente que $u, u' \in L^1([a,b])$, onde $u'$ tem um significado que ainda precisa ser formulado. A ideia é obter uma solução mais "fraca" para a equação $-u'' +u =f $.
+Note que \eqref{sobolev-fraca-1} faz sentido quando $u \in C^1([a,b])$, enquanto que a equação  $-u'' +u =f $ requer duas derivas para $u$. Na verdade é suficiente que $u, u' \in L^1([a,b])$, onde $u'$ tem um significado que ainda precisa ser formulado. A ideia é obter uma solução mais ``fraca'' para a equação $-u'' +u =f $.
 
 Na tentativa de motivar a definição de derivada fraca, considere $C^{\infty}_c (U)$ o espaço das funções $ \phi :U \longrightarrow \mathbb{R}$ infinitamente diferenciáveis com suporte compacto. Chamaremos $\phi$ de função teste.
 
@@ -2453,25 +2451,23 @@ Dada uma função $u \in C^1(U)$, se $\phi \in C^{\infty}_c (U)$, por integraç�
 
 Mais geralmente, se $u \in C^k(U)$ e $\alpha=(\alpha_1, \alpha_2, \cdots, \alpha_n)$ um multi-índice com $|\alpha|= \alpha_1 + \cdots +\alpha_n= k$, então
 
-\begin{equation}\label{mot2}
+\begin{equation}\label{sobolev-fraca-2}
 \int_{U} u D^{\alpha}\phi dx = (-1)^k \int_{U} D^{\alpha}u \phi dx,
 \end{equation}
 
 onde $D^{\alpha} \phi= \frac{\partial ^{\alpha_1}}{\partial x_1^{\alpha_1}}\cdots \frac{\partial ^{\alpha_n}}{\partial x_n^{\alpha_n}}\phi$.
 
-Note que \eqref{mot2} vale se $u \in C^k(U)$, ou seja, $u$ é $k$ vezes continuamente diferenciável e $D^{\alpha}u$ é a derivada clássica (derivada no sentido usual) de $u$. Note também, que o lado direito  da igualdade faz sentido para $u \in L^1_{loc}(U)$. Como podemos exigir menos de $u$ e manter a igualdade \eqref{mot2}?
+Note que \eqref{sobolev-fraca-2} vale se $u \in C^k(U)$, ou seja, $u$ é $k$ vezes continuamente diferenciável e $D^{\alpha}u$ é a derivada clássica (derivada no sentido usual) de $u$. Note também, que o lado esquerdo  da igualdade faz sentido para $u \in L^1_{loc}(U)$. Como podemos exigir menos de $u$ e manter a igualdade \eqref{sobolev-fraca-2}?
 
-Para responder a essa pergunta que definimos o conceito de derivada fraca:
+Para responder a essa pergunta, definimos o conceito de derivada fraca:
 
-\paragraph{Definição} Sejam $u,v \in L^1_{loc}(U)$ e $\alpha$ um multi-índice. Dizemos que $v$ é a $\alpha-$ésima derivada parcial fraca de $u$, e denotamos por $D^{\alpha}u,$ se 
+\paragraph{Definição} Sejam $u,v \in L^1_{loc}(U)$ e $\alpha$ um multi-índice. Dizemos que $v$ é a $\alpha-$ésima derivada parcial fraca de $u$, e a denotamos por $D^{\alpha}u,$ se 
 
 \begin{equation}\label{derivadafraca}
    \int_{U} u D^{\alpha}\phi dx = (-1)^{|\alpha|} \int_{U} v \phi dx  \ \ \ \ \forall \phi \in C^{\infty}_c(U).
    \end{equation}
 
-Seja \( C^{\infty}_c (U) \) o espaço das funções infinitamente diferenciáveis \( \phi:U\rightarrow \R \), com suporte compacto em \( U \), chamadas de \textit{funções teste}. 
-
-Utilizando-as, podemos definir a derivada fraca de uma função com \[ \int_U u D^\alpha\phi\ dx = (-1)^{|\alpha|} \int_U D^\alpha u \phi\ dx \] o termo de borda é zero pois \( \phi \) tem suporte compacto em \( U \). Diremos que uma função em \( L^1_{loc}(U) \) é uma derivada fraca de \( u \in L^1_{loc}(U) \) se substitui a derivada na equação acima para todas funções teste \( \phi \in C^\infty_c(U) \).
+Em que \( C^{\infty}_c (U) \) é o espaço das funções infinitamente diferenciáveis \( \phi:U\rightarrow \R \), com suporte compacto em \( U \), chamadas de \textit{funções teste}. 
 
 \paragraph{Lema}(Unicidade da derivada fraca) A $\alpha$- ésima derivada parcial fraca de uma função $u$, se existir, é definida de maneira única, a menos de um conjunto de medida zero.
 \textit{Demonstração.} Sejam $v, \tilde{v} \in L^1_{loc}(U)$ soluções fracas de $u$, então
@@ -2508,7 +2504,7 @@ Seja \( 1\leq p \leq \infty \) e \( k \in \N \). O espaço de sobolev \[ W^{k,p}
 	\item Se \( \phi \in C^\infty_c(U) \), então \( \phi u \in W^{k,p}(U) \) e \[ D^\alpha(\phi u) = \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} D^\beta \phi D^{\alpha - \beta}u \] (fórmula de Leibniz)
 \end{enumerate}
 
-Muitas propriedades das derivadas se mantém nas derivadas fracas.
+Muitas propriedades das derivadas clássicas se mantém nas derivadas fracas.
 
 \paragraph{Banach} Os espaços de Sobolev \( W^{k,p}(U) \) são espaços de Banach. Basta provar que a norma definida anteriormente é uma norma, e que o espaço é completo (usar que \( L^p \) é um espaço de Banach).
 
