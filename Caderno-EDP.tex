@@ -2522,7 +2522,6 @@ Ou seja, \( u_m \rightarrow u \in L^p(U) \) e \( D^\alpha u_m \rightarrow u_{\al
 Queremos provar que \( u \in W^{k,p}(U) \) e que \( D^\alpha u = u_\alpha \).
 
 Seja \( \phi \in C^\infty_c(U) \)
-
 \begin{align*}
 	\int_U u D^\alpha \phi\ dx &= \int \lim_{m \rightarrow \infty} u_m D^\alpha \phi \ dx	\\
 	&= \lim_{m \rightarrow \infty} \int  u_m D^\alpha \phi \ dx	\\
@@ -2594,7 +2593,7 @@ Por fim, seja $ v:=\sum_{i=0}^{\infty} u_i $. Essa função é \( C^\infty(U) \)
 	||v - u||_{W^{k,p}(V)} &\leq \sum_{i=0}^{\infty} ||u_i - \zeta_iu||_{\sobolevdef} \\
 	&\leq \delta  \sum_{i=0}^{\infty}  \frac{1}{2^{i+1}}\\
 	&= \delta
-\end{align*} Pegando o supremo sobre os conjuntos \( V \subset\subset U \), temos que \( ||v-u||_{\sobolevdef} \leq \delta \). Aqui, podemos pegar o supremo pois provamos que para cada \( V \subset\subset U \) a norma é menor que \( \delta \), e esse \( \delta \) \textit{não} depende de \( V \), ele é uniforme em relação a esses \( V V\).
+\end{align*} Pegando o supremo sobre os conjuntos \( V \subset\subset U \), temos que \( ||v-u||_{\sobolevdef} \leq \delta \). Aqui, podemos pegar o supremo pois provamos que para cada \( V \subset\subset U \) a norma é menor que \( \delta \), e esse \( \delta \) \textit{não} depende de \( V \), ele é uniforme em relação a esses \( V \).
 
 Por fim, a função \( C^{\infty}(U) \) que aproxima \( u \in \sobolevdef \) é justamente \( \sum \eta_{\e_i} * (\zeta_i u) \).
 
