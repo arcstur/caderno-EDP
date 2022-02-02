@@ -2,7 +2,7 @@
 \usepackage[margin=2.5cm]{geometry}	
 
 \usepackage[utf8]{inputenc}
-\usepackage[portuguese]{babel}
+\usepackage[brazil]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 
@@ -2592,7 +2592,7 @@ Fixe \( \delta>0\). Escolha \( \e_i>0 \) tão pequeno que \[ u_i := \eta_{\e_i} 
 	\text{supp}(u_i) \subset W_i & i \in \N^*
 \end{cases} \] com \( W_i := U_{i+4} - \overline{U}_i, i \in \N^* \). Podemos ver que \( V_i \subset W_i \). 
 
-Aqui, estamos exigindo um suporte para \( u_i \) maior que o suporte da \( \zeta_iu \), o que faz sentido pois o suporte compacto da convolução é limitado pela adição dos suportes compactos. Ou seja, temos que "somar"\ o suporte de \( \zeta_iu \) (que é \( V_i \)) com o suporte de \( \eta_{\e_i} \), que é \( B(0, \e_i) \). Mandando \( \e\rightarrow 0 \), o suporte do molificador vai diminuindo (segunda exigência), e a molificação vai se aproximando da função original (primeira exigência).
+Aqui, estamos exigindo um suporte para \( u_i \) maior que o suporte da \( \zeta_iu \), o que faz sentido pois o suporte compacto da convolução é limitado pela adição dos suportes compactos. Ou seja, temos que ``somar'' o suporte de \( \zeta_iu \) (que é \( V_i \)) com o suporte de \( \eta_{\e_i} \), que é \( B(0, \e_i) \). Mandando \( \e\rightarrow 0 \), o suporte do molificador vai diminuindo (segunda exigência), e a molificação vai se aproximando da função original (primeira exigência).
 
 Por fim, seja $ v:=\sum_{i=0}^{\infty} u_i $. Essa função é \( C^\infty(U) \), pois para cada \( V \subset\subset U \) existem no máximo um número finito de termos não-nulos na soma. Ou seja, teremos um número finito pois haverá um número finito de \( \zeta_i \) não-nulas (e todas são \( C^\infty (U_\e) \), porém como tem suporte compacto, são \( C^\infty(U) \)). Como \( u=\sum_{i=0}^{\infty}\zeta_iu  \), temos que para cada \( V \subset\subset U \) 
 \begin{align*}
@@ -2715,7 +2715,7 @@ Por outro lado, esse método não funciona para $ W^{k,p} $ com $ k>2 $.
 
 Vamos agora assinalar valores de borda para uma função $u \in W^{1,p}(U)$, assumindo que $\pu$ é $C^1$. Se $u \in C(\overline{U})$, ela já tem valores de borda no sentido clássico. Porém, normalmente uma função em $W^{1,p}(U)$ não é contínua, e às vezes só é definida q.t.p em $U$. 
 
-Como a borda tem medida n-dimensional de Lebesgue nula, não há sentido em dizer '$ u $ restrita a $ \pu $'. \textbf{???}
+Como a borda tem medida n-dimensional de Lebesgue nula, não há sentido em dizer ``$ u $ restrita a $ \pu $''. Ou seja, a borda é um conjunto de medida zero para $u \in W^{1,p}(U)$. Logo, o valor na fronteira não é relevante.
 
 
 
@@ -3182,7 +3182,7 @@ Então, seja $\{u_m\}_{m=1}^\infty$ uma sequência limitada em $W^{1,p}(U)$. Ou 
 
 Devido ao Teorema da Extensão, podemos supor sem perda de generalidade $U=\Rn$ e que as funções $\{u_m\}_{m=1}^\infty$ têm suporte compacto em $V \subset \Rn$. Podemos fazer isso pois duas funções iguais q.t.p. são elementos iguais em $W^{1,p}(U)$.
 
-Primeiro, vamos analisar as funções suaves \[ u_m^\e := \eta_\e * u_m \] com $ \eta_\e $ o molificador padrão.  O suporte de $u_m^\e$ será a "soma"\ dos suportes de $\eta_\e$ (a bola $B(0,\e)$) com o de $u_m$ ($V$). Como $V$ não é muito importante, podemos aumentá-lo um pouco mais para que $\{u_m^\e\}$ tenham suporte compacto em $V$ também. Na verdade, uma solução melhor é pensar que dado um $\e$ pequeno, $u_m^\e$ terá suporte em $V$.
+Primeiro, vamos analisar as funções suaves \[ u_m^\e := \eta_\e * u_m \] com $ \eta_\e $ o molificador padrão.  O suporte de $u_m^\e$ será a ``soma'' dos suportes de $\eta_\e$ (a bola $B(0,\e)$) com o de $u_m$ ($V$). Como $V$ não é muito importante, podemos aumentá-lo um pouco mais para que $\{u_m^\e\}$ tenham suporte compacto em $V$ também. Na verdade, uma solução melhor é pensar que dado um $\e$ pequeno, $u_m^\e$ terá suporte em $V$.
 
 Agora, vamos demonstrar que \[ u_m^\e \rightarrow u_m \text{ em } L^q(V), \text{ uniformemente em } m\]
 
