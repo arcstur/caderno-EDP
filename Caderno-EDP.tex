@@ -2180,7 +2180,7 @@ Porque \[\frac{1}{t^n}\iint_{E(t)}\frac{|y|^2}{s^2}\ dyds = \iint_{E(1)} \frac{|
 \subsection{Princípio do Máximo}
 \subsubsection*{Prova do Carneiro}
 
-Aqui fazemos uma prova mais geral, considerando as soluções 'sub-harmônicas' como fizemos antes. As funções \textbf{sub} satisfazem o princípio do máximo, enquanto que as funções \textbf{super} satisfazem o princípio do mínimo. Aí, a função homogênea satisfaz os dois.
+Aqui fazemos uma prova mais geral, considerando as soluções `sub-harmônicas' como fizemos antes. As funções \textbf{sub} satisfazem o princípio do máximo, enquanto que as funções \textbf{super} satisfazem o princípio do mínimo. Aí, a função homogênea satisfaz os dois.
 
 Vamos considerar um \(U\subset \Rn\) aberto e limitado e \(u \in C^2_1 (\Omega) \cap C(\overline{\Omega})\) uma solução para o problema da equação do calor. Vamos definir \[\Omega = U \times (0, T]\] como o cilindro temporal. Perceba que ele inclui o tempo \(T\). Então, vamos definir \[\begin{cases}
 	\partial'\Omega = \{ (x,t)\mid x \in U, t=0 \text{ ou } x \in \p U, 0\leq t \leq T \} & \text{ (a base e as laterais) }\\
@@ -3240,7 +3240,7 @@ Agora, aplicamos um argumento tradicional de diagonalização. Dado $\delta=1$, 
 
 Não é possível garantir a convergência desta subsequência. Agora, tomamos ela como sequência original $\{u_m\}$, e fazemos a mesma coisa, agora para $\delta=\frac{1}{2}$, e obtemos uma subsequência da subsequência anterior em que $\limsup \leq \delta/2$.
 
-Fazemos isso infinitamente, e pegamos um elemento de cada subsequência. Lembrando que cada subsequência é subsequência da anterior. Pegamos o primeiro elemento tal que a norma da diferença entre este e os outros é $\leq \frac{\delta}{n}$. Assim, vamos conseguir uma subsequência (da 'diagonal') em que os termos ficam arbitrariamente próximos. Então, extraímos uma subsequência $\{u_{m_l}\}$ tal que \[ \limsup_{l,k\rightarrow\infty} ||u_{m_l} - u_{m_k}||_{L^q(V)} =0  \] 
+Fazemos isso infinitamente, e pegamos um elemento de cada subsequência. Lembrando que cada subsequência é subsequência da anterior. Pegamos o primeiro elemento tal que a norma da diferença entre este e os outros é $\leq \frac{\delta}{n}$. Assim, vamos conseguir uma subsequência (da `diagonal') em que os termos ficam arbitrariamente próximos. Então, extraímos uma subsequência $\{u_{m_l}\}$ tal que \[ \limsup_{l,k\rightarrow\infty} ||u_{m_l} - u_{m_k}||_{L^q(V)} =0  \] 
 \qed
 
 \paragraph{Observação.} Como $p^*>p$ e $p^* \rightarrow \infty$ quando $p\rightarrow n$, então temos em particular \[W^{1,p}(U) \subset\subset L^p(U)\] para todo $1\leq p \leq \infty $. Observe que se $n < p \leq \infty$, então isso segue da desigualdade de Morrey e do teorema de Ascoli-Arzela. Também veja que \[W^{1,p}_0(U) \subset\subset L^p(U)\] mesmo sem assumir que $\pu$ seja $C^1$. 
