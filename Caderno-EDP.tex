@@ -3245,7 +3245,7 @@ Fazemos isso infinitamente, e pegamos um elemento de cada subsequência. Lembran
 
 \paragraph{Observação.} Como $p^*>p$ e $p^* \rightarrow \infty$ quando $p\rightarrow n$, então temos em particular \[W^{1,p}(U) \subset\subset L^p(U)\] para todo $1\leq p \leq \infty $. Observe que se $n < p \leq \infty$, então isso segue da desigualdade de Morrey e do teorema de Ascoli-Arzela. Também veja que \[W^{1,p}_0(U) \subset\subset L^p(U)\] mesmo sem assumir que $\pu$ seja $C^1$. 
 
-\textit{Demonstração.} Primeiramente, sabemos que $W^{1,p}(U) \subset\subset L^p(U)$ para $1\leq p < n$ pela demonstração acima, já que $p^*>p$. Agora, se $p>n$, pelo \nameref{t:sobolev-ineq-t5}, sabemos que existe uma versão contínua $u^* \in C^{0, \gamma}(\overline{U})$, que, por ser contínua, está em $L^p(U)$. Agora, como provar que \[ ||u||_{L^p(U)} \leq C ||u||_{W^{1,p}(U)} \] \textbf{???}
+\textit{Demonstração.} Primeiramente, sabemos que $W^{1,p}(U) \subset\subset L^p(U)$ para $1\leq p < n$ pela demonstração acima, já que $p \in [1,p^*)$. Agora, se $p>n$, pelo \nameref{t:sobolev-ineq-t5}, sabemos que existe uma versão contínua $u^* \in C^{0, \gamma}(\overline{U})$, que, por ser contínua, está em $L^p(U)$. Agora, como provar que \[ ||u||_{L^p(U)} \leq C ||u||_{W^{1,p}(U)} \] e que $\{u_m\}$ possui uma subsequência convergente em $L^p$. \textbf{???}
 
 
 
@@ -3265,7 +3265,7 @@ Até 5.8.3 em Janeiro.
 
 Notação: \((u)_U\) é a média de \(u\) em \(U\).
 
-\textit{Demonstração.} Prova por contraposição. Se a estimativa fosse falsa, existiria, para cada inteiro $k\geq1$ uma função $u_k \in W^{1,p}(U)$ satisfazendo \begin{equation}\label{eq:desig-poincare-1}
+\textit{Demonstração.} Prova por contraposição. Se a estimativa fosse falsa, existiria, para cada inteiro $k\geq1$ uma função $u_k \in W^{1,p}(U)$, que não seja igual à sua média q.t.p., satisfazendo \begin{equation}\label{eq:desig-poincare-1}
 	 ||u_k - (u_k)_U ||_{L^p(U)} > k || Du_k ||_{L^p(U)}
 \end{equation}  Por quê??? O teorema diz que a desigualdade é válida para TODAS funções $u$. O oposto disso é que existe PELO MENOS UMA $u$ em que isso não acontece, não há garantia de que existam infinitas.
 
@@ -3280,19 +3280,17 @@ Logo, \eqref{eq:desig-poincare-1} com $v_k$ implica que \begin{equation}\label{e
 	|| Dv_k||_{L^p(U)} < \frac{1}{k}
 \end{equation}
 
-Logo, as funções $\{v_k\}_{k=1}^\infty$ são limitadas em $W^{1,p}(U)$. \textbf{???} Por quê? Se só as derivadas são limitadas?
+Logo, as funções $\{v_k\}_{k=1}^\infty$ são limitadas em $W^{1,p}(U)$, pois $||v_k||=1$ e $||Dv_k||<\frac{1}{k}$. 
 
 Pelo lema do \nameref{t:sobolev-compact}, como $\{v_k\}$ é uma sequência limitada em $W^{1,p}(U)$ e este conjunto está compactamente contido em $L^p(U)$, então existe uma subsequência $\{v_{k_j}\}_{j=1}^\infty$ e uma função $v \in L^p(U)$ tal que $v_{k_j}\rightarrow v \text{ em } L^p(U)$. Da mesma forma que $v_k$ por definição, $(v)_U=0$ e $||v||_{L^p(U)}=1$.
 
-Agora, \eqref{eq:desig-poincare-2} implica que, \begin{equation}\label{eq:desig-poincare-3}
+Agora, \eqref{eq:desig-poincare-2} implica que, \begin{equation*}
 	\lim_{j\rightarrow\infty} ||Dv_{k_j}||_{L^p(U)} < \lim_{j\rightarrow\infty} \frac{1}{k_j} = 0
-\end{equation} Isso garante que, se $Dv$ existe, $||Dv||_{L^p(U)}=0$. Agora, para cada $i=1,\ldots,n$ e $\phi \in C^\infty_c(U)$, deduzimos que \begin{align*}
+\end{equation*} Isso garante que, se $Dv$ existe, $||Dv||_{L^p(U)}=0$. Agora, para cada $i=1,\ldots,n$ e $\phi \in C^\infty_c(U)$, deduzimos que \begin{align*}
 \int_U v \phi_{x_i}\ dx = \lim_{k_j \rightarrow \infty} \int_U v_{k_j} \phi_{x_i}\ dx &= - \lim_{k_j \rightarrow \infty } \int_U v_{k_j,x_i} \phi \ dx \\ 
 &=  -  \int_U \lim_{k_j \rightarrow \infty } v_{k_j,x_i} \phi \ dx \\
 &= 0 \end{align*} 
-Então, deduzimos que $v$ possui derivada fraca e, logo, $v \in W^{1,p}(U)$, com $Dv=0$ q.t.p. Como $U$ é conexo, $v$ é constante (ver problema \ref{ex:U-conexo_u-constante})(???). Como $v$ é constante e $(v)_U=0$, então $v \equiv 0$. Logo, $||v||_{L^p(U)}=0$, o que é uma contradição. Portanto, o teorema é verdadeiro. \qed
-
-\textbf{???}: Pela relação acima, não podemos deduzir assim? \[\int_U v \phi_{x_i}\ dx = 0 \Rightarrow v=0 \text{ q.t.p.}\] E portanto $||v||_{L^p(U)}=0$?
+Então, deduzimos que $v$ possui derivada fraca e, logo, $v \in W^{1,p}(U)$, com $Dv=0$ q.t.p. Como $U$ é conexo, $v$ é constante (ver problema \ref{ex:U-conexo_u-constante}). Como $v$ é constante e $(v)_U=0$, então $v \equiv 0$. Logo, $||v||_{L^p(U)}=0$, o que é uma contradição. Portanto, o teorema é verdadeiro. \qed
 
 
 \section{Outros Espaços}
@@ -3301,6 +3299,14 @@ Então, deduzimos que $v$ possui derivada fraca e, logo, $v \in W^{1,p}(U)$, com
 
 \begin{enumerate}
 	\item[10.]\label{ex:U-conexo_u-constante} Seja $U$ conexo e $u \in W^{1,p}(U)$ com $Du=0$ q.t.p. em $U$. Prove que $u$ é constante q.t.p. em $U$.
+	
+	Se $Du=0$ q.t.p., então $\forall\alpha$ multiíndice com $|\alpha|=1$, $D^\alpha u =0$ q.t.p. e para toda $\phi\in C^\infty_c(U)$,\begin{align*}
+		\int_U u\ D^\alpha \phi\ dx &= - \int_U D^\alpha u \ \phi \ dx \\
+		\int_U u\ D^\alpha \phi\ dx &= 0\\
+		&\Rightarrow u =0 \text{ q.t.p. }
+	\end{align*}
+
+	Só que isso não faz sentido porque poderia ser feito com $f(x)=5$ em um intervalo fechado e resultaria em $f(x)=0$ com o mesmo raciocínio. ???.
 
 	\item[18.] Use a transformada de Fourier para provar que se $u \in H^s(\Rn)$ para $s> n/2$, então $u \in L^{\infty}(\Rn)$ com a estimativa \[ ||u||_{L^\infty}(\Rn) \leq C ||u||_{H^s(\Rn)} \] em que $C$ só depende de $s,n$.
 \end{enumerate}
