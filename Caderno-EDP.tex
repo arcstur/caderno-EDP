@@ -59,7 +59,7 @@
 
 
 
-%DOCUEMNTO
+%DOCUMENTO
 \begin{document}
 \maketitle
 \tableofcontents
@@ -804,7 +804,7 @@ Perceba que (i) é uma generalização do \nameref{t:sobolev-ineq-t2}, e (ii) é
 
 	Logo, $D^\alpha u \in L^n$ para $|\alpha|\leq k-l$.
 	
-	Então, $ D^\alpha u \in W^{k-l-|\alpha|,n}(U) $ para todo $k-l-|\alpha|\geq1 \Rightarrow k-l-1 \geq |\alpha|$. Portanto, $D^\beta u \in W^{1,n}(U)$ para $|\beta| \leq k-l-1$. Agora, com o o domínio é limitado, $D^\beta u \in W^{1,s}(U)$ para todo $s \in [1,n]$. Então, pelo \nameref{t:sobolev-ineq-t2}, para todo $s \in [1,n)$, temos que $D^\beta u \in L^{s^*}(U)$, e que $s^* \in (n, \infty)$.
+	Então, $ D^\alpha u \in W^{k-l-|\alpha|,n}(U) $ para todo $k-l-|\alpha|\geq1 \Rightarrow k-l-1 \geq |\alpha|$. Portanto, $D^\beta u \in W^{1,n}(U)$ para $|\beta| \leq k-l-1$. Agora, como o domínio é limitado, $D^\beta u \in W^{1,s}(U)$ para todo $s \in [1,n]$. Então, pelo \nameref{t:sobolev-ineq-t2}, para todo $s \in [1,n)$, temos que $D^\beta u \in L^{s^*}(U)$, e que $s^* \in (n, \infty)$. Ou seja, se $U$ for limitado, \[f \in W^{1,n}(U) \Rightarrow f \in L^s(U) \mid 1 \leq s < \infty\]
 	
 	Logo, $D^\beta u \in W^{1,q}(U)$ para todo $|\beta| \leq k - \left[\frac{n}{p}\right] - 1$, com $q$ tal que $n<q<\infty$. Então, pelo teorema \nameref{t:sobolev-ineq-t5}, $D^\beta u \in C^{0,1 - \frac{n}{q}}(U)$, com a relação \[ ||D^\beta u||_{C^{0,1 - \frac{n}{q}}(\overline{U})} \leq C ||D^\beta u||_{W^{1,q}(U)} \leq C ||u||_{W^{k-l,q}} \]
 	
@@ -928,9 +928,9 @@ Até 5.8.3 em Janeiro.
 
 Notação: \((u)_U\) é a média de \(u\) em \(U\).
 
-\textit{Demonstração.} Prova por contraposição. Se a estimativa fosse falsa, existiria, para cada inteiro $k\geq1$ uma função $u_k \in W^{1,p}(U)$, que não seja igual à sua média q.t.p., satisfazendo \begin{equation}\label{eq:desig-poincare-1}
+\textit{Demonstração.} Prova por contradição. Se a estimativa fosse falsa, existiria, para cada inteiro $k\geq1$ uma função $u_k \in W^{1,p}(U)$, que não seja igual à sua média q.t.p., satisfazendo \begin{equation}\label{eq:desig-poincare-1}
 	 ||u_k - (u_k)_U ||_{L^p(U)} > k || Du_k ||_{L^p(U)}
-\end{equation}  Por quê??? O teorema diz que a desigualdade é válida para TODAS funções $u$. O oposto disso é que existe PELO MENOS UMA $u$ em que isso não acontece, não há garantia de que existam infinitas.
+\end{equation} Se existisse apenas um número finito de contraexemplos, então na verdade o teorema seria válido, pois poderia-se pegar o caso mais extremo e escolher a $C$ a partir dele. Logo, se o teorema for falso, há um número infinito de contraexemplos, conforme acima.
 
 Então, definimos \[v_k := \frac{u_k - (u_k)_U}{||u_k - (u_k)_U||_{L^p(U)}} \]
 
@@ -940,12 +940,12 @@ Portanto, \begin{align*}
 \end{align*}
 
 Logo, \eqref{eq:desig-poincare-1} com $v_k$ implica que \begin{equation}\label{eq:desig-poincare-2}
-	|| Dv_k||_{L^p(U)} < \frac{1}{k}
+	|| Dv_k||_{L^p(U)} = \frac{||Du_k||_{L^p(U)}}{||u_k - (u_k)_U||_{L^p(U)}} < \frac{1}{k}
 \end{equation}
 
 Logo, as funções $\{v_k\}_{k=1}^\infty$ são limitadas em $W^{1,p}(U)$, pois $||v_k||=1$ e $||Dv_k||<\frac{1}{k}$. 
 
-Pelo lema do \nameref{t:sobolev-compact}, como $\{v_k\}$ é uma sequência limitada em $W^{1,p}(U)$ e este conjunto está compactamente contido em $L^p(U)$, então existe uma subsequência $\{v_{k_j}\}_{j=1}^\infty$ e uma função $v \in L^p(U)$ tal que $v_{k_j}\rightarrow v \text{ em } L^p(U)$. Da mesma forma que $v_k$ por definição, $(v)_U=0$ e $||v||_{L^p(U)}=1$.
+Pelo lema do \nameref{t:sobolev-compact}, $W^{1,p}(U)$ está compactamente contido em $L^p(U)$. Logo, como $\{v_k\}$ é uma sequência limitada em $W^{1,p}(U)$, então existe uma subsequência $\{v_{k_j}\}_{j=1}^\infty$ e uma função $v \in L^p(U)$ tal que $v_{k_j}\rightarrow v \text{ em } L^p(U)$. Da mesma forma que $v_k$ por definição, $(v)_U=0$ e $||v||_{L^p(U)}=1$.
 
 Agora, \eqref{eq:desig-poincare-2} implica que, \begin{equation*}
 	\lim_{j\rightarrow\infty} ||Dv_{k_j}||_{L^p(U)} < \lim_{j\rightarrow\infty} \frac{1}{k_j} = 0
@@ -963,7 +963,7 @@ Notação: \((u)_{x,r}\) é a média de \(u\) em \(B(x,r)\). \(B^0\) é a bola a
 
 \textit{Demonstração.} O caso $U=B^0(0,1)$ segue do teorema anterior. Agora, sendo $u  \in W^{1,p}(B^0(x,r)) $, definimos \[v(y):=u(x+ry), y \in B(0,1)\] Então, $v \in W^{1,p}(B^0(0,1))$ e, portanto, \[ || v - (v)_{0,1}||_{L^p(B(0,1))} \leq C ||Dv||_{L^p(B(0,1))}\]
 
-Podemos ver que $Dv(y) = D_yu = D_yu(x+ry)\cdot r$. Agora, fazemos $v(y)=u(x+ry)$ e mudamos de variável de $y$ para $z=x+ry$. Assim, $B(0,1) \rightarrow B(x,r)$ e podemos calcular que $(v)_{0,1}=(u)_{x,r}$, logo,
+Podemos ver que $Dv(y) = D_yu = Du(x+ry)\cdot r$. Agora, fazemos $v(y)=u(x+ry)$ e mudamos de variável de $y$ para $z=x+ry$. Assim, $B(0,1) \rightarrow B(x,r)$ e podemos calcular que $(v)_{0,1}=(u)_{x,r}$, logo,
 \begin{align*}
 	|| v - (v)_{0,1}||_{L^p(B(0,1))} &\leq C ||Dv||_{L^p(B(0,1))} \\
 	|| u(x+ry) - (u)_{x,r}||_{L^p(B(0,1))} &\leq C ||D_y u(x+ry)||_{L^p(B(0,1))} \\
@@ -971,6 +971,7 @@ Podemos ver que $Dv(y) = D_yu = D_yu(x+ry)\cdot r$. Agora, fazemos $v(y)=u(x+ry)
 	&\leq C r ||Du(z)||_{L^p(B(x,r))}
 \end{align*}\qed
 
+Vejo que, na verdade, o Teorema 2 poderia se juntar ao 1: originalmente a constante $C$ depende de $n,p,U$. Ou seja, pode ser escrita como $C(n,p,U)$. Agora, no caso específico de $U=B(x,r)$, a dependência de $U$ é um fator $r$. Resumidamente, \[U = B(x,r) \Rightarrow C(n,p,U) = C(n,p)\cdot r\]
 
 
 
@@ -1007,7 +1008,17 @@ Podemos ver que $Dv(y) = D_yu = D_yu(x+ry)\cdot r$. Agora, fazemos $v(y)=u(x+ry)
 		&\Rightarrow u =0 \text{ q.t.p. }
 	\end{align*}
 
-	Só que isso não faz sentido porque poderia ser feito com $f(x)=5$ em um intervalo fechado e resultaria em $f(x)=0$ com o mesmo raciocínio. ???.
+	Porém, a consequência não é verdadeira. Isso porque a integral de $D^\alpha \phi$ em $U$ será sempre zero! Para uma função ser $C^\infty_c(U)$, então ``tudo que sobe deve descer'', fazendo com que a integral da derivada seja zero. Veja, por exemplo, a derivada do molificador padrão em $\R$:
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+		\draw[<->, dashed] (-1.5,0) -- (1.5,0);
+		\draw[domain=-0.99:0.99, samples=70] plot (\x, {-2*\x*exp(1/(-1 + \x*\x))/((pow(\x,4) -2*\x*\x + 1))});
+		\end{tikzpicture}
+	\end{center}
+
+	Além disso, pode-se usar o Teorema Fundamental do Cálculo para demonstrar que a integral da derivada dará zero.
+	
+	Então, ao concluir que $\int_U u\ D^\alpha \phi\ dx =0$, não podemos deduzir que $u=0$ pois a integral de $D^\alpha \phi$ dará zero. 
 
 	\item[18.] Use a transformada de Fourier para provar que se $u \in H^s(\Rn)$ para $s> n/2$, então $u \in L^{\infty}(\Rn)$ com a estimativa \[ ||u||_{L^\infty}(\Rn) \leq C ||u||_{H^s(\Rn)} \] em que $C$ só depende de $s,n$.
 \end{enumerate}
