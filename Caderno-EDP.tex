@@ -801,10 +801,10 @@ Perceba que (i) é uma generalização do \nameref{t:sobolev-ineq-t2}, e (ii) é
 	
 	
 	\item Seja $k>\frac{n}{p} \in \Z$. Aqui, fazemos o mesmo raciocínio de antes, encontrando $l$ tal que $p^{l*}>n$. Porém, ao tentar fazer isso, encontraremos que $r:= p^{l*}=n$. Ou seja, $l = \left[\frac{n}{p}\right]-1 = \frac{n}{p}-1$. Logo, \[ u \in W^{k-l,n}(U) \]
+
+	Logo, $D^\alpha u \in L^n$ para $|\alpha|\leq k-l$.
 	
-	Então, $ D^\alpha u \in W^{k-l-|\alpha|,n}(U) $ para todo $k-l-|\alpha|\geq1 \Rightarrow k-l-1 \geq |\alpha|$. 
-	
-	Aí, então, pelo Teorema1,2,3? Temos que $D^\alpha u \in L^q(U)$ para todo $n\leq q < \infty$ \textbf{(??? isso porque $p^* = n^2/0$?)} com $|\alpha|\leq k-l-1 = k - \left[\frac{n}{p}\right]$. 
+	Então, $ D^\alpha u \in W^{k-l-|\alpha|,n}(U) $ para todo $k-l-|\alpha|\geq1 \Rightarrow k-l-1 \geq |\alpha|$. Portanto, $D^\beta u \in W^{1,n}(U)$ para $|\beta| \leq k-l-1$. Agora, com o o domínio é limitado, $D^\beta u \in W^{1,s}(U)$ para todo $s \in [1,n]$. Então, pelo \nameref{t:sobolev-ineq-t2}, para todo $s \in [1,n)$, temos que $D^\beta u \in L^{s^*}(U)$, e que $s^* \in (n, \infty)$.
 	
 	Logo, $D^\beta u \in W^{1,q}(U)$ para todo $|\beta| \leq k - \left[\frac{n}{p}\right] - 1$, com $q$ tal que $n<q<\infty$. Então, pelo teorema \nameref{t:sobolev-ineq-t5}, $D^\beta u \in C^{0,1 - \frac{n}{q}}(U)$, com a relação \[ ||D^\beta u||_{C^{0,1 - \frac{n}{q}}(\overline{U})} \leq C ||D^\beta u||_{W^{1,q}(U)} \leq C ||u||_{W^{k-l,q}} \]
 	
@@ -962,8 +962,6 @@ Seja \(1\leq p \leq \infty\). Então, para cada bola \(B(x,r)\subset \mathbb{R}^
 Notação: \((u)_{x,r}\) é a média de \(u\) em \(B(x,r)\). \(B^0\) é a bola aberta.
 
 \textit{Demonstração.} O caso $U=B^0(0,1)$ segue do teorema anterior. Agora, sendo $u  \in W^{1,p}(B^0(x,r)) $, definimos \[v(y):=u(x+ry), y \in B(0,1)\] Então, $v \in W^{1,p}(B^0(0,1))$ e, portanto, \[ || v - (v)_{0,1}||_{L^p(B(0,1))} \leq C ||Dv||_{L^p(B(0,1))}\]
-
-Fazendo a mudança de variável de $y$ para $z$, podemos calcular que 
 
 Podemos ver que $Dv(y) = D_yu = D_yu(x+ry)\cdot r$. Agora, fazemos $v(y)=u(x+ry)$ e mudamos de variável de $y$ para $z=x+ry$. Assim, $B(0,1) \rightarrow B(x,r)$ e podemos calcular que $(v)_{0,1}=(u)_{x,r}$, logo,
 \begin{align*}
