@@ -1012,13 +1012,27 @@ Vejo que, na verdade, o Teorema 2 poderia se juntar ao 1: originalmente a consta
 	\begin{center}
 		\begin{tikzpicture}[scale=1.5]
 		\draw[<->, dashed] (-1.5,0) -- (1.5,0);
-		\draw[domain=-0.99:0.99, samples=70] plot (\x, {-2*\x*exp(1/(-1 + \x*\x))/((pow(\x,4) -2*\x*\x + 1))});
+		\draw[domain=-0.97:0.97, samples=60] plot (\x, {-2*\x*exp(1/(-1 + \x*\x))/((pow(\x,4) -2*\x*\x + 1))});
 		\end{tikzpicture}
 	\end{center}
 
-	Além disso, pode-se usar o Teorema Fundamental do Cálculo para demonstrar que a integral da derivada dará zero.
-	
-	Então, ao concluir que $\int_U u\ D^\alpha \phi\ dx =0$, não podemos deduzir que $u=0$ pois a integral de $D^\alpha \phi$ dará zero. 
+	Além disso, pode-se usar o Teorema Fundamental do Cálculo para demonstrar que a integral da derivada dará zero. Então, ao concluir que $\int_U u\ D^\alpha \phi\ dx =0$, não podemos deduzir que $u=0$ pois a integral de $D^\alpha \phi$ dará zero. 
+
+	Para resolver o problema, dada uma função teste fixa $\eta \in C^\infty_c(U)$ de integral unitária, vamos definir $\psi \in C^\infty_c(U)$ e $A$ por \[A = \int_U \phi\ dx \quad \psi(x) = \int_U \]
+	Assim \[\phi = A\eta + D^\alpha\psi\]
+
+	Então, lembrando que $\int_U u D^\alpha \psi=0$ para toda $\psi \in C^\infty_c(U)$, temos que \begin{align*}
+		\int_U u \phi\ dx = \int_U u \left( A\eta + D^\alpha\psi \right)\ dx &= A \int_U u \eta\ dx \\ 
+		&= \int_U \phi\ dx \cdot \int_U u \eta\ dx \\
+		&= C \int_U \phi\ dx \\
+		\int_U (u - C)\phi\ dx &= 0 \\
+		u &= C \text{ q.t.p.}
+	\end{align*}\qed
+
+	\textbf{???}: O estranho é que a constante parece depender da escolha de $\eta$\ldots
+
+
+
 
 	\item[18.] Use a transformada de Fourier para provar que se $u \in H^s(\Rn)$ para $s> n/2$, então $u \in L^{\infty}(\Rn)$ com a estimativa \[ ||u||_{L^\infty}(\Rn) \leq C ||u||_{H^s(\Rn)} \] em que $C$ só depende de $s,n$.
 \end{enumerate}
