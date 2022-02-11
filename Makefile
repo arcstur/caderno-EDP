@@ -1,4 +1,6 @@
-pdf: Caderno-EDP.tex
-	latexmk Caderno-EDP.tex -pdf -synctex=1 #Cria o pdf
-	cp Caderno-EDP.pdf ~/Drive/Evolução/"IC Artur - EDP 🤓"/Caderno-EDP-parte2.pdf
-	latexmk -c #Limpa os arquivos desnecessários
+caderno-EDP.pdf: caderno-EDP.tex
+	tectonic -X compile caderno-EDP.tex --synctex
+
+.PHONY=backup
+backup: caderno-EDP.pdf
+	cp caderno-EDP.pdf ~/Drive/Evolução/"IC Artur - EDP 🤓"/Caderno-EDP-parte2.pdf
