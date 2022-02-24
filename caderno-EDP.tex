@@ -12,14 +12,10 @@
 \usepackage{tikz}
 \usepackage{wrapfig}
 \usepackage{bigfoot} %inclui o pacote perpage
-\MakePerPage{footnote} %reinicia o contador das notas de rodapé a cada página
-\renewcommand{\thefootnote}{\fnsymbol{footnote}} %muda de núm. para símbolo
-\usepackage[hidelinks]{hyperref} %esconde as caixas de links
+\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref} %esconde as caixas de links
 \usepackage{chngcntr}
-\counterwithin*{section}{part} %reinicia o número do capítulo a cada parte
 \usepackage{fancyhdr}
-\pagestyle{fancy}
-\setlength{\headheight}{15pt}
+\usepackage{changepage}
 
 
 
@@ -49,6 +45,14 @@
 
 \newtheorem{remark}{Observação}
 
+
+
+%FORMATAÇÃO
+\MakePerPage{footnote} %reinicia o contador das notas de rodapé a cada página
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} %muda de núm. para símbolo
+\counterwithin*{section}{part} %reinicia o número do capítulo a cada parte
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
 
 
 
@@ -961,7 +965,7 @@ Então, deduzimos que $v$ possui derivada fraca e, logo, $v \in W^{1,p}(U)$, com
 Seja \(1\leq p \leq \infty\). Então, para cada bola \(B(x,r)\subset \mathbb{R}^n\) e para cada função \(u \in W^{1,p}(B^0(x,r))\), existe uma constante \(C\), dependendo apenas de \(n,p\) tal que \[||u - (u)_{x,r}||_{L^p(B(x,r))} \leq Cr ||Du||_{L^p(B(x,r))}\]
 Notação: \((u)_{x,r}\) é a média de \(u\) em \(B(x,r)\). \(B^0\) é a bola aberta.
 
-\textit{Demonstração.} O caso $U=B^0(0,1)$ segue do teorema anterior. Agora, sendo $u  \in W^{1,p}(B^0(x,r)) $, definimos \[v(y):=u(x+ry), y \in B(0,1)\] Então, $v \in W^{1,p}(B^0(0,1))$ e, portanto, \[ || v - (v)_{0,1}||_{L^p(B(0,1))} \leq C ||Dv||_{L^p(B(0,1))}\]
+\textit{Demonstração.} O caso $B^0(0,1)$ segue do teorema anterior. Sendo $u  \in W^{1,p}(B^0(x,r))$, definimos \[v(y):=u(x+ry), y \in B(0,1)\] Então, $v \in W^{1,p}(B^0(0,1))$ e, portanto, \[ || v - (v)_{0,1}||_{L^p(B(0,1))} \leq C ||Dv||_{L^p(B(0,1))}\]
 
 Podemos ver que $Dv(y) = D_yu = Du(x+ry)\cdot r$. Agora, fazemos $v(y)=u(x+ry)$ e mudamos de variável de $y$ para $z=x+ry$. Assim, $B(0,1) \rightarrow B(x,r)$ e podemos calcular que $(v)_{0,1}=(u)_{x,r}$, logo,
 \begin{align*}
@@ -981,11 +985,81 @@ Vejo que, na verdade, o Teorema 2 poderia se juntar ao 1: originalmente a consta
 
 \subsection{Quocientes de Diferenças}
 
+Seja $u:U\rightarrow \R$ uma função localmente somável e $V\subset\subset U$
 
+\paragraph{Definição}
+\begin{enumerate}[(i)]
+	\item O quociente de $i$-diferenças de tamanho $h$ é \[
+		D_i^h u(x) := \frac{u(x+he_i)-u(x)}{h} i=1,\ldots,n\]
+	para $x \in V$ e $h \in \R$, com $0<|h|<\text{dist}(V, \pu)$
+	\item $D^h u := (D_1^hu, \ldots, D_n^h u)$
+\end{enumerate}
 
+\paragraph{Teorema 3}\label{t:sobolev-quociente-de-diferenças}
+\begin{enumerate}[(i)]
+	\item Seja $1\leq p < \infty$ e $u \in W^{k,p}(U)$. Então, para cada $V \subset\subset U$ \[ ||D^hu||_{L^p(V)} \leq C ||Du||_{L^p(U)} \] para alguma constante $C$ e todo $0 < |h| < \frac{1}{2}\text{dist}(V, \pu)$
+	
+	Ou seja, $D^h u$ é limitado por $Du$ na norma $L^p$.
 
+	\item Seja $1 < p < \infty$, $u \in L^p(V)$ e suponha que exista uma constante $C$ tal que $||D^hu||_{L^p(V)}\leq C$ para todo $0<|h|\leq \frac{1}{2}\text{dist}(V,\pu)$. Então, \[u \in W^{1,p}(V), \text{ e } ||Du||_{L^p(V)} \leq C\]
+	
+	Ou seja, se as funções $D^h u$ são equilimitadas em $L^p(V)$, então $Du$ também é.
+\end{enumerate}
 
+\textit{Demonstração.}
+\begin{enumerate}[(i)]
+	\item Seja $1 \leq p < \infty$ e que $u$ seja suave. Então, para cada $x \in V$, $i = 1,\ldots,n$ e $0<|h|<\frac{1}{2}\text{dist}(V, \pu)$ temos que \[
+	u(x+ he_i) - u(x) = \int_0^1 u_{x_i}(x + the_i)\ dt \cdot he_i	
+	\]
+	Por que $\frac{d}{dt}u(x+the_i) = u_{x_i}(x + the_i) \cdot he_i $ e não $Du(x+the_i)\cdot he_i$ como foi feito no \nameref{t:sobolev-compact} \textbf{???}
 
+	Então, \begin{align*}
+		|u(x+he_i)-u(x)| &\leq h \int_0^1 |Du(x+the_i)|\ dt	\\
+		D^h_iu = \frac{|u(x+he_i)-u(x)|}{h} &\leq \int_0^1 |Du(x+the_i)|\ dt	\\
+		|D^h_iu|^p &\leq \int_0^1 |Du(x+the_i)|^p \ dt	\\
+		|D^h u |^p &\leq \sum_{i=1}^n \int_0^1 |Du(x+the_i)|^p \ dt
+	\end{align*}
+	Porque $|v|^p \leq C (|v_1|^p + |v_2|^p + \cdots)$.
+
+	Agora, integrando em $V$,
+	\begin{align*}
+		\int_V |D^h u |^p\ dx &\leq C \sum_{i=1}^n \int_V \int_0^1 |Du(x+the_i)|^p \ dt dx \\
+		&= C \sum_{i=1}^n \int_0^1 \int_V |Du(x+the_i)|^p\ dx dt \\
+		&\leq C \int_U |Du|^p\ dx
+	\end{align*}
+	\textbf{???} não entendi o porquê da última linha. Imagino que tenha a ver com fazer $z=x+the_i$, mas como $V$ vira $U$?
+
+	A demonstração assume que $u$ seja suave. Logo, pelos teoremas de aproximação, o resultado vale para $u \in W^{1,p}(U)$.
+	
+	\item Agora suponha que valem as suposições do item (ii) do Teorema. Escolha $i=1,\ldots,n$ e $\phi \in C^\infty_c(V)$ e perceba que para $h$ suficientemente pequeno (que não atrapalhe no domínio de integração), \[
+	\int_V u(x) \left( \frac{\phi(x+he_i) - \phi(x)}{h} \right)\ dx = - \int_V \left( \frac{u(x) - u(x-he_i)}{h} \right) \phi(x)\ dx
+	\]
+	Isso porque fazendo $y=x+he_i$, $dy=dx$ e \[
+		\int_V u(x)\phi(x+he_i)\ dx = \int_V u(y - he_i)\phi(y)\ dy
+	\] Agora, basta somar $\int_V u(x)\phi(x)\ dx$ nos dois lados e dividir por $h$ para provar a relação.
+	
+	A relação acima é a integração por partes dos quocientes de diferenças: \begin{equation}\label{intpartes-quocientes}
+		\int_V u\ ( D_i^h \phi )\ dx = - \int_V (D_i^{-h}u)\ \phi \ dx 
+	\end{equation}
+
+	Agora, como $||D^h u||_{L^p(V)}\leq C$ para todo $0<|h|<\frac{1}{2}\text{dist}(V, \partial U)$. Agora, fazendo uma mudança de variáveis para chegar em $-h$, temos que
+	\[ \sup_h ||D_i^{-h} u ||_{L^p(V)} < \infty \]
+
+	E então, como $1<p<\infty$, existe uma função $v_i \in L^p(V)$ e uma subsequência $h_k \rightarrow 0$ tal que \[ D_i^{-h_k}u  \rightharpoonup v_i \text{ fracamente em } L^p(V)\]
+
+	Agora, lembrando que $\phi \in C^\infty_c(V) \text{ e } L^q(V)$, \begin{align*}
+		\int_V u \phi_{x_i}\ dx &= \int_U u \phi_{x_i}\ dx \\ &= \lim_{h_k \rightarrow 0} \int_U u D_i^{h_k}\phi \ dx\\
+		&= - \lim_{h_k\rightarrow 0} \int_V D_i^{-h_k}u \phi \ dx \\
+		&= - \int_V v_i \phi \ dx = - \int_U v_i \phi \ dx
+	\end{align*}
+
+	Logo, $v_i = u_{x_i}$ é derivada fraca de $u$. Então, $v_i \in L^p(V) \Rightarrow Du \in L^p(V)$ e, como $u \in L^p(V)$ (hipótese), então $u \in W^{1,p}(V)$.\qed
+
+\end{enumerate}
+
+\paragraph{Convergência fraca}\label{def:convergencia-fraca} Seja $X$ um espaço de Banach real. Uma sequência ${u_k} \subset X$ converge fracamente para $u \in X$, escrito da forma $u_k \rightharpoonup u$ se \[ \langle u^*, u_k \rangle \rightarrow \langle u^*, u \rangle \] para cada funcional linear e limitado $u^* \in X^*$.
+
+Em especial, se $X$ é um espaço de Banach reflexivo (por exemplo, espaços de Hilbert e espaços $L^p$ para $1<p<\infty$), então para uma sequência $\{u_k\}\in X$ limitada, existe uma subsequência que converge fracamente em $X$. No caso de $L^p$, então $f_k \rightarrow f$ fracamente em $L^p(U)$ significa que \[\lim_{k\rightarrow\infty}\int_U g f_k\ dx \rightarrow \int_U gf\ dx \] para toda $g \in (L^p(U))^* = L^q(U)$. Isso \textit{não} significa que $f_k\rightarrow f$ pontualmente ou q.t.p.
 
 
 
@@ -1031,6 +1105,8 @@ Vejo que, na verdade, o Teorema 2 poderia se juntar ao 1: originalmente a consta
 
 	\textbf{???}: O estranho é que a constante parece depender da escolha de $\eta$\ldots
 
+
+	\item[11.] Prove por contra-exemplo que se $||D^hu||_{L^1(V)} \leq C$ para todo $0<|h|\leq \frac{1}{2}\text{dist}(V,\pu)$, não necessariamente se segue que $u \in W^{1,1}(V)$.
 
 
 
