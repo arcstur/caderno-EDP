@@ -335,7 +335,7 @@ A primeira desigualdade decorre da desigualdade triangular. A segunda desigualda
 
 \section{Extensões}
 
-\paragraph{Teorema da Extensão} Seja \( U \) limitado e \( \pu \) seja \( C^1 \).  Escolha um conjunto aberto e limitado \( V \) tal que \( U \subset\subset V \). Então, existe um operador linear limitado \[ E:W^{1,p}(U) \rightarrow W^{1,p}(\Rn) \] tal que para cada \( u \in W^{1,p}(U) \) \begin{enumerate}[(i)]
+\paragraph{Teorema da Extensão}\label{t:sobolev-extensao} Seja \( U \) limitado com \( \pu \) sendo \( C^1 \).  Escolha um conjunto aberto e limitado \( V \) tal que \( U \subset\subset V \). Então, existe um operador linear limitado \[ E:W^{1,p}(U) \rightarrow W^{1,p}(\Rn) \] tal que para cada \( u \in W^{1,p}(U) \) \begin{enumerate}[(i)]
 	\item \( Eu=u \) q.t.p em \( U \)
 	\item \( Eu \) tem suporte em \( V \)
 	\item \[ ||Eu||_{W^{1,p}(\Rn)} \leq C ||u||_{W^{1,p}(U)} \] com uma constante \( C \) dependendo apenas de \( p, U, V \). \footnote{definição de operador limitado.}
@@ -985,6 +985,8 @@ Vejo que, na verdade, o Teorema 2 poderia se juntar ao 1: originalmente a consta
 
 \subsection{Quocientes de Diferenças}
 
+\subsubsection{p qualquer}
+
 Seja $u:U\rightarrow \R$ uma função localmente somável e $V\subset\subset U$
 
 \paragraph{Definição}
@@ -1047,7 +1049,7 @@ Seja $u:U\rightarrow \R$ uma função localmente somável e $V\subset\subset U$
 
 	E então, como $1<p<\infty$, existe uma função $v_i \in L^p(V)$ e uma subsequência $h_k \rightarrow 0$ tal que \[ D_i^{-h_k}u  \rightharpoonup v_i \text{ fracamente em } L^p(V)\]
 
-	Agora, lembrando que $\phi \in C^\infty_c(V) \text{ e } L^q(V)$, \begin{align*}
+	Agora, lembrando que $\phi \in C^\infty_c(V)$ e $\phi \in (L^p)^* = L^q(V)$, \begin{align*}
 		\int_V u \phi_{x_i}\ dx &= \int_U u \phi_{x_i}\ dx \\ &= \lim_{h_k \rightarrow 0} \int_U u D_i^{h_k}\phi \ dx\\
 		&= - \lim_{h_k\rightarrow 0} \int_V D_i^{-h_k}u \phi \ dx \\
 		&= - \int_V v_i \phi \ dx = - \int_U v_i \phi \ dx
@@ -1059,10 +1061,52 @@ Seja $u:U\rightarrow \R$ uma função localmente somável e $V\subset\subset U$
 
 \paragraph{Convergência fraca}\label{def:convergencia-fraca} Seja $X$ um espaço de Banach real. Uma sequência ${u_k} \subset X$ converge fracamente para $u \in X$, escrito da forma $u_k \rightharpoonup u$ se \[ \langle u^*, u_k \rangle \rightarrow \langle u^*, u \rangle \] para cada funcional linear e limitado $u^* \in X^*$.
 
-Em especial, se $X$ é um espaço de Banach reflexivo (por exemplo, espaços de Hilbert e espaços $L^p$ para $1<p<\infty$), então para uma sequência $\{u_k\}\in X$ limitada, existe uma subsequência que converge fracamente em $X$. No caso de $L^p$, então $f_k \rightarrow f$ fracamente em $L^p(U)$ significa que \[\lim_{k\rightarrow\infty}\int_U g f_k\ dx \rightarrow \int_U gf\ dx \] para toda $g \in (L^p(U))^* = L^q(U)$. Isso \textit{não} significa que $f_k\rightarrow f$ pontualmente ou q.t.p.
+Em especial, se $X$ é um espaço de Banach reflexivo (quando $(X^*)^*=X$) (por exemplo, espaços de Hilbert e espaços $L^p$ para $1<p<\infty$), então para uma sequência $\{u_k\}\in X$ limitada, existe uma subsequência que converge fracamente em $X$. No caso de $L^p$, então $f_k \rightarrow f$ fracamente em $L^p(U)$ significa que \[\lim_{k\rightarrow\infty}\int_U g f_k\ dx \rightarrow \int_U gf\ dx \] para toda $g \in (L^p(U))^* = L^q(U)$. Isso \textit{não} significa que $f_k\rightarrow f$ pontualmente ou q.t.p.
+
+\subsubsection{p infinito}
+
+\paragraph{Teorema 4}\label{t:sobolev-quociente-de-diferenças-infinito} (Caracterização de $W^{1,\infty}$) Seja $U$ aberto limitado e $\pu$ sendo $C^1$. Então, $u:U\rightarrow\R$ é uma função lipschitz contínua se e somente se $u \in W^{1,\infty}(U)$.
+
+\textit{Demonstração.} Seja $U=\rn$ e $u$ com suporte compacto.
+No caso geral de $U$ limitado com $\pu$ $C^1$, basta usar o Teorema da Extensão.
+
+\begin{enumerate}
+	\item Suponha $u \in W^{1,\infty}(\rn)$. Logo $u, Du \in L^\infty(\rn)$.
+
+	Então, $u^\epsilon := \eta_\epsilon * u$, com $\eta_\e$ o molificador padrão, é suave e satisfaz \[\begin{cases}
+		u^\e \rightarrow u \text{ uniformemente} \\
+		||Du^\e||_{L^\infty(\R)} \leq ||Du||_{L^\infty(\rn)}
+	\end{cases}\]
+	Segunda relação: fazendo a derivada, $Du^\e = \eta_\epsilon * Du$. Pela Desigualdade de Young, $||Du^\e||_{L^\infty} \leq ||\eta_\e||_{L^1} ||Du||_{L^\infty}$.
+	
+	Escolha $x\neq y$ quaisquer dois pontos distintos de $\rn$. Então, \begin{align*}
+		u^\e(x) - u^\e(y) &= \int_0^1 \frac{d}{dt}u^\e(tx + (1-t)y)\ dt \\
+		&= \int_0^1 Du^\e(tx + (1-t)y)\ dt \cdot (x-y) \\
+		|u^\e(x) - u^\e(y)| &\leq ||Du^\e||_{L^\infty(\rn)}|x-y| \\ 
+		|u^\e(x) - u^\e(y)| &\leq ||Du||_{L^\infty(\rn)}|x-y|
+	\end{align*}
+	Logo, mandando $\e \rightarrow 0$, deduzimos que $u$ é lipschitz contínua.
+	
+	\item Agora, seja $u$ lipschitz contínua. Devemos provar que $Du$ (fraca) é limitada essencialmente (supremo essencial finito).
+
+	Como $u$ é lipschitz, temos que $||D_i^{-h}u||_{L^\infty(\rn)}\leq \text{Lip}(u)$ (\textbf{???} o que é isso, é a constante da definição de lipschitz?) E então existe uma função $v_i \in L^\infty(\rn)$ e uma subsequência $h_k\rightarrow 0$ tal que \[ D_i^{-h_k}u \rightharpoonup v_i \text{ fracamente em } L^2_{\text{loc}}(\rn)\] \textbf{$L^2_{loc}$???} o teorema diz que é para espaços reflexivos, e $L^\infty$ não é, supostamente. $L^2_{loc}$ é reflexivo, mas de onde ele surgiu?
+
+	Consequentemente, $\forall \phi \in C^\infty_c(\rn)$,\begin{align*}
+		\int_\rn u \phi_{x_i}\ dx &= \lim_{h_k\rightarrow 0}\int_\rn u D_i^{h_k}\phi \ dx \\
+		&= - \lim_{h_k\rightarrow 0} \int_\rn D_i^{-h_k}u\phi \ dx = - \int_\rn v_i \phi \ dx
+	\end{align*}
+	Isto é devido à convergência fraca, já que $\phi \in L^2_{\text{loc}}$. Então, $v_i$ é derivada fraca e está em $L^\infty(\rn)$. Logo, $u \in W^{1,\infty}(\rn)$.
+	
+	\qed
+\end{enumerate}
 
 
 
+\subsection{Diferenciabilidade}
+
+
+
+\subsection{Transformada de Fourier}
 
 
 
