@@ -1075,7 +1075,7 @@ No caso geral de $U$ limitado com $\pu$ $C^1$, basta usar o Teorema da Extensão
 
 	Então, $u^\epsilon := \eta_\epsilon * u$, com $\eta_\e$ o molificador padrão, é suave e satisfaz \[\begin{cases}
 		u^\e \rightarrow u \text{ uniformemente} \\
-		||Du^\e||_{L^\infty(\R)} \leq ||Du||_{L^\infty(\rn)}
+		||Du^\e||_{L^\infty(\rn)} \leq ||Du||_{L^\infty(\rn)}
 	\end{cases}\]
 	Segunda relação: fazendo a derivada, $Du^\e = \eta_\epsilon * Du$. Pela Desigualdade de Young, $||Du^\e||_{L^\infty} \leq ||\eta_\e||_{L^1} ||Du||_{L^\infty}$.
 	
@@ -1102,7 +1102,47 @@ No caso geral de $U$ limitado com $\pu$ $C^1$, basta usar o Teorema da Extensão
 
 
 
-\subsection{Diferenciabilidade}
+\subsection{Diferenciabilidade q.t.p.}
+
+Conexões entre derivadas fracas e derivadas clássicas.
+
+\paragraph{Definição} Uma função $u:U\rightarrow \R$ é diferenciável em $x \in U$ se existe $a \in \rn$ tal que \[
+u(y) = u(x) + a \cdot (y-x) + o(|y-x|) \text{ se } y \rightarrow x	
+\]
+Ou, \[
+\lim_{y\rightarrow x} \frac{ |u(y) - u(x) - a\cdot (y-x)| }{|y-x|} =0 
+\]
+$a$ é único. Escrevemos então $Du := a$ e chamamos de gradiente de $u$.
+
+\paragraph{Teorema 5 (diferenciabilidade q.t.p.)} Seja $u \in W^{1,p}_{\text{loc}}$(U) para algum $n < p \leq \infty$. Então $u$ é diferenciável q.t.p. em $U$, e seu gradiente é igual ao gradiente fraco q.t.p.
+
+Como $n<p$, então identificamos $u$ com sua versão contínua q.t.p. (Morrey)
+
+\begin{enumerate}
+	\item Seja $p\neq \infty$. Ou seja, $n<p<\infty$. Uma variação da demonstração do \nameref{t:sobolev-ineq-t4} nos dá que \begin{equation}\label{eq:estimativa-morrey-bola}
+		|v(y) - v(x)| \leq Cr^{1-\frac{n}{p}} \left(\int_{B(x,2r)} |Dv(z)|^p\ dz\right)^{1/p} \quad (y \in B(x,r))
+	\end{equation}
+	
+	é válido para qualquer função $C^1$ e, por aproximação, para qualquer $v \in W^{1,p}$ com $n<p<\infty$.
+
+	Agora, escolha $u \in W^{1,p}_{\text{loc}}(U)$. Para quase todo $x \in U$, uma versão do Teorema de Diferenciação de Lebesgue implica que \[
+	\frac{1}{|B|}\int_{B(x,r)} |Du(x) -Du(z)|^p\ dz \rightarrow 0  	
+	\] com $r\rightarrow 0$ e $Du$ denotando a derivada fraca de $u$. Fixe qualquer um desses $x$ e defina \[
+	v(y):= u(y) - u(x) - Du(x)\cdot (y-x)
+	\]
+	Agora, utilize $v(y)$ na estimativa \eqref{eq:estimativa-morrey-bola}, em que $r=|y-x|$, e encontraremos \begin{align*}
+		|u(y) - u(x) - Du(x)\cdot (y-x)| &\leq Cr^{1-n/p} \left( \int_{B(x,2r)} |Du(z) - Du(x)|^p  \cdot  \right)^{1/p} \\
+		&\leq o(r) = o(|x-y|)
+	\end{align*}
+	Logo, $u$ é diferenciável em $x$, e seu gradiente é igual ao gradiente fraco.
+
+	\item No caso de $p=\infty$, usamos que $W^{1,\infty}_{\text{loc}}(U) \subset W^{1,p}_{\text{loc}}(U)$ para todo $1\leq p <\infty$ já que $U$ é limitado. Logo, $u \in W^{1,p}_{\text{loc}}(U)$ com $n<p<\infty$.
+	
+	\qed
+
+\end{enumerate}
+
+\paragraph{Teorema 6 (Rademacher's)} Seja $u$ localmente lipschitz contínua em $U$. Então $u$ é diferenciável q.t.p. em $U$.
 
 
 
