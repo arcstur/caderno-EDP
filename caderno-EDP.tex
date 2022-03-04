@@ -1089,7 +1089,9 @@ No caso geral de $U$ limitado com $\pu$ $C^1$, basta usar o Teorema da Extensão
 	
 	\item Agora, seja $u$ lipschitz contínua. Devemos provar que $Du$ (fraca) é limitada essencialmente (supremo essencial finito).
 
-	Como $u$ é lipschitz, temos que $||D_i^{-h}u||_{L^\infty(\rn)}\leq \text{Lip}(u)$ (\textbf{???} o que é isso, é a constante da definição de lipschitz?) E então existe uma função $v_i \in L^\infty(\rn)$ e uma subsequência $h_k\rightarrow 0$ tal que \[ D_i^{-h_k}u \rightharpoonup v_i \text{ fracamente em } L^2_{\text{loc}}(\rn)\] \textbf{$L^2_{loc}$???} o teorema diz que é para espaços reflexivos, e $L^\infty$ não é, supostamente. $L^2_{loc}$ é reflexivo, mas de onde ele surgiu?
+	Como $u$ é lipschitz, temos que $||D_i^{-h}u||_{L^\infty(\rn)}\leq \text{Lip}(u)$ (\textbf{???} o que é isso, é a constante da definição de lipschitz?) E então existe uma função $v_i \in L^\infty(\rn)$ e uma subsequência $h_k\rightarrow 0$ tal que
+	\[ D_i^{-h_k}u \rightharpoonup v_i \text{ fracamente em } L^2_{\text{loc}}(\rn)\]
+	\textbf{$L^2_{loc}$???} o teorema diz que é para espaços reflexivos, e $L^\infty$ não é, supostamente. $L^2_{loc}$ é reflexivo, mas de onde ele surgiu?
 
 	Consequentemente, $\forall \phi \in C^\infty_c(\rn)$,\begin{align*}
 		\int_\rn u \phi_{x_i}\ dx &= \lim_{h_k\rightarrow 0}\int_\rn u D_i^{h_k}\phi \ dx \\
@@ -1176,7 +1178,7 @@ Como $n<p$, então identificamos $u$ com sua versão contínua q.t.p. (Morrey)
 
 	Além disso, pode-se usar o Teorema Fundamental do Cálculo para demonstrar que a integral da derivada dará zero. Então, ao concluir que $\int_U u\ D^\alpha \phi\ dx =0$, não podemos deduzir que $u=0$ pois a integral de $D^\alpha \phi$ dará zero. 
 
-	Para resolver o problema, dada uma função teste fixa $\eta \in C^\infty_c(U)$ de integral unitária, vamos definir $\psi \in C^\infty_c(U)$ e $A$ por \[A = \int_U \phi\ dx \quad \psi(x) = \int_U \]
+	Para resolver o problema, dada uma função teste fixa $\eta \in C^\infty_c(U)$ de integral unitária, vamos definir $\psi \in C^\infty_c(U)$ e $A$ por (???) \[A = \int_U \phi\ dx \quad \psi(x) = \int_U \]
 	Assim \[\phi = A\eta + D^\alpha\psi\]
 
 	Então, lembrando que $\int_U u D^\alpha \psi=0$ para toda $\psi \in C^\infty_c(U)$, temos que \begin{align*}
