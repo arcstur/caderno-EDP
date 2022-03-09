@@ -1,4 +1,4 @@
-\documentclass[a4paper, 11pt]{article}
+\documentclass[a4paper, 11pt]{book}
 \usepackage[margin=2.5cm]{geometry}	
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
@@ -11,8 +11,7 @@
 \usepackage{wrapfig}
 \usepackage{tikz}
 \usepackage{wrapfig}
-\usepackage{bigfoot} %inclui o pacote perpage
-\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref} %esconde as caixas de links
+\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
 \usepackage{chngcntr}
 \usepackage{fancyhdr}
 \usepackage{changepage}
@@ -48,11 +47,10 @@
 
 
 %FORMATAÇÃO
-\MakePerPage{footnote} %reinicia o contador das notas de rodapé a cada página
-\renewcommand{\thefootnote}{\fnsymbol{footnote}} %muda de núm. para símbolo
-\counterwithin*{section}{part} %reinicia o número do capítulo a cada parte
-\pagestyle{fancy}
-\setlength{\headheight}{15pt}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} %muda de número para símbolo
+%reinicia o counter de A a cada B:
+\counterwithin*{section}{chapter}
+\counterwithin*{footnote}{section}
 
 
 
@@ -65,13 +63,15 @@
 
 %DOCUMENTO
 \begin{document}
+\mainmatter
 \maketitle
 \tableofcontents
 
-% \include{IMPA.tex}
+\include{IMPA}
 
-\setcounter{part}{1}
-\part{Espaços de Sobolev}
+\part{Evans}
+\setcounter{chapter}{4}
+\chapter{Espaços de Sobolev}
 Espaços de Sobolev são úteis para usar conhecimentos de análise funcional nas EDPs. A ideia é converter uma EDP em dois espaços de funções \( X,Y \) e um operador \( A:X \rightarrow Y \).
 
 \newcommand{\sobolevdef}{W^{k,p}(U)}
@@ -1148,35 +1148,35 @@ Como $n<p$, então identificamos $u$ com sua versão contínua q.t.p. (Morrey)
 
 
 
-\subsection{Transformada de Fourier}
+% \subsection{Transformada de Fourier}
 
-Nessa seção, todas funções tem valores complexos.
+% Nessa seção, todas funções tem valores complexos.
 
-\paragraph{Teorema 7 (Sobolev e Fourier)}\paragraph{t:sobolev-hk-fourier} Seja $k$ um inteiro não-negativo. \begin{enumerate}[(i)]
-	\item Uma função $u \in L^2(\rn)$ está em $W^{2,k}(\rn)=H^k(\rn)$ se e somente se
-	\[ (1 + |y|^k) \hat{u} \in L^2(\rn) \]
-	\item Além disso, existe uma constante positiva $C$ tal que \[
-	\frac{1}{C}||u||_{H^k(\rn)} \leq ||(1+|y|^k)\hat{u}||_{L^2(\rn)} \leq C ||u||_{H^k(\rn)}	
-	\] para cada $u \in H^k(\rn)$.
-\end{enumerate}
+% \paragraph{Teorema 7 (Sobolev e Fourier)}\paragraph{t:sobolev-hk-fourier} Seja $k$ um inteiro não-negativo. \begin{enumerate}[(i)]
+% 	\item Uma função $u \in L^2(\rn)$ está em $W^{2,k}(\rn)=H^k(\rn)$ se e somente se
+% 	\[ (1 + |y|^k) \hat{u} \in L^2(\rn) \]
+% 	\item Além disso, existe uma constante positiva $C$ tal que \[
+% 	\frac{1}{C}||u||_{H^k(\rn)} \leq ||(1+|y|^k)\hat{u}||_{L^2(\rn)} \leq C ||u||_{H^k(\rn)}	
+% 	\] para cada $u \in H^k(\rn)$.
+% \end{enumerate}
 
-\textit{Demonstração.}
-\begin{enumerate}
-	\item Seja $u \in H^k(\rn)$. Então, para cada $|\alpha|\leq k$, $D^\alpha u \in L^2(\rn)$. Agora se $u \in C^k$ com suporte compacto (e consequentemente para $u \in H^k$ por aproximação), então \[
-	\widehat{D^\alpha u} = (iy)^\alpha \hat{u}
-	\]
-	\textbf{???} Na aula do Carneiro, era $(2\pi i y)^\alpha$. Parece que o Evans define a transformada de Fourier de uma forma diferente.
+% \textit{Demonstração.}
+% \begin{enumerate}
+% 	\item Seja $u \in H^k(\rn)$. Então, para cada $|\alpha|\leq k$, $D^\alpha u \in L^2(\rn)$. Agora se $u \in C^k$ com suporte compacto (e consequentemente para $u \in H^k$ por aproximação), então \[
+% 	\widehat{D^\alpha u} = (iy)^\alpha \hat{u}
+% 	\]
+% 	\textbf{???} Na aula do Carneiro, era $(2\pi i y)^\alpha$. Parece que o Evans define a transformada de Fourier de uma forma diferente.
 
-	Agora, como $D^\alpha u \in L^2(\rn)$, então $(iy)^\alpha \hat{u} \in L^2(\rn)$. 
+% 	Agora, como $D^\alpha u \in L^2(\rn)$, então $(iy)^\alpha \hat{u} \in L^2(\rn)$. 
 
-	\dots
-\end{enumerate}
-
-
+% 	\dots
+% \end{enumerate}
 
 
 
-\section{Outros Espaços}
+
+
+% \section{Outros Espaços}
 
 \section{Problemas}
 

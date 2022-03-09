@@ -1,6 +1,6 @@
 
-\part*{Preâmbulo}
-\addcontentsline{toc}{part}{Preâmbulo}
+\part{Mestrado IMPA}
+\chapter{Preâmbulo}
 \section{Misc}
 \subsection{Multiíndices}
 
@@ -43,8 +43,8 @@ Como \(g\) é uniformemente contínua, dado \(\e\) podemos encontrar \(a\) tal q
 \subsection{Equivalência das normas Lp}\label{subsec:lp-equivalencia}
 
 \begin{center}
-	\begin{tikzpicture}
-	\def\y{0.6};
+\begin{tikzpicture}
+	\def\y{0.6}
 	\node at (0,0) {$u \in L^p(U)$};
 	
 	\draw[->] (1,0) -- (2,\y);
@@ -164,7 +164,7 @@ Fórmulas de Green para \( u,v \in C^2 (\overline{U}) \)
 
 
 \pagebreak
-\part{Mestrado IMPA | Evans}
+\chapter{Mestrado IMPA}
 
 \subsection*{Dados}
 
@@ -1036,7 +1036,7 @@ Agora, como \[ \frac{k^n}{(k-1)^n} \leq 2^n \leq 2^{n+1} \] temos que \begin{ali
 
 Seja \( u_k \in C^2(U) \cap C(\p U) \) uma sequência de funções harmônicas que converge uniformemente para uma \( f \) na borda. 
 
-Pelo princípio do máximo, \( \{u_k\} \) é Cauchy (com norma \( L^\infty \)) em \( U \). Isso é porque tanto o mínimo quanto o máximo das funções se dá na borda (e esse mínimo e máximo tem que convergir pra f), daí, digamos, a sequência de funções é limitada interiormente (pelo princípio do máximo e mínimo) pelos valores da borda. Então, \( u_k \rightarrow u \in C(U) \) uniformemente (o limite de funções uniformes é uma função contínua). \[ u_k(x) = \dashint u_k(y)\ dy \] A convergência uniforme garante que possamos fazer o teorema da convergência dominada. Pois elas são dominadas por algum M. Então \[ u(x) = \dashint u(y)\ dy \] e portanto é harmônica.
+Pelo princípio do máximo, \( \{u_k\} \) é Cauchy (com norma \( L^\infty \)) em \( U \). Isso é porque tanto o mínimo quanto o máximo das funções se dá na borda (e esse mínimo e máximo tem que convergir pra f), daí, digamos, a sequência de funções é limitada interiormente (pelo princípio do máximo e mínimo) pelos valores da borda. Então, \( u_k \rightarrow u \in C(U) \) uniformemente (o limite de funções uniformes é uma função contínua). \[ u_k(x) = \frac{1}{|V|}\int u_k(y)\ dy \] A convergência uniforme garante que possamos fazer o teorema da convergência dominada. Pois elas são dominadas por algum M. Então \[ u(x) = \frac{1}{|V|}\int u(y)\ dy \] e portanto é harmônica.
 
 \paragraph{Subsequência convergente para uma função harmônica}
 
@@ -1092,7 +1092,7 @@ Vamos calcular o resto da série de Taylor \( N \). O resto será \[ _N (x) = u(
 Seja \( u \in C^2(U) \) harmônica não-negativa. Seja \( V \subset\subset U \) conexo. Então \[ \sup_{V} u \leq C \inf_{V} u \] com uma constante que só depende do domínio \( V \). Na verdade, quaisquer dois valores da \( u \) são comparáveis: \[\frac{1}{C} u(y) \leq u(x) \leq C u(y)  \] para todo \( x,y \in V \). Como a constante só depende de \( V \), então a função não pode ser muito grande a não ser que todos valores sejam muito grandes também (o mesmo para muito pequena).
 
 Seja \( r := \frac{1}{4}dist(V, \p U) \)\footnote{o \( r \) aqui poderia ser qualquer valor \( < \frac{1}{2}dist(x_0, \p U) \) }. Escolha \( x,y \in V\) com \(|x-y| < r \). Pela propriedade da média \begin{align*}
-	u(x) &= \dashint_{B(x,2r)} u(w)\ dw = \frac{1}{\alpha (n) 2^n r^n} \int_{B(x, 2r)} u(w)\ dw \\
+	u(x) &= \frac{1}{|B|}\int_{B(x,2r)} u(w)\ dw = \frac{1}{\alpha (n) 2^n r^n} \int_{B(x, 2r)} u(w)\ dw \\
 	&\geq \frac{1}{\alpha (n) 2^n r^n} \int_{B(y, r)} u(w)\ dw  = \frac{u(y)}{2^n}
 \end{align*} Agora, basta trocar \( x \) e \( y \) do lugar e teremos que \[  \frac{1}{2^n} u(y) \leq u(x) \leq 2^n u(y)  \] O que é muito interessante. Se \( u(x) = u(y) \) a relação acima é trivial. Agora, se \( u(x) > u(y) \), uma das relações é trivial enquanto a outra é muito útil! (e vice-versa). Parece uma propriedade arquimediana da função.
 
