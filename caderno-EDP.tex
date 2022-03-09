@@ -67,7 +67,7 @@
 \maketitle
 \tableofcontents
 
-\include{IMPA}
+% \include{IMPA}
 
 \part{Evans}
 \setcounter{chapter}{4}
@@ -174,7 +174,7 @@ Seja \( 1\leq p \leq \infty \) e \( k \in \N \). O espaço de sobolev \[ W^{k,p}
 	\item \( D^\alpha u \in W^{k-|\alpha|, p}(U) \) (a cada derivada, perde-se \( 1 \) no \( k \)), e\\ \( D^\beta(D^\alpha u)=D^\alpha(D^\beta u) = D^{\alpha + \beta}u \) para todos multiíndices com \( |\alpha|+ |\beta| \leq k \)
 	\item \(a, b \in \R \), \( au + bv \in W^{k,p}(U) \) e \( D^\alpha(au +bv) = aD^\alpha u + bD^\alpha v \), com \( |\alpha|\leq k \)
 	\item Se \( V \subseteq U \) aberto, então \( u \in W^{k,p}(V) \)
-	\item Se \( \phi \in C^\infty_c(U) \), então \( \phi u \in W^{k,p}(U) \) e \[ D^\alpha(\phi u) = \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} D^\beta \phi D^{\alpha - \beta}u \] (fórmula de Leibniz)
+	\item Se \( \phi \in C^\infty_c(U) \), então \( \phi u \in W^{k,p}(U) \) e (fórmula de Leibniz)\[ D^\alpha(\phi u) = \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} D^\beta \phi D^{\alpha - \beta}u \] 
 \end{enumerate}
 
 Muitas propriedades das derivadas clássicas se mantém nas derivadas fracas.
@@ -190,19 +190,18 @@ Muitas propriedades das derivadas clássicas se mantém nas derivadas fracas.
 
 Agora, seja \( u_m \) uma sequência em \( W^{k,p}(U)\Rightarrow L^p(U) \). Como \( L^p(U) \) é um espaço de Banach, ela tem um limite em \( L^p(U) \). As derivadas também são uma sequência em \( L^p(U) \).
 
-Ou seja, \( u_m \rightarrow u \in L^p(U) \) e \( D^\alpha u_m \rightarrow u_{\alpha} \in L^p(U) \)
-
-Queremos provar que \( u \in W^{k,p}(U) \) e que \( D^\alpha u = u_\alpha \).
+Ou seja, \( u_m \rightarrow u \in L^p(U) \) e \( D^\alpha u_m \rightarrow u_{\alpha} \in L^p(U) \). Queremos provar que \(D^\alpha u = u_\alpha \).
 
 Seja \( \phi \in C^\infty_c(U) \)
 \begin{align*}
 	\int_U u D^\alpha \phi\ dx &= \int \lim_{m \rightarrow \infty} u_m D^\alpha \phi \ dx	\\
 	&= \lim_{m \rightarrow \infty} \int  u_m D^\alpha \phi \ dx	\\
 	&= \lim_{m \rightarrow \infty} (-1)^{|\alpha| }\int D^\alpha  u_m \phi \ dx\\
-	&= (-1)^{|\alpha| }\int  \lim_{m \rightarrow \infty} D^\alpha  u_m \phi \ dx		\\
-	&= (-1)^{|\alpha| }\int  u_\alpha \phi \ dx
+	&= (-1)^{|\alpha| }\int  \lim_{m \rightarrow \infty} D^\alpha  u_m \phi \ dx = (-1)^{|\alpha| }\int  u_\alpha \phi \ dx
 \end{align*}
-Então, \( u \in W^{k,p}(U) \), porque todo \( D^\alpha u = u_\alpha \) está em \( L^p(U) \).\qed
+Então, \( u \in W^{k,p}(U) \), porque todo \( D^\alpha u = u_\alpha \) está em \( L^p(U) \).
+
+\qed
 
 
 
@@ -1232,6 +1231,66 @@ Como $n<p$, então identificamos $u$ com sua versão contínua q.t.p. (Morrey)
 
 
 
+
+\chapter{Equações elípticas de segunda ordem}
+
+O capítulo investiga as equações diferenciais parciais de segunda ordem uniformemente elípticas.
+
+\section{Definições}
+
+\subsection{Equações elípticas}
+
+Vamos estudar principalmente o problema \[
+\begin{cases}
+	Lu=f &\text{ em } U \\
+	u =0 &\text{ em } \pu
+\end{cases}
+\]
+em que $U$ é aberto, limitado, subconjunto de $\rn$, e $u:\overline{U}\rightarrow\R$ é a incógnita, função de $x$. $f:U\rightarrow \R$ é dada e $L$ denota um operador diferencial parcial de segunda ordem, tendo ou a forma \textbf{divergente}, mais apropriada para métodos de energia,\[
+Lu = - \sum_{i,j=1}^n \left(a^{i,j}(x)\ u_{x_i}\right)_{x_j} + \sum_{i=1}^n b^i (x) \ u_{x_i} + c(x)\ u
+\]
+ou a forma \textbf{não-divergente}, mais apropriada para técnicas de princípio do máximo\[
+Lu = - \sum_{i,j=1}^n a^{i,j}(x)\ u_{x_ix_j} + \sum_{i=1}^n b^i (x) \ u_{x_i} + c(x)\ u
+\]
+para as funções $a^{i,j}, b^i, c$. Assumimos que $a^{i,j}=a^{j,i}$ já que $u_{x_ix_j}=u_{x_jx_i}$.
+
+Veja que se $a^{i,j}$ forem funções $C^1$, é possível ir da foma divergente à não-divergente e vice-versa.
+
+A exigência de que $u=0$ em $\pu$ é normalmente chamada de condição de fronteira de Dirichlet.
+
+\paragraph{Definição} O operador diferencial parcial $L$ é (uniformemente) elíptico se existe uma constante $\theta>0$ tal que \[
+	\sum_{i,j=1}^n a^{i,j}(x) \xi_i \xi_j \geq \theta|\xi|^2
+\]
+para quase todo $x \in U$ e todo $\xi \in \rn$.
+
+Ou seja, para cada ponto $x \in U$, a matriz simétrica $n\times n$ dada por $A(x)= ((a^{i,j}(x)))$ é \href{https://en.wikipedia.org/wiki/Definite_matrix}{positive definite}, com o menor autovalor $\geq \theta$.
+
+Um exemplo é o laplaciano $L=-\Delta$. As soluções de $Lu=0$ são similares em muitas maneiras às funções harmônicas. Entretanto, para estas equações, não teremos fórmulas explícitas.
+
+\paragraph{Interpretação} Essas equações generalizam as equações de Laplace e Poisson. A função $u$ geralmente representa uma densidade de alguma quantidade, como uma concentração química, em equilíbrio na região $U$. O termo de segunda ordem $A: D^2u = \sum a^{i,j}u_{x_ix_j}$ (\textbf{???} esse $:$ é um produto-ponto duplo?) representa a difusão de $u$, com os coeficientes descrevendo a natureza heterogênea e anisotrópica do meio. No caso, $F := - ADu$ é a densidade difusiva do fluxo, e a elipticidade implica que $F \cdot Du \leq 0$. Ou seja, o fluxo vai e regiões de maior para menor concentração. O termo de primeira ordem representa o transporte em $U$, e o termo de ordem zero descreve a criação ou depleção local da quantidade química.
+
+Equações elípticas de segunda ordem não-lineares também aparecem no cálculo de variações e na geometria diferencial.
+
+\subsection{Soluções fracas}
+
+Vamos supor que $L$ tenha a forma divergente. Primeiro, assumimos que \[
+\begin{cases}
+	a^{i,j}, b^i, c \in L^\infty(U) \\
+	f \in L^2(U)
+\end{cases}	
+\]
+
+Para definir uma solução fraca, primeiro vamos assumir que $u$ é suave e multiplicar a equação $Lu=f$ por uma função teste $v \in C^\infty_c(U)$, e integrar em $U$, nos dando
+\[
+\int_U \sum_{i,j=1}^n a^{i,j} u_{x_i} v_{x_j} + \int_{i=1}^n b^i u_{x_i} v + cuv\ dx = \int_U fv \ dx 	
+\]
+fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave pode ser substituída por $v \in H^1_0(U)$. Fazendo isso, a equação resultante faz sentido somente se $u \in H^1_0(U)$. Esse espaço foi escolhido para incorporar a condição de que $u=0$ em $\pu$. (\textbf{???} Por que $H^1_0$ e não outros $W^{k,p}_0$?)
+
+
+\section{Existência de soluções fracas}
+\subsection{Teorema de Lax-Milgram}
+\subsection{Estimativas de energia}
+\subsection{Alternativa de Fredholm}
 
 
 
