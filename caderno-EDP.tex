@@ -22,23 +22,13 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\Q}{\mathbb{Q}}
-\renewcommand{\C}{\mathbb{C}}
 \newcommand{\Rn}{{\mathbb{R}^n}}
 \newcommand{\rn}{{\mathbb{R}^n}}
-\newcommand{\prn}{{(\mathbb{R}^n)}}
 \newcommand{\p}{\partial}
 \newcommand{\pu}{\partial U}
 \newcommand{\e}{\epsilon}
-\newcommand{\dd}{\delta}
-\newcommand{\degree}{^{\circ}}
-\newcommand{\pde}[2]{\frac{\p #1}{\p #2}}
-\newcommand{\dirdev}[1]{\pde{#1}{\vec{\nu}}}
-\newcommand{\parentesis}[1]{\left(#1\right)}
 \newcommand{\mi}{\text{-}}
-\newcommand{\norm}[2]{\left|\left|#1\right|\right|_{L^{#2}}}
 \newcommand{\nor}[2]{||#1||_{#2}}
-\newcommand{\holder}[2][k,\gamma]{{C^{#1}(\overline{#2})}}
 \renewcommand{\v}{,\hspace{-2pt}}
 
 \newtheorem{remark}{Observação}
@@ -70,6 +60,7 @@
 % \part{Evans}
 \setcounter{chapter}{4}
 \chapter{Espaços de Sobolev}
+
 Espaços de Sobolev são úteis para usar conhecimentos de análise funcional nas EDPs. A ideia é converter uma EDP em dois espaços de funções \( X,Y \) e um operador \( A:X \rightarrow Y \).
 
 \newcommand{\sobolevdef}{W^{k,p}(U)}
@@ -87,9 +78,11 @@ Dado \( U \) aberto e \( 0 < \gamma \leq 1 \), uma função é dita ser \textbf{
 	\item A semi norma \( \gamma \)-Hölder de \( u:U \rightarrow \R \) é \[ [u]_{C^{0,\gamma}(\overline{U})} := \sup_{x\neq y \in U} \left( \frac{|u(x) - u(y)|}{|x-y|^\gamma}\right) \] (ou seja, é a constante \( C \)). E a \textbf{norma} \( \gamma\)-Hölder é \[ ||u||_{C^{0,\gamma}(\overline{U})} := ||u||_{C(\overline{U})} + [u]_{C^{0,\gamma}(\overline{U})} \]
 \end{enumerate}
 
-\paragraph{Definição} O espaço de Hölder \[ \holder{U}  \] consiste das funções \( \holder[k]{U} \) que a norma \[ ||u||_{\holder{U}} := \sum_{|\alpha|\leq k} || D^\alpha u ||_{\holder[]{U}} + \sum_{|\alpha|=k} [ D^\alpha u ]_{\holder[0,\gamma]{U}} \] é finita. É o espaço das funções \( k\) vezes diferenciáveis e \( \gamma \)-Hölder contínua nas derivadas de ordem \( k \). É um espaço muito bem comportado.
+\paragraph{Definição} O espaço de Hölder
+\[ C^{k,\gamma}(\overline{U}) \]
+consiste das funções \( C^{k}(\overline{U}) \) que a norma \[ ||u||_{C^{k,\gamma}(\overline{U})} := \sum_{|\alpha|\leq k} || D^\alpha u ||_{C(\overline{U})} + \sum_{|\alpha|=k} [ D^\alpha u ]_{C^{0,\gamma}(\overline{U})} \] é finita. É o espaço das funções \( k\) vezes diferenciáveis e \( \gamma \)-Hölder contínua nas derivadas de ordem \( k \). É um espaço muito bem comportado.
 
-\paragraph{Teorema} O espaço de Hölder \( \holder{U} \) é um espaço de Banach.
+\paragraph{Teorema} O espaço de Hölder \( C^{k,\gamma}(\overline{U}) \) é um espaço de Banach.
 
 
 \section{Espaços de Sobolev}
@@ -699,13 +692,13 @@ Em decorrência do Teorema 5, sempre identificaremos uma função $u \in W^{1,p}
 
 \textit{Demonstração.} Como $\pu$ é $C^1$, então existe uma extensão $Eu = \overline{u} \in W^{1,p}(\Rn)$ com as propriedades já especificadas. Como $\overline{u}$ tem suporte compacto, obtemos dos teoremas de aproximação que existem funções $ u_m \in C^\infty_c(\Rn) $ tal que \[ u_m \rightarrow \overline{u} \text{ em } W^{1,p}(\Rn) \]
 
-De acordo com o \nameref{t:sobolev-ineq-t4}, com $\gamma = 1 - n/p$, como $u_m \in C^1$, \[ ||u_m - u_l||_{C^{0,\gamma}\prn} \leq C ||u_m - u_l||_{W^{1,p}\prn} \] para todo $l,m\geq1$.  Como $||u_m - u_l||_{W^{1,p}\prn} \rightarrow 0$ pois $u_m \rightarrow \overline{u}$, então $||u_m - u_l||_{C^{0,\gamma}\prn} \rightarrow 0$. Logo, existe um limite para $u_m$ com a norma $C^{0,\gamma}\prn$. Seja $u^*$ esse limite. Então, $\exists u^* \in C^{0,\gamma}\prn$ tal que \[ u_m \rightarrow u^* \text{ em }C^{0,\gamma}\prn  \]
+De acordo com o \nameref{t:sobolev-ineq-t4}, com $\gamma = 1 - n/p$, como $u_m \in C^1$, \[ ||u_m - u_l||_{C^{0,\gamma}{(\mathbb{R}^n)}} \leq C ||u_m - u_l||_{W^{1,p}{(\mathbb{R}^n)}} \] para todo $l,m\geq1$.  Como $||u_m - u_l||_{W^{1,p}{(\mathbb{R}^n)}} \rightarrow 0$ pois $u_m \rightarrow \overline{u}$, então $||u_m - u_l||_{C^{0,\gamma}{(\mathbb{R}^n)}} \rightarrow 0$. Logo, existe um limite para $u_m$ com a norma $C^{0,\gamma}{(\mathbb{R}^n)}$. Seja $u^*$ esse limite. Então, $\exists u^* \in C^{0,\gamma}{(\mathbb{R}^n)}$ tal que \[ u_m \rightarrow u^* \text{ em }C^{0,\gamma}{(\mathbb{R}^n)}  \]
 
 Devido a essas duas aproximações, $u^* = \overline{u} \text{ q.t.p em } \Rn$.  Como $\overline{u}=u \text{ q.t.p em } \Rn$, então $u^* = u \text{ q.t.p em } U$.
 
-O Teorema 4 também implica que $||u_m||_{C^{0,\gamma}\prn} \leq C ||u_m||_{W^{1,p}\prn}$, já que $u_m \in C^1$. Mandando $m \rightarrow \infty$ nesta desigualdade, temos que \begin{align*}
-	 ||u^*||_{C^{0,\gamma}\prn} &\leq  C ||\overline{u}||_{W^{1,p}\prn}  \\
-	  ||u^*||_{C^{0,\gamma}(\overline{U})}  \leq ||u^*||_{C^{0,\gamma}\prn} &\leq  C ||\overline{u}||_{W^{1,p}\prn} \leq C ||u||_{W^{1,p}(U)} \\
+O Teorema 4 também implica que $||u_m||_{C^{0,\gamma}{(\mathbb{R}^n)}} \leq C ||u_m||_{W^{1,p}{(\mathbb{R}^n)}}$, já que $u_m \in C^1$. Mandando $m \rightarrow \infty$ nesta desigualdade, temos que \begin{align*}
+	 ||u^*||_{C^{0,\gamma}{(\mathbb{R}^n)}} &\leq  C ||\overline{u}||_{W^{1,p}{(\mathbb{R}^n)}}  \\
+	  ||u^*||_{C^{0,\gamma}(\overline{U})}  \leq ||u^*||_{C^{0,\gamma}{(\mathbb{R}^n)}} &\leq  C ||\overline{u}||_{W^{1,p}{(\mathbb{R}^n)}} \leq C ||u||_{W^{1,p}(U)} \\
 	  ||u^*||_{C^{0,\gamma}(\overline{U})}  &\leq C ||u||_{W^{1,p}(U)}
 \end{align*}
 \qed

@@ -1,8 +1,11 @@
-
 \part{Mestrado IMPA}
 \chapter{Preâmbulo}
 \section{Misc}
 \subsection{Multiíndices}
+
+\newcommand{\pde}[2]{\frac{\p #1}{\p #2}}
+\newcommand{\dirdev}[1]{\pde{#1}{\vec{\nu}}}
+\newcommand{\norm}[2]{\left|\left|#1\right|\right|_{L^{#2}}}
 
 \( \alpha \) é um multiíndice se é um vetor da forma \( \alpha = (\alpha_1, \ldots, \alpha_n) \) com todos \( \alpha_i \) inteiros positivos. Ele tem ordem ou módulo dada por \( |\alpha| = \alpha_1 + \ldots \alpha_n \).
 
@@ -340,25 +343,25 @@ Quando fazemos uma desigualdade global, é interessante fazer uma dilatação da
 
 Defina, então, para \( \delta>0, \ f_\delta (x) = f(\delta x)\)
 
-Então, fazendo \( z = \dd y \Rightarrow dz = \dd^n\ dy \)\begin{align*}
-	f_\dd * g_\dd (x) &= \int_\Rn f(\dd y)g(\dd x - \dd y)\ dy \\
-	&= \frac{1}{\dd^n} \int_\Rn f(z)g(\dd x - z)\ dy \\
-	&= \frac{1}{\dd^n} f * g(\delta x)
+Então, fazendo \( z = \delta y \Rightarrow dz = \delta^n\ dy \)\begin{align*}
+	f_\delta * g_\delta (x) &= \int_\Rn f(\delta y)g(\delta x - \delta y)\ dy \\
+	&= \frac{1}{\delta^n} \int_\Rn f(z)g(\delta x - z)\ dy \\
+	&= \frac{1}{\delta^n} f * g(\delta x)
 \end{align*}
 
 Agora, a norma \( L^r \) é \begin{align*}
-	\norm{f_\dd*g_\dd}{r} &= \left( \int_\Rn | f_\dd * g_\dd (x) |^r \ dx  \right)^{1/r} \\
-	&= \frac{1}{\dd^n} \left( \int_\Rn | f * g (\dd x) |^r \ dx \right)^{1/r} \\
-	&= \frac{1}{\dd^n}\frac{1}{\dd^{n/r}} \left( \int_\Rn | f * g (w) |^r \ dw \right)^{1/r} \\
-	&= \frac{1}{\dd^n}\frac{1}{\dd^{n/r}} \norm{f*g}{r}
+	\norm{f_\delta*g_\delta}{r} &= \left( \int_\Rn | f_\delta * g_\delta (x) |^r \ dx  \right)^{1/r} \\
+	&= \frac{1}{\delta^n} \left( \int_\Rn | f * g (\delta x) |^r \ dx \right)^{1/r} \\
+	&= \frac{1}{\delta^n}\frac{1}{\delta^{n/r}} \left( \int_\Rn | f * g (w) |^r \ dw \right)^{1/r} \\
+	&= \frac{1}{\delta^n}\frac{1}{\delta^{n/r}} \norm{f*g}{r}
 \end{align*}
 
-Do mesmo modo, \( \norm{f_\dd}{p} = \frac{1}{\dd^{n/p}}  \norm{f}{p}\), e \( \norm{g_\dd}{q} = \frac{1}{\dd^{n/q}} \norm{g}{q} \).
+Do mesmo modo, \( \norm{f_\delta}{p} = \frac{1}{\delta^{n/p}}  \norm{f}{p}\), e \( \norm{g_\delta}{q} = \frac{1}{\delta^{n/q}} \norm{g}{q} \).
 
 De acordo com a desigualdade de de Young, para \( \frac{1}{q} + \frac{1}{p} = 1 + \frac{1}{r} \), 
 \begin{align*}
-	\norm{f_\dd * g_\dd}{r} &\leq C \norm{f_\dd}{p} \norm{g_\dd}{q}\\
-	\norm{f * g}{r} &\leq C \dd^{n \left( 1 + \frac{1}{r} - \frac{1}{p} - \frac{1}{q}\right) } \norm{f}{p} \norm{g}{q}
+	\norm{f_\delta * g_\delta}{r} &\leq C \norm{f_\delta}{p} \norm{g_\delta}{q}\\
+	\norm{f * g}{r} &\leq C \delta^{n \left( 1 + \frac{1}{r} - \frac{1}{p} - \frac{1}{q}\right) } \norm{f}{p} \norm{g}{q}
 \end{align*}
 
 A única possibilidade para isso valer para todo \( \delta \) é se, realmente, \( \frac{1}{q} + \frac{1}{p} = 1 + \frac{1}{r} \). 
@@ -640,7 +643,7 @@ Agora que provamos para uma classe densa, vamos para o argumento de densidade. D
 
 As funções da \href{https://en.wikipedia.org/wiki/Schwartz_space}{classe de Schwartz (link)} são funções com derivadas que decrescem muito rápido, especificamente que decrescem mais rápido que qualquer polinômio. 
 
-\(f:\Rn \rightarrow \C\), \(f \in \mathcal{S}\) se para todos multiíndices \(\alpha, \beta\) temos que  \[ \left| x^\beta \partial^\alpha f \right| \leq C_{\alpha, \beta} \qquad \Rightarrow |\partial^\alpha f| \leq \frac{C}{x^\beta}\] para todo \(x \in \Rn\).
+\(f:\Rn \rightarrow \mathbb{C}\), \(f \in \mathcal{S}\) se para todos multiíndices \(\alpha, \beta\) temos que  \[ \left| x^\beta \partial^\alpha f \right| \leq C_{\alpha, \beta} \qquad \Rightarrow |\partial^\alpha f| \leq \frac{C}{x^\beta}\] para todo \(x \in \Rn\).
 
 Como elas decrescem mais rápido que qualquer polinômio, \(\rightarrow 0\) se \(|x| \rightarrow \infty\). Podemos ver que \(C^\infty_c \subset \mathcal{S} \subset C^\infty \). Como a classe \(C^\infty_c\) é densa em qualquer \(L^p\), então \(\mathcal{S}\) é densa em qualquer \(L^p\). \footnote{ué, para isso não teria que acontecer \(\mathcal{S} \subset C^\infty_c\)?}
 
@@ -655,12 +658,12 @@ Todos os termos \(x^\beta \p^\alpha f\) são \(L^1\) ou qualquer \(L^p\) porque 
 \textbf{Gaussiana}
 \(f(x) = e^{-\pi \lambda |x|^2} \in \mathcal{S}\) com \(\lambda>0\). Sua Fourier é\footnote{Aqui se usa cálculo de variáveis complexas, o que não entendo ainda} \begin{align*}
 	\hat{f}(\xi)&= \int_\Rn e^{-2\pi i x \cdot \xi } e^{-\pi \lambda |x|^2}\ dx 
-	= \prod_{j=1}^{n}\int_\R e^{-2\pi i x_j \xi_j  - \pi \lambda x_j^2}\ dx_j\\ &= \prod_{j=1}^n e^{ \frac{-\pi \xi_j^2}{\lambda}} \int_\R e^{\pi \parentesis{\frac{\xi_j}{\sqrt{\lambda}} - i \sqrt{\lambda} x_j }^2}\ dx_j \\
+	= \prod_{j=1}^{n}\int_\R e^{-2\pi i x_j \xi_j  - \pi \lambda x_j^2}\ dx_j\\ &= \prod_{j=1}^n e^{ \frac{-\pi \xi_j^2}{\lambda}} \int_\R e^{\pi \left( {\frac{\xi_j}{\sqrt{\lambda}} - i \sqrt{\lambda} x_j } \right)^2}\ dx_j \\
 	&= \prod_{j=1}^n e^{ \frac{-\pi \xi_j^2}{\lambda}} \cdot \frac{1}{\lambda^{\frac{1}{2}}}\\
 	&= \frac{1}{\lambda^{\frac{n}{2}}}e^{-\frac{\pi |\xi|^2}{\lambda}}
 \end{align*}
 
-E, ainda mais, a Fourier da Fourier volta pra função original. Fazendo \(\lambda := \frac{1}{\lambda}\), temos que \[\frac{1}{\lambda^{\frac{n}{2}}}\left(e^{-\frac{\pi |\xi|^2}{\lambda}}\right)^{\hat{}} =\frac{1}{\lambda^{\frac{n}{2}}} \frac{1}{\parentesis{\frac{1}{\lambda}}^{\frac{n}{2}}} e^{-\pi \lambda |x|^2} = e^{-\pi \lambda |x|^2}\]
+E, ainda mais, a Fourier da Fourier volta pra função original. Fazendo \(\lambda := \frac{1}{\lambda}\), temos que \[\frac{1}{\lambda^{\frac{n}{2}}}\left(e^{-\frac{\pi |\xi|^2}{\lambda}}\right)^{\hat{}} =\frac{1}{\lambda^{\frac{n}{2}}} \frac{1}{\left( \frac{1}{\lambda} \right)^{\frac{n}{2}}} e^{-\pi \lambda |x|^2} = e^{-\pi \lambda |x|^2}\]
 
 Se \(\lambda=1\), então \(\hat{f}=f\).
 
@@ -743,14 +746,14 @@ Dado que ele é invariante por rotações, podemos encontrar uma solução radia
 \begin{align*}
 	\pde{r}{x_i} &= \frac{1}{2}\left(x_1^2 + \ldots + x_n^2\right)^{\frac{-1}{2}}\cdot 2x_i = \frac{x_i}{r}\\
 	\pde{v(r)}{x_i} &= v'(r) \cdot \frac{x_i}{r}\\
-	\pde{}{x_i}\pde{v(r)}{x_i} &= \parentesis{\frac{dv'(r)}{dr} \cdot \pde{r}{x_i}} \frac{x_i}{r} + \left(\frac{1}{r} + x_i \cdot \text{-}r^{-2}\cdot \pde{r}{x_i}\right)v'(r) \\
+	\pde{}{x_i}\pde{v(r)}{x_i} &= \left( {\frac{dv'(r)}{dr} \cdot \pde{r}{x_i}} \right) \frac{x_i}{r} + \left(\frac{1}{r} + x_i \cdot \text{-}r^{-2}\cdot \pde{r}{x_i}\right)v'(r) \\
 	&= v''(r) \cdot \frac{x_i^2}{r^2} + \left(\frac{1}{r}  -\frac{x_i^2}{r^3}\right)v'(r) \\
 	\Delta v &= v''(r) + \frac{n-1}{r}v'(r)
 \end{align*}
 
 Fazendo \(\Delta v =0 \), temos que \begin{align*}
 	v''(r) + \frac{n-1}{r}v'(r) &=0 \\
-	\frac{d}{dr}\parentesis{\log (v'(r))} &= \frac{1-n}{r} \\
+	\frac{d}{dr}\left( {\log (v'(r))} \right) &= \frac{1-n}{r} \\
 	\log (v'(r)) &= (1-n)\log(r)  = \log\left(\frac{1}{r^{n-1}}\right) \\
 	v'(r) &= \frac{1}{r^{n-1}}
 \end{align*}
@@ -1862,7 +1865,7 @@ Agora, vamos começar em \(U = \Rn\), \(f=0\), e ignorar a condição de borda, 
 
 Aplicando a Fourier inversa (que no caso da Gaussiana é só calcular a Fourier normal), sendo \(\lambda = 4\pi t\), temos que
 \begin{equation}\label{calor-fundamental}
-	\Phi(x,t) = \frac{1}{\parentesis{4\pi t}^\frac{n}{2}}e^{-\frac{|x|^2}{4t}}
+	\Phi(x,t) = \frac{1}{\left( {4\pi t} \right)^\frac{n}{2}}e^{-\frac{|x|^2}{4t}}
 \end{equation} é a nossa solução fundamental (sem se preocupar com a condição de borda).\footnote{Lá em equações diferenciais, aprendemos que a solução da eq. do calor era uma série de cossenos e senos. Isso porque, naquele caso, tinha a suposição de que a solução \(u(x)\) poderia ser escrita como \(\Phi(x)\Psi(t)\), separando as variáveis.}
 
 A integral da solução fundamental é 1, pois é o valor da Fourier em 0, que dá 1. \[\int \Phi(x,t)\ dx = \hat{\Phi}(0,t) = 1\]
@@ -1874,7 +1877,7 @@ Agora, pensando na condição de borda, podemos continuar de uma linha anterior 
 	\hat{u}_t &= - 4\pi^2 |\xi|^2 \hat{u} \\
 	\hat{u}(\xi,t) &= e^{-4\pi^2|\xi|^2 t} \cdot \hat{u}(\xi,0) \\
 	\hat{u}(\xi,t) &= e^{-4\pi^2|\xi|^2 t} \cdot \hat{g}(\xi) \\
-	u(x,t) &= \frac{1}{\parentesis{4\pi t}^\frac{n}{2}} \int_\Rn e^{-\frac{|x-y|^2}{4t}} g(y)\ dy  = \Phi * g
+	u(x,t) &= \frac{1}{\left( {4\pi t} \right)^\frac{n}{2}} \int_\Rn e^{-\frac{|x-y|^2}{4t}} g(y)\ dy  = \Phi * g
 \end{align*}
 Lembrando que a Fourier da convolução é o produto das Fourier. No caso, fizemos o processo inverso pois estamos fazendo a Fourier inversa.
 
@@ -2160,7 +2163,7 @@ Seja \(u\in C^2_1(\Omega) \cap C(\overline{\Omega})\) solução do problema acim
 
 \textit{Demonstração.} Suponha que \(4aT<1\). Caso isso não ocorra, basta quebrar o intervalo em tempos tal que isso funcione, como \([0, \tau] \cap [\tau, 2\tau] \cap \ldots [k\tau, T]\) com \(4a\tau < 1\).
 
-Então, existe \(\e>0\) tal que \(4a(T+\e)<1\). Defina a função auxiliar com \(C\) dado e \(y \in \Rn\) \[v(x,t) = u(x,t) - \frac{C}{\parentesis{T+\e-t}^{n/2}} e^{\frac{|x-y|^2}{4(T+\e-t)}}\] 
+Então, existe \(\e>0\) tal que \(4a(T+\e)<1\). Defina a função auxiliar com \(C\) dado e \(y \in \Rn\) \[v(x,t) = u(x,t) - \frac{C}{\left( {T+\e-t} \right)^{n/2}} e^{\frac{|x-y|^2}{4(T+\e-t)}}\] 
 Se \(\Phi(x,t)\) resolve a equação do calor, \(\Phi(x-y,t)\) também resolve. Agora, \(v=\Phi(ix-iy,T+\e-t)\) também resolve, pois \(v_t = -\Phi_t\) e \(\Delta v = - \Delta \Phi_t \) porque \(i^2 =-1\).
 
 
@@ -2168,14 +2171,14 @@ Seja \(U_r=B(y,r)\), \(\Omega_r = U_r \times (0,T]\). Pelo princípio do máximo
 
 Agora, na parte de baixo, onde \(t=0\), temos que \[v(x,0) \leq u(x,0) = g(x)\]
 Nas laterais, em que \(|x-y|=r, 0 \leq t \leq T\) \begin{align*}
-	v(x,t) &= u(x,t) - \frac{C}{\parentesis{T+\e-t}^{n/2}} e^{\frac{r^2}{4(T+\e-t)}} \\
-	&\leq Me^{a|x|^2} - \frac{C}{\parentesis{T+\e}^{n/2}} e^{\frac{r^2}{4(T+\e)}}\\
-	&\leq Me^{a(r+|y|)^2} - \frac{C}{\parentesis{T+\e}^{n/2}} e^{\frac{r^2}{4(T+\e)}} \leq \sup g 
+	v(x,t) &= u(x,t) - \frac{C}{\left( {T+\e-t}^{n/2} \right)} e^{\frac{r^2}{4(T+\e-t)}} \\
+	&\leq Me^{a|x|^2} - \frac{C}{\left( {T+\e}^{n/2} \right)} e^{\frac{r^2}{4(T+\e)}}\\
+	&\leq Me^{a(r+|y|)^2} - \frac{C}{\left( {T+\e}^{n/2} \right)} e^{\frac{r^2}{4(T+\e)}} \leq \sup g 
 \end{align*}
 para \(r\) suficientemente grande. Isso porque \(\frac{1}{4(T+\e)} > a\). Agora, temos que \begin{align*}
 	\max_{\overline{\Omega}_r}v &\leq \sup g \\
 	v(y,t) &\leq \sup g \\
-	u(y,t) - \frac{C}{\parentesis{T+\e-t}^{n/2}} &\leq \sup g\\
+	u(y,t) - \frac{C}{\left( {T+\e-t} \right)^{n/2}} &\leq \sup g\\
 	C \rightarrow 0& \\
 	u(y,t) &\leq \sup g
 \end{align*}
