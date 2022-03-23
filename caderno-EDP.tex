@@ -1,8 +1,7 @@
 \documentclass[a4paper, 11pt]{book}
 \usepackage[margin=2.5cm]{geometry}	
 \usepackage[brazil]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
 \usepackage{lmodern}
 
 \usepackage{amsmath, amsfonts, amssymb, cancel}
@@ -1081,7 +1080,7 @@ No caso geral de $U$ limitado com $\pu$ $C^1$, basta usar o Teorema da Extensão
 		u^\e \rightarrow u \text{ uniformemente} \\
 		||Du^\e||_{L^\infty(\rn)} \leq ||Du||_{L^\infty(\rn)}
 	\end{cases}\]
-	Segunda relação: fazendo a derivada, $Du^\e = \eta_\epsilon * Du$. Pela Desigualdade de Young, $||Du^\e||_{L^\infty} \leq ||\eta_\e||_{L^1} ||Du||_{L^\infty}$.
+	A primeira relação é válida pois $u$ tem suporte compacto. Para a segunda relação,faça a derivada, $Du^\e = \eta_\epsilon * Du$. Pela Desigualdade de Young, $||Du^\e||_{L^\infty} \leq ||\eta_\e||_{L^1} ||Du||_{L^\infty}$.
 	
 	Escolha $x\neq y$ quaisquer dois pontos distintos de $\rn$. Então, \begin{align*}
 		u^\e(x) - u^\e(y) &= \int_0^1 \frac{d}{dt}u^\e(tx + (1-t)y)\ dt \\
@@ -1120,7 +1119,7 @@ Ou, \[
 \]
 $a$ é único. Escrevemos então $Du := a$ e chamamos de gradiente de $u$.
 
-\paragraph{Teorema 5 (diferenciabilidade q.t.p.)} Seja $u \in W^{1,p}_{\text{loc}}$(U) para algum $n < p \leq \infty$. Então $u$ é diferenciável q.t.p. em $U$, e seu gradiente é igual ao gradiente fraco q.t.p.
+\paragraph{Teorema 5}\label{t:sobolev-diferenciabilidade-qtp} (diferenciabilidade q.t.p.) Seja $u \in W^{1,p}_{\text{loc}}$(U) para algum $n < p \leq \infty$. Então $u$ é diferenciável q.t.p. em $U$, e seu gradiente é igual ao gradiente fraco q.t.p.
 
 Como $n<p$, então identificamos $u$ com sua versão contínua q.t.p. (Morrey)
 
@@ -1129,7 +1128,7 @@ Como $n<p$, então identificamos $u$ com sua versão contínua q.t.p. (Morrey)
 		|v(y) - v(x)| \leq Cr^{1-\frac{n}{p}} \left(\int_{B(x,2r)} |Dv(z)|^p\ dz\right)^{1/p} \quad (y \in B(x,r))
 	\end{equation}
 	
-	é válido para qualquer função $C^1$ e, por aproximação, para qualquer $v \in W^{1,p}$ com $n<p<\infty$.
+	é válido para qualquer função $C^1$ e, por aproximação, para $v \in W^{1,p}$ com $n<p<\infty$.
 
 	Agora, escolha $u \in W^{1,p}_{\text{loc}}(U)$. Para quase todo $x \in U$, uma versão do Teorema de Diferenciação de Lebesgue implica que \[
 	\frac{1}{|B|}\int_{B(x,r)} |Du(x) -Du(z)|^p\ dz \rightarrow 0  	
@@ -1138,8 +1137,10 @@ Como $n<p$, então identificamos $u$ com sua versão contínua q.t.p. (Morrey)
 	\]
 	Agora, utilize $v(y)$ na estimativa \eqref{eq:estimativa-morrey-bola}, em que $r=|y-x|$, e encontraremos \begin{align*}
 		|u(y) - u(x) - Du(x)\cdot (y-x)| &\leq Cr^{1-n/p} \left( \int_{B(x,2r)} |Du(z) - Du(x)|^p  \cdot  \right)^{1/p} \\
+		&\leq C r^{1-n/p} o(r) \\
 		&\leq o(r) = o(|x-y|)
 	\end{align*}
+	Ou seja, se $y\rightarrow x$, o lado esquerdo vai pra zero.
 	Logo, $u$ é diferenciável em $x$, e seu gradiente é igual ao gradiente fraco.
 
 	\item No caso de $p=\infty$, usamos que $W^{1,\infty}_{\text{loc}}(U) \subset W^{1,p}_{\text{loc}}(U)$ para todo $1\leq p <\infty$ já que $U$ é limitado. Logo, $u \in W^{1,p}_{\text{loc}}(U)$ com $n<p<\infty$.
@@ -1149,6 +1150,11 @@ Como $n<p$, então identificamos $u$ com sua versão contínua q.t.p. (Morrey)
 \end{enumerate}
 
 \paragraph{Teorema 6 (Rademacher's)} Seja $u$ localmente lipschitz contínua em $U$. Então $u$ é diferenciável q.t.p. em $U$.
+
+\textit{Demonstração.} Se $u$ é localmente lipschitz contínua, então está em $W^{1,\infty}_{loc}(U)$ , pelo \nameref{t:sobolev-quociente-de-diferenças-infinito}. Logo, pelo \nameref{t:sobolev-diferenciabilidade-qtp}, para $n$ finito pois $p=\infty$, $u$ é diferenciável q.t.p.\qed
+ 
+
+
 
 
 
@@ -1186,7 +1192,7 @@ Será mais útil posteriormente. Então vou estudando quando for necessário.
 
 \subsection{O espaço H}
 
-\paragraph{Definição} denotamos por $H^{-1}(U)$  o espaço dual (o espaço de funcionais lineares e limitados) de $H^1_0(U)$. Escreveremos $\langle \ , \ \rangle$ o mapeamento entre $H^{-1}$ e $H^1_0$.
+\paragraph{Definição} denotamos por $H^{-1}(U)$  o espaço dual (o espaço de funcionais\footnote{operadores$:H^1_0(U)\rightarrow\R$} lineares e limitados) de $H^1_0(U)$. Escreveremos $\langle \ , \ \rangle$ o mapeamento entre $H^{-1}$ e $H^1_0$.
 
 \paragraph{Norma} para $f \in H^{-1}(U)$\[
 ||f||_{H^{-1}(U)} = \sup \left\{ \langle f, u \rangle \mid u \in H^1_0(U), ||u||_{H^1_0(U)} \leq 1 \right\}
@@ -1195,12 +1201,52 @@ Será mais útil posteriormente. Então vou estudando quando for necessário.
 \paragraph{Teorema da caracterização de H}
 \begin{enumerate}[(i)]
 	\item Seja $f \in H^{-1}(U)$. Então existem funções $f^0, f^1, \ldots, f^n \in L^2(U)$ tal que, para $v \in H^1_0(U)$ \begin{equation}
-	\langle f, v \rangle \int_U f^0 v + \sum_{i=1}^{n}f^i v_{x_i}\ dx
+	\langle f, v \rangle = \int_U f^0 v + \sum_{i=1}^{n}f^i v_{x_i}\ dx
 	\end{equation}
 
 	\item Além disso, \[
 	||f||_{H^{-1}(U)} = \inf \left\{ \left( \int_U \sum_{i=0}^{n}|f^i|^2\ dx \right)^{1/2} \Big|\  f \text{ satisfaz (i)} \right\} 	
 	\]
+\end{enumerate}
+
+Escreveremos $f=f^0 - \sum_{i=1}^{n} f^i_{x_i}$ quando (i) for verdade.
+
+\textit{Demonstração.} 
+\begin{enumerate}
+	\item Dados $u,v \in H^1_0(U)$, definimos o produto interno $(u,v):= \int_U Du\cdot Dv + uv\ dx$. Seja $f in H^{-1}(U)$. Aplicamos o Teorema da Representação de Riesz para deduzir a existência de um elemento único $u \in H^1_0(U)$ tal que $(u,v)=\langle f, v \rangle$ para todo $v \in H^1_0(U)$. Então, este $u$ único define $f^i$ de (i):\[
+	f^0=u, \quad f^i = u_{x_i} \ (i = 1,\dots,n)
+	\]
+	\textbf{???} como demonstrar que $f^i\in L^2$?
+
+	\item Agora seja $f \in H^{-1}(U)$. O acima não demonstra que as tal definição para as $f^i$ é a única, então seja \[
+	\langle f, v \rangle = \int_{U} g^0 v + \sum_{i=1}^{n}g^i v_{x_i}\ dx	
+	\]
+	para $g^0, \dots, g^n \in L^2(U)$. Fazendo $v=u$ no produto interno e usando a equação acima, \[
+	(u,u) = \int_U |Du|^2 + |u|^2 \ dx = \langle f, u \rangle = \int_U g^0u + \sum_{i=1}^{n}g^i u_{x_i}\ dx 
+	\]
+
+	Agora por algum motivo a desigualdade é válida \textbf{???}, \[
+		\int_U \sum_{i=0}^{n} |f^i|^2 \ dx = \int_U |Du|^2 + |u|^2 \ dx \leq \int_U \sum_{i=0}^{n} |g^i|^2 \ dx
+	\]
+
+	Isso demonstra que as $f^i$ escolhidas pelo item 1 tem uma norma $L^2$ ínfima em comparação a outras escolhas.
+
+	\item Se $\|v\|_{H^1_0(U)}\leq 1$, então (\textbf{por quê???})\[
+	| \langle f, v \rangle | \leq \left( \int_{U} \sum_{i=0}^{n} |f^i|^2 \ dx  \right)^{1/2}	
+	\]
+
+	Logo, pela definição da norma, \[
+	\|f\|_{H^{-1}(U)} \leq \left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx \right)^{1/2}	
+	\]
+
+	Fazendo $v = \frac{u}{\|u\|_{H^1_0(U)}}$ no produto interno, temos \begin{align*}
+		\left( u, \tfrac{u}{\|u\|_{H^1_0(U)}} \right) = \frac{1}{\|u\|_{H^1_0(U)}}\int |Du|^2 + |u|^2 \ dx &= \frac{1}{\|u\|_{H^1_0(U)}}\int_{U} \sum_{i=0}^{n} |f^i|^2 \ dx
+	\end{align*}
+	\textbf{???} Então deduzimos que a norma é sim $\|f\|_{H^{-1}(U)} = \left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx \right)^{1/2}	$.
+
+	\qed
+
+
 \end{enumerate}
 
 \section{Problemas}
