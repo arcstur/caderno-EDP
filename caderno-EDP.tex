@@ -1305,12 +1305,12 @@ O capítulo investiga as equações diferenciais parciais de segunda ordem unifo
 
 \subsection{Equações elípticas}
 
-Vamos estudar principalmente o problema \[
-\begin{cases}
-	Lu=f &\text{ em } U \\
-	u =0 &\text{ em } \pu
-\end{cases}
-\]
+Vamos estudar principalmente o problema \begin{equation}\label{prob:eliptico}
+	\begin{cases}
+		Lu=f &\text{ em } U \\
+		u =0 &\text{ em } \pu
+	\end{cases}
+\end{equation}
 em que $U$ é aberto, limitado, subconjunto de $\rn$, e $u:\overline{U}\rightarrow\R$ é a incógnita, função de $x$. $f:U\rightarrow \R$ é dada e $L$ denota um operador diferencial parcial de segunda ordem, tendo ou a forma \textbf{divergente}, mais apropriada para métodos de energia,\[
 Lu = - \sum_{i,j=1}^n \left(a^{i,j}(x)\ u_{x_i}\right)_{x_j} + \sum_{i=1}^n b^i (x) \ u_{x_i} + c(x)\ u
 \]
@@ -1349,7 +1349,33 @@ Para definir uma solução fraca, primeiro vamos assumir que $u$ é suave e mult
 \[
 \int_U \sum_{i,j=1}^n a^{i,j} u_{x_i} v_{x_j} + \int_{i=1}^n b^i u_{x_i} v + cuv\ dx = \int_U fv \ dx 	
 \]
-fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave pode ser substituída por $v \in H^1_0(U)$. Fazendo isso, a equação resultante faz sentido somente se $u \in H^1_0(U)$. Esse espaço foi escolhido para incorporar a condição de que $u=0$ em $\pu$. (\textbf{???} Por que $H^1_0$ e não outros $W^{k,p}_0$?)
+fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave pode ser substituída por $v \in H^1_0(U)$. Fazendo isso, a equação resultante faz sentido somente se $u \in H^1_0(U)$. Esse espaço foi escolhido para incorporar a condição de que $u=0$ em $\pu$. (\textbf{???} Por que $H^1_0$ e não outros $W^{1,p}_0$?)
+
+\paragraph{Definições}
+\begin{enumerate}[(i)]
+	\item A forma bilinear $B[ , ]$ associada com o operador $L$ na forma divergente é definida por \[
+	B[u,v] := \int_U \sum_{i,j=1}^{n} a^{i,j} u_{x_i} v_{x_j} + \sum_{i=1}^{n}b^i u_{x_i}v + cuv \ dx	
+	\] para $u,v \in H^1_0(U)$.
+
+	\item Dizemos que $u \in H^1_0(U)$ é solução fraca do problema \eqref{prob:eliptico} se \[
+	B[u,v] = (f,v)
+	\] para toda $v \in H^1_0(U)$, em que $( , )$ denota o produto interno em $L^2(U)$.
+\end{enumerate}
+
+Agora, outro problema: 
+\begin{equation}
+	\begin{cases}
+		Lu=f^0 - \sum_{i=1}^{n}f_{x_i}^i & \text{ em } U \\
+		u=0 & \text{ em } \partial U
+	\end{cases}
+\end{equation}
+Em que $L$ tem a forma divergente e $f^i \in L^2(U)$ para todo $i$. Devido ao que foi explorado no fim do último capítulo, o lado direito está em $H^{-1}(U)$, o espaço dual de $H^1_0(U)$.
+
+\begin{enumerate}[(i)]
+	\item 
+\end{enumerate}
+
+
 
 
 \section{Existência de soluções fracas}
