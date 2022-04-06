@@ -27,6 +27,15 @@
 		"description": "Enumerate with (i)"
 	},
 
+	"rightarrow": {
+		"scope": "latex",
+		"prefix": "@>>",
+		"body": [
+			"\\rightarrow"
+		],
+		"description": "rightarrow"
+	},
+
 	"Sum": {
 		"scope": "latex",
 		"prefix": "@M",

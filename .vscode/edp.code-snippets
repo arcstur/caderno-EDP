@@ -15,7 +15,32 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	
+	"Norm":{
+		"scope": "latex",
+		"prefix": "@norm",
+		"body": ["\\|$1\\|_{$2}"],
+		"description": "double vertical lines"
+	},
+	
+	"Pairing":{
+		"scope": "latex",
+		"prefix": "@angle",
+		"body": ["\\langle $1, $2 \\rangle"],
+		"description": "two elements between angle brackets"
+	},
 
+
+	"Text em":{
+		"scope": "latex",
+		"prefix": "@t-em",
+		"body": ["\\text{ em }"],
+		"description": "em text"
+	},
+	
+	
+	
+	
 	"Partial U":{
 		"scope": "latex",
 		"prefix": "@pu",
@@ -23,12 +48,24 @@
 		"description": "U border"
 	},
 
-	"Norm":{
+	"Sobolev": {
 		"scope": "latex",
-		"prefix": "@norm",
-		"body": ["\\|$1\\|_{$2}"],
-		"description": "double vertical lines"
+		"prefix": "@Wsobolev",
+		"body": [
+			"W^{$1,$2}($3)"
+		],
+		"description": "Espaço de Sobolev"
 	},
+
+	"Sobolev loc": {
+		"scope": "latex",
+		"prefix": "@Wsoboloc",
+		"body": [
+			"W^{$1,$2}_{\\text{loc}}($3)"
+		],
+		"description": "Espaço de Sobolev loc"
+	},
+
 
 	"H⁻¹": {
 		"scope": "latex",
