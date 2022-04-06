@@ -29,9 +29,6 @@
 \newcommand{\e}{\epsilon}
 \newcommand{\mi}{\text{-}}
 \newcommand{\nor}[2]{||#1||_{#2}}
-\renewcommand{\v}{,\hspace{-2pt}}
-
-\newtheorem{remark}{Observação}
 
 
 
@@ -147,9 +144,8 @@ Concluindo assim que $v-\tilde{v}=0$ q.t.p \qed
 
 Seja \( 1\leq p \leq \infty \) e \( k \in \N \). O espaço de sobolev \[ W^{k,p}(U) \] consiste de todas funções somáveis \( u:U\rightarrow\R \) que tenham derivadas \( D^\alpha u \), com \( |\alpha|\leq k \), no sentido das distribuições (derivada fraca), e que elas pertençam a \( L^p(U) \).
 
-\begin{remark}
-	Mais adiante veremos que $W^{k,p}(U)$ são espaços de Banach e $ W^{k,2}(U) = H^k(U)$ é um espaço de Hilbert.
-\end{remark}
+\paragraph{Observação} Mais adiante veremos que $W^{k,p}(U)$ são espaços de Banach e $ W^{k,2}(U) = H^k(U)$ é um espaço de Hilbert.
+
 \paragraph{Norma} para \( u \in W^{k,p}(U) \) é \[ ||u||_{W^{k,p}(U)} := \begin{cases}
 	\left[ \sum_{|\alpha|\leq k} \int_U \left| D^{\alpha} u\right|^p\ dx  \right]^{1/p}\\
 	\sum_{|\alpha|\leq k} \text{ess}\sup_U \left| D^{\alpha} u \right| & p=\infty
@@ -754,15 +750,15 @@ Perceba que (i) é uma generalização do \nameref{t:sobolev-ineq-t2}, e (ii) é
 	\item Seja $k > \frac{n}{p} \notin \Z$. Vamos supor que $\frac{n}{k} < p < n$. Depois, como $p^* > p$, podemos supor novamente que $\frac{n}{k} < p < p^* < n$. Em algum momento os $p^*$ passam $n$. Seja $l$ o número de $*$ de quando isso acontece, de quando $p^{l*}>n$. Aqui, paramos as desigualdades, pois $p^{(l+1)*}$ é negativo. Ou seja, vamos provar que $u \in W^{k-l,p^{l*}}(U)$ (até o primeiro $p^*$ que passa de $n$).
 	
 	Vejamos um exemplo: $n=12, p=5$ e $k=5$. Temos que $k>n/p$. Então \begin{align*}
-		\frac{n}{k} < p &< n & 2\v4 < 5 < 12\\
-		p < p^* &< n & p^* = 8\v57\ldots\\
-		p < p^* &< n < p^{**} & p^{**} = 29\v98\ldots \\
+		\frac{n}{k} < p &< n & 2{,}4 < 5 < 12\\
+		p < p^* &< n & p^* = 8{,}57\ldots\\
+		p < p^* &< n < p^{**} & p^{**} = 29{,}98\ldots \\
 		&& p^{***} < 0 
 	\end{align*}
 
 	Logo, podemos provar que $u \in W^{k-2, p^{**}}(U)$, aplicando o teorema em $p^*$ pois $p^* < n$. Ou seja $l=2$.
 	
-	No caso genérico, temos que encontrar o maior valor de $l$ tal que $p^{l*}>0$. Ou seja, encontrar $l$ tal que \[ \frac{1}{p^{l*}} = \frac{1}{p} - \frac{l}{n} > 0  \] Então, é necessário que $n - lp >0$. Então, vamos escolher o maior $l$ inteiro tal que \[ l < \frac{n}{p} \] Este $l$ será $l= \left[\frac{n}{p}\right]$, a parte inteira de $n/p$. No caso do nosso exemplo $l=\left[\frac{12}{5}\right] = \left[2\v 4\right] = 2$.
+	No caso genérico, temos que encontrar o maior valor de $l$ tal que $p^{l*}>0$. Ou seja, encontrar $l$ tal que \[ \frac{1}{p^{l*}} = \frac{1}{p} - \frac{l}{n} > 0  \] Então, é necessário que $n - lp >0$. Então, vamos escolher o maior $l$ inteiro tal que \[ l < \frac{n}{p} \] Este $l$ será $l= \left[\frac{n}{p}\right]$, a parte inteira de $n/p$. No caso do nosso exemplo $l=\left[\frac{12}{5}\right] = \left[2{,}4\right] = 2$.
 	
 	Então, pelo raciocínio acima, usando o \nameref{t:sobolev-ineq-t2} temos que \[  u \in W^{k-l,r}(U)   \]com $ \frac{1}{r} = \frac{1}{p} - \frac{l}{n} $.
 	
@@ -1087,7 +1083,7 @@ No caso geral de $U$ limitado com $\pu$ $C^1$, basta usar o Teorema da Extensão
 
 	Como $u$ é lipschitz, temos que $||D_i^{-h}u||_{L^\infty(\rn)}\leq \text{Lip}(u)$\footnote{constante da definição de lipschitz} E então existe uma função $v_i \in L^\infty(\rn)$ e uma subsequência $h_k\rightarrow 0$ tal que
 	\[ D_i^{-h_k}u \rightharpoonup v_i \text{ fracamente em } L^2_{\text{loc}}(\rn)\]
-	Já que $L^{\infty}\subset L^2_{loc}$, a sequência está neste espaço e podemos usar o teorema. Porém, como provar que $v_i \in L^\infty$ e não apenas $L^2_{loc}$? E também, por que $L^2_{loc}$ e não, sei lá, $L^7_{loc}$?
+	Já que $L^{\infty}\subset L^2_{loc}$, a sequência está neste espaço e podemos usar o teorema. Porém, como provar que $v_i \in L^\infty$ e não apenas $L^2_{loc}$??? E também, por que $L^2_{loc}$ e não, sei lá, $L^7_{loc}$?
 
 	Consequentemente, $\forall \phi \in C^\infty_c(\rn)$,\begin{align*}
 		\int_\rn u \phi_{x_i}\ dx &= \lim_{h_k\rightarrow 0}\int_\rn u D_i^{h_k}\phi \ dx \\
@@ -1202,14 +1198,20 @@ Será mais útil posteriormente. Então vou estudando quando for necessário.
 	\]
 \end{enumerate}
 
-Escreveremos $f=f^0 - \sum_{i=1}^{n} f^i_{x_i}$ quando (i) for verdade.
+Escreveremos $f=f^0 - \sum_{i=1}^{n} f^i_{x_i}$ quando (i) for verdade. Escreveremos assim para utilizar integração por partes (veja o sinal negativo no segundo termo).
 
 \textit{Demonstração.} 
 \begin{enumerate}
-	\item Dados $u,v \in H^1_0(U)$, definimos o produto interno $(u,v):= \int_U Du\cdot Dv + uv\ dx$. Seja $f in H^{-1}(U)$. Aplicamos o Teorema da Representação de Riesz para deduzir a existência de um elemento único $u \in H^1_0(U)$ tal que $(u,v)=\langle f, v \rangle$ para todo $v \in H^1_0(U)$. Então, este $u$ único define $f^i$ de (i):\[
+	\item Dados $u,v \in H^1_0(U)$, definimos o produto interno $(u,v):= \int_U Du\cdot Dv + uv\ dx$. Seja $f \in H^{-1}(U)$. Aplicamos o Teorema da Representação de Riesz para deduzir a existência de um elemento único $u \in H^1_0(U)$ tal que $(u,v)=\langle f, v \rangle$ para todo $v \in H^1_0(U)$. Então, este $u$ único define $f^i$ de (i):\[
 	f^0=u, \quad f^i = u_{x_i} \ (i = 1,\dots,n)
 	\]
-	\textbf{???} como demonstrar que $f^i\in L^2$?
+	Agora, como $u \in H^1_0(U)$, então $u$ e $Du$ estão em $L^2(U)$, logo $f^i \in L^2(U)$.
+
+	Por fim, devemos provar que $f$ desta forma é linear e limitado\footnote{Ser limitado significa que a norma do funcional é limitada pela norma do elemento / da função.}. Que $f$ é linear vem da linearidade da integral (veja o produto interno). Para sua continuidade (ser limitado), usamos Hölder:
+	\begin{align*}
+		| \langle f, v \rangle  &\leq \int_U | Du \cdot Dv | \ dx + \int_U | u \cdot v | \ dx  \\
+		&\leq \|Du\|_{L^2(U)}\|Dv\|_{L^2(U)} + \|u\|_{L^2(U)}\|v\|_{L^2(U)} < C \|v\|_{H^1_0(U)}
+	\end{align*}	
 
 	\item Agora seja $f \in H^{-1}(U)$. O acima não demonstra que as tal definição para as $f^i$ é a única, então seja \[
 	\langle f, v \rangle = \int_{U} g^0 v + \sum_{i=1}^{n}g^i v_{x_i}\ dx	
@@ -1218,25 +1220,33 @@ Escreveremos $f=f^0 - \sum_{i=1}^{n} f^i_{x_i}$ quando (i) for verdade.
 	(u,u) = \int_U |Du|^2 + |u|^2 \ dx = \langle f, u \rangle = \int_U g^0u + \sum_{i=1}^{n}g^i u_{x_i}\ dx 
 	\]
 
-	Agora por algum motivo a desigualdade é válida \textbf{???}, \[
+	Agora por algum motivo a desigualdade é válida \textbf{???}: provavelmente Hölder, \[
 		\int_U \sum_{i=0}^{n} |f^i|^2 \ dx = \int_U |Du|^2 + |u|^2 \ dx \leq \int_U \sum_{i=0}^{n} |g^i|^2 \ dx
 	\]
 
 	Isso demonstra que as $f^i$ escolhidas pelo item 1 tem uma norma $L^2$ ínfima em comparação a outras escolhas.
 
-	\item Se $\|v\|_{H^1_0(U)}\leq 1$, então (\textbf{por quê???})\[
+	\item Se $\|v\|_{H^1_0(U)}\leq 1$, então (\textbf{???}: provavelmente Hölder)\[
 	| \langle f, v \rangle | \leq \left( \int_{U} \sum_{i=0}^{n} |f^i|^2 \ dx  \right)^{1/2}	
 	\]
-
 	Logo, pela definição da norma, \[
 	\|f\|_{H^{-1}(U)} \leq \left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx \right)^{1/2}	
 	\]
-
-	Fazendo $v = \frac{u}{\|u\|_{H^1_0(U)}}$ no produto interno, temos \begin{align*}
-		\left( u, \tfrac{u}{\|u\|_{H^1_0(U)}} \right) = \frac{1}{\|u\|_{H^1_0(U)}}\int |Du|^2 + |u|^2 \ dx &= \frac{1}{\|u\|_{H^1_0(U)}}\int_{U} \sum_{i=0}^{n} |f^i|^2 \ dx
+	Fazendo $v = \frac{u}{\|u\|_{H^1_0(U)}}$ no produto interno, temos o seguinte. Lembramos que a norma de $f$ é o sup de $\langle f, v \rangle$ para $\|v\|\leq 1$, então para algum $v$ específico, $\langle f, v \rangle$ é limitado.
+	\begin{align*}
+		\langle f, v \rangle = \left( u, \tfrac{u}{\|u\|_{H^1_0(U)}} \right) &= \frac{1}{\|u\|_{H^1_0(U)}}\int |Du|^2 + |u|^2 \ dx \\
+		 &= \frac{1}{\|u\|_{H^1_0(U)}}\int_{U} \sum_{i=0}^{n} |f^i|^2 \ dx \leq \|f\|_{H^{-1}(U)}
 	\end{align*}
-	\textbf{???} Então deduzimos que a norma é sim $\|f\|_{H^{-1}(U)} = \left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx \right)^{1/2}	$.
-
+	Agora, como $u=f^0$ e $u_{x_i}=f^i$, então
+	\[
+	\|u\|_{H^1_0(U)} = \left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx \right)^{1/2} 	
+	\]
+	Portanto,
+	\begin{align*}
+		\frac{1}{\|u\|_{H^1_0(U)}}\int_{U} \sum_{i=0}^{n} |f^i|^2 \ dx \leq \|f\|_{H^{-1}(U)} &\leq \left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx\right)^{1/2} \\
+		\left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx\right)^{1/2} \leq \|f\|_{H^{-1}(U)} &\leq \left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx\right)^{1/2}
+	\end{align*}
+	Logo, \[\|f\|_{H^{-1}(U)} = \left( \int_U \sum_{i=0}^{n} |f^i|^2 \ dx\right)^{1/2}\]
 	\qed
 
 
@@ -1263,18 +1273,22 @@ Escreveremos $f=f^0 - \sum_{i=1}^{n} f^i_{x_i}$ quando (i) for verdade.
 
 	Além disso, pode-se usar o Teorema Fundamental do Cálculo para demonstrar que a integral da derivada dará zero. Então, ao concluir que $\int_U u\ D^\alpha \phi\ dx =0$, não podemos deduzir que $u=0$ pois a integral de $D^\alpha \phi$ dará zero. 
 
-	Para resolver o problema, dada uma função teste fixa $\eta \in C^\infty_c(U)$ de integral unitária, vamos definir $\psi \in C^\infty_c(U)$ e $A$ por (???) \[A = \int_U \phi\ dx \quad \psi(x) = \int_U \]
-	Assim \[\phi = A\eta + D^\alpha\psi\]
+	\textit{Demonstração.}
 
-	Então, lembrando que $\int_U u D^\alpha \psi=0$ para toda $\psi \in C^\infty_c(U)$, temos que \begin{align*}
-		\int_U u \phi\ dx = \int_U u \left( A\eta + D^\alpha\psi \right)\ dx &= A \int_U u \eta\ dx \\ 
-		&= \int_U \phi\ dx \cdot \int_U u \eta\ dx \\
-		&= C \int_U \phi\ dx \\
-		\int_U (u - C)\phi\ dx &= 0 \\
-		u &= C \text{ q.t.p.}
-	\end{align*}\qed
+	Seja $u_\e = u * \eta_\epsilon$. Logo, $u_\epsilon \in C^\infty (U_\epsilon)$ e $\|u_\e - u\|_{W^{k,p}_{\text{loc}}(U)} \rightarrow 0 $ uniformemente. Como $Du=0$, então $Du_\epsilon = Du * \eta_\epsilon = 0$. Então, como $u_\e$ é suave, $u_\e = C(\epsilon)$ em cada $U_\epsilon$.
 
-	\textbf{???}: O estranho é que a constante parece depender da escolha de $\eta$\ldots
+	Escolha $K \subset\subset U$ com medida positiva. A partir de um $\epsilon_0$ pequeno, vale que $K\subset U_{\epsilon_0}$. Então, $\forall \epsilon < \epsilon_0$, temos \[
+	|C(\epsilon)|^p |K| = \int_K |u_\epsilon|^p \ dx \rightarrow_{\epsilon\rightarrow 0} \int_K |u|^p \ dx < \infty \text{ pois } u \in W^{1,p}(U)	
+	\]
+
+	Então, para $\epsilon<\epsilon_0$, $C(\epsilon)$ é uma sequência limitada em ${\mathbb{R}^n}$, logo possui uma subsequência convergente. Então, $C(\epsilon_k)\rightarrow C$ se $\epsilon_k\rightarrow 0$.
+
+	Logo, \[
+	\int_K |C - u|^p \ dx = \lim_{\epsilon_k \rightarrow 0} \int_K | u_{\epsilon_k} - u|^p \ dx = 0	
+	\]
+	Então $u = C$ q.t.p. em $K$. Como $K$ é arbitrário, então $u=C$ em $U$ q.t.p.
+	
+	\qed
 
 
 	\item[11.] Prove por contra-exemplo que se $||D^hu||_{L^1(V)} \leq C$ para todo $0<|h|\leq \frac{1}{2}\text{dist}(V,\pu)$, não necessariamente se segue que $u \in W^{1,1}(V)$.
@@ -1363,7 +1377,7 @@ fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave 
 \end{enumerate}
 
 Agora, outro problema: 
-\begin{equation}
+\begin{equation}\label{prob:eliptico-h10}
 	\begin{cases}
 		Lu=f^0 - \sum_{i=1}^{n}f_{x_i}^i & \text{ em } U \\
 		u=0 & \text{ em } \partial U
@@ -1371,11 +1385,17 @@ Agora, outro problema:
 \end{equation}
 Em que $L$ tem a forma divergente e $f^i \in L^2(U)$ para todo $i$. Devido ao que foi explorado no fim do último capítulo, o lado direito está em $H^{-1}(U)$, o espaço dual de $H^1_0(U)$.
 
-\begin{enumerate}[(i)]
-	\item 
-\end{enumerate}
+\paragraph{Definição} Dizemos que $u \in H^1_0(U)$ é solução fraca de \eqref{prob:eliptico-h10} se \[
+B[u,v] = \langle f,v \rangle	
+\]
+para toda $v \in H^1_0(U)$, em que $\langle f, v \rangle = \int_U f^0v + \sum_{i=1}^{n} f^i v_{x_i}\ dx $ e $\langle ,  \rangle$ é o pareamento de $H^{-1}(U)$ e $H^1_0(U)$.
 
-
+\paragraph{Observação} Vamos focar em problemas com valor nulo na fronteira. Porém um problema com valores de fronteira pode ser facilmente convertido. Suponha que $\partial U$ é $C^1$ e $u\in H^1(U)$ é solução fraca de \[
+\begin{cases}
+	Lu=f &\text{ em }U\\
+	u=g &\text{ em }\partial U
+\end{cases}	
+\]
 
 
 \section{Existência de soluções fracas}
