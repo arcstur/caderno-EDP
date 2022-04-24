@@ -1367,13 +1367,13 @@ fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave 
 
 \paragraph{Definições}
 \begin{enumerate}[(i)]
-	\item A forma bilinear $B[ , ]$ associada com o operador $L$ na forma divergente é definida por \[
+	\item A forma bilinear $B[\ {,} \ ]$ associada com o operador $L$ na forma divergente é definida por \[
 	B[u,v] := \int_U \sum_{i,j=1}^{n} a^{i,j} u_{x_i} v_{x_j} + \sum_{i=1}^{n}b^i u_{x_i}v + cuv \ dx	
 	\] para $u,v \in H^1_0(U)$.
 
 	\item Dizemos que $u \in H^1_0(U)$ é solução fraca do problema \eqref{prob:eliptico} se \[
 	B[u,v] = (f,v)
-	\] para toda $v \in H^1_0(U)$, em que $( , )$ denota o produto interno em $L^2(U)$.
+	\] para toda $v \in H^1_0(U)$, em que $(\ {,} \ )$ denota o produto interno em $L^2(U)$. \textbf{???} por que em $L^2$? na equação acima o lado direito é $\int_U fv \ dx$.
 \end{enumerate}
 
 Agora, outro problema: 
@@ -1383,12 +1383,14 @@ Agora, outro problema:
 		u=0 & \text{ em } \partial U
 	\end{cases}
 \end{equation}
-Em que $L$ tem a forma divergente e $f^i \in L^2(U)$ para todo $i$. Devido ao que foi explorado no fim do último capítulo, o lado direito está em $H^{-1}(U)$, o espaço dual de $H^1_0(U)$.
+Em que $L$ tem a forma divergente e $f^i \in L^2(U)$ para todo $i$. Devido ao que foi explorado no fim do último capítulo, o lado direito está em $H^{-1}(U)$, o espaço dual de $H^1_0(U)$. \textbf{???} não seria o contrário? $f$ está em $H^{-1}(U)$ logo existem as $f^i$?
+
+Agora, multiplicamos por $v$ e integramos, da mesma forma que antes, para chegar na seguinte definição.
 
 \paragraph{Definição} Dizemos que $u \in H^1_0(U)$ é solução fraca de \eqref{prob:eliptico-h10} se \[
 B[u,v] = \langle f,v \rangle	
 \]
-para toda $v \in H^1_0(U)$, em que $\langle f, v \rangle = \int_U f^0v + \sum_{i=1}^{n} f^i v_{x_i}\ dx $ e $\langle ,  \rangle$ é o pareamento de $H^{-1}(U)$ e $H^1_0(U)$.
+para toda $v \in H^1_0(U)$, em que $\langle f, v \rangle = \int_U f^0v + \sum_{i=1}^{n} f^i v_{x_i}\ dx $ e $\langle \ {,} \ \rangle$ é o pareamento de $H^{-1}(U)$ e $H^1_0(U)$.
 
 \paragraph{Observação} Vamos focar em problemas com valor nulo na fronteira. Porém um problema com valores de fronteira pode ser facilmente convertido. Suponha que $\partial U$ é $C^1$ e $u\in H^1(U)$ é solução fraca de \[
 \begin{cases}
@@ -1397,15 +1399,82 @@ para toda $v \in H^1_0(U)$, em que $\langle f, v \rangle = \int_U f^0v + \sum_{i
 \end{cases}	
 \]
 
+Isso significa que $u=g \text{ em } \partial U$ no sentido de traços, e que a identidade na forma bilinear é válida para toda $v \in H^1_0(U)$. Para que isso seja possível, é necessário que $g$ seja o traço de uma função $H^1$, que vamos chamar de $w$ (\textbf{???}). Então, $\tilde{u} := u - w \in H^1_0(U)$ (possui traço nulo) e é uma solução de 
+\[
+\begin{cases}
+	L\tilde{u} = \tilde{f} &\text{ em } U \\
+	\tilde{u} = 0 &\text{ em } \partial U
+\end{cases}	
+\]
+Em que $\tilde{f} = f - Lw \in H^{-1}(U)$.
 
 \section{Existência de soluções fracas}
 \subsection{Teorema de Lax-Milgram}
+
+Nessa seção, $H$ é um espaço de Hilbert real, com norma $\|\|_{}$, produto interno $(\ {,} \ )$, e com pareamento entre $H$ e seu espaço dual $\langle \ {,} \ \rangle$.
+
+O Teorema de Lax-Milgram é útil pois não supõe a simetria de $B[u,v]$. Ao supor essa simetria, poderíamos simplesmente usar o Teorema de Representação de Riesz pois $B[u,v]$ se tornaria um produto interno. 
+
+\paragraph{Teorema de Lax-Milgram}\label{t:eliptic-lax-milgram}
+
+Seja $B: H \times H \rightarrow {\mathbb{R}^n}$ um mapeamento bilinear, tal que existam constantes $\alpha, \beta > 0$ tal que 
+\[
+\begin{cases}
+	| B[u,v] | \leq \alpha \|u\| \|v\| & (u,v \in H) \\
+	\beta \|u\|^2 \leq B[u,u] & (u \in H)
+\end{cases}	
+\]
+
+Finalmente, seja $f: H \rightarrow {\mathbb{R}^n}$ um funcional linear e limitado em $H$. Então, existe um único elemento em $u \in H$ tal que
+\[
+	B[u,v] = \langle f, v \rangle	
+\]
+para todo $v \in H$.
+
+\textit{Demonstração.} Para cada elemento $u \in H$, o mapeamento $v \rightarrowtail B[u,v]$ é um funcional linear e limitado em $H$. Logo, pelo Teorema da Representação de Riesz, existe um único elemento $w \in H$ tal que
+\[
+	B[u,v] = (w,v) \;\; (v \in H)
+\]
+
+Vamos escrever $Au=w$ sempre que a equação acima for verdadeira, tal que
+\[
+	B[u,v] = (Au, v) \;\; (u, v \in H)	
+\]
+
+Primeiro, vamos demonstrar que $A: H \rightarrow H$ é um operador linear e limitado. A sua linearidade provém da linearidade de $B$ e das propriedades do produto interno (basta calcular $A(\lambda_1u_1 \lambda_2u_2))$.
+
+Além disso, lembrando-nos das hipóteses,
+\[
+	\|Au\|^2 = (Au, Au) = B[u, Au] \leq \alpha \|u\| \| Au\|
+\]
+Então, $\| Au \| \leq \alpha \| u \|$ para todo $u \in H$, enão $A$ é limitado. 
+
+Continuando, vamos demonstrar que (\textbf{???} que isso?)
+\[\begin{cases}
+	A \text{é um-pra-um } \\
+	R(A), \text{o range de} A, \text{é fechado em} H
+\end{cases}\]
+
+Por hipótese,
+\[
+\beta \|u\|^2 \leq B[u,u] = (Au, u) \leq \|Au\| \|u\|	
+\]
+Então, $\beta \| u\| \leq \| Au \|$, o que demonstra as duas propriedades acima.
+
+(E continua...)
+
+
+
 \subsection{Estimativas de energia}
 \subsection{Alternativa de Fredholm}
 
 
 
+\section{Problemas}
 
+\begin{enumerate}
+	\item 
+\end{enumerate}
 
 
 
