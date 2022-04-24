@@ -842,8 +842,8 @@ Agora, vamos demonstrar que \[ u_m^\e \rightarrow u_m \text{ em } L^q(V), \text{
 Para isso, sendo $u_m$ suave, \begin{align*}
 	u_m^\e(x) - u_m(x) &= \int_{B(0,\e)} \eta_\e(y)u_m(x-y)\ dy\  -\  u_m(x)\\
 	&= \int_{B(0,1)} \eta(y)\left(u_m(x-\e y) - u_m(x)\right)\ dy\\
-	&=  \int_{B(0,1)} \eta(y) \int_0^1 \frac{d}{dt} (u_m(x-\e t y))\ dtdy \\
-	&=  -\e \int_{B(0,1)} \eta(y) \int_0^1 Du_m(x - \e t y)\cdot y\ dtdy
+	&=  \int_{B(0,1)} \eta(y) \int_0^1 \frac{d}{dt} (u_m(x-\e t y))\ dt dy \\
+	&=  -\e \int_{B(0,1)} \eta(y) \int_0^1 Du_m(x - \e t y)\cdot y\ dt dy
 \end{align*}
 Agora, integrando em $\rn$ nos dois lados da equação, \begin{align*}
 	\int_\Rn |	u_m^\e(x) - u_m(x) |\ dx &\leq \e  \int_{B(0,1)} \eta(y) \int_0^1 \int_\Rn  |Du_m(x - \e t y)|\ dx\ dt\ dy\\
@@ -1447,7 +1447,7 @@ Além disso, lembrando-nos das hipóteses,
 \[
 	\|Au\|^2 = (Au, Au) = B[u, Au] \leq \alpha \|u\| \| Au\|
 \]
-Então, $\| Au \| \leq \alpha \| u \|$ para todo $u \in H$, enão $A$ é limitado. 
+Então, $\| Au \| \leq \alpha \| u \|$ para todo $u \in H$, então $A$ é limitado. 
 
 Continuando, vamos demonstrar que (\textbf{???} que isso?)
 \[\begin{cases}

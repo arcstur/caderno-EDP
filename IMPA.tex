@@ -1929,7 +1929,7 @@ v = f & \text{ em } \Rn \times \{t=s\}
 Agora vamos usar o \textit{princípio de Duhamel}, que diz que tendo uma solução geral pra um problema homogêneo, podemos transformá-la na solução de um problema não-homogêneo fazendo a integral. A solução do problema não-homogêneo será, então, \begin{align*}
 	u(x,t)&= \int_0^t v(x,t,s)\ ds \\
 	u(x,t)&=\int_0^t \int_\Rn \Phi(x-y,t-s) f(y,s)\ dy ds \\
-	u(x,t) &=\int_0^t \frac{1}{(4\pi(t-s))^{n/2}})\int_\Rn e^{-\frac{|x-y|^2}{4(t-s)}}f(y,s)\ dyds 
+	u(x,t) &=\int_0^t \frac{1}{(4\pi(t-s))^{n/2}})\int_\Rn e^{-\frac{|x-y|^2}{4(t-s)}}f(y,s)\ dy ds 
 \end{align*} 
 
 \textbf{Teorema.} Sendo \(f\in C^2_c(\Rn)\times C^1(0,\infty)\) e \(u\) definido como acima, então \begin{enumerate}[(i)]
@@ -1986,7 +1986,7 @@ Agora vamos usar o \textit{princípio de Duhamel}, que diz que tendo uma soluç�
 \subsection*{Solução geral da Equação do Calor}
 Para isso, basta somar a solução homogênea com a não homogênea! Pois \(u_t, \Delta u\) é linear e o limite também. Então, \begin{align*}
 	u(x,t) &= \Phi * g + \int_0^t \Phi(y,t\text{-}s) * f(y,s)\ ds \\
-	u(x,t) &= \int_\Rn \Phi(x-y,t)g(y)\ dy + \int_0^t \int_\Rn \Phi(x-y,t-s)f(y,s)\ dyds 
+	u(x,t) &= \int_\Rn \Phi(x-y,t)g(y)\ dy + \int_0^t \int_\Rn \Phi(x-y,t-s)f(y,s)\ dy ds 
 \end{align*}
 Resolve o problema \ref{prob-calor} para \(U=\Rn\).
 
@@ -2039,19 +2039,19 @@ Então, se temos que \(\Phi(x,t)\geq \frac{1}{r^n}\), então sendo \(x=rx'\) e \
 	(x,t) \in E(r) &\Rightarrow (x',t')\in E(1)
 \end{align*}
 \paragraph{Teorema} (propriedade da média) Seja \(u \in C^2(U)\times C^1(0< t\leq T)\) solução da equação do calor. Então \begin{equation}\label{calor-propmedia}
-	u(x,t) = \frac{1}{4r^n} \int \int_{E(x,t,r)} u(y,s) \frac{|x-y|^2}{(t-s)^2}\ dyds
+	u(x,t) = \frac{1}{4r^n} \int \int_{E(x,t,r)} u(y,s) \frac{|x-y|^2}{(t-s)^2}\ dy ds
 \end{equation}
 
 \textit{Demonstração.} Podemos ao transladar o espaço-tempo, considerar que \(x=0\) e \(t=0\), Então \(E(r) = E(0,0,r)\) e definir \begin{align*}
 	\phi(r) :&= \frac{1}{r^n} \iint_{E(r)} u(y,s) \frac{|y|^2}{s^2}\ dy ds\\
 	&E(r)\rightarrow E(1), y \rightarrow ry', t\rightarrow r^2t'\\
 	&= \frac{1}{\cancel{r^n}} \iint_{E(1)} u(ry', r^2s') \frac{\cancel{r^2}|y'|^2}{\cancel{r^4}s'^2}\ \cancel{r^n}dy'\ \cancel{r^2}ds'\\  
-	&=\iint_{E(1)} u(ry, r^2s) \frac{|y|^2}{s^2}\ dyds\\
+	&=\iint_{E(1)} u(ry, r^2s) \frac{|y|^2}{s^2}\ dy ds\\
 	\\
-	\phi'(r) &= \iint_{E(1)} \sum u_{y_i}y_i\frac{|y|^2}{s^2} + 2ru_s\frac{|y|^2}{s}\ dyds\\
+	\phi'(r) &= \iint_{E(1)} \sum u_{y_i}y_i\frac{|y|^2}{s^2} + 2ru_s\frac{|y|^2}{s}\ dy ds\\
 	&E(1)\rightarrow E(r), y \rightarrow \tfrac{y'}{r}, \rightarrow \tfrac{t'}{r}\\
 	&=\iint_{E(r)} \sum u_{y_i}\frac{y'_i}{\cancel{r}}\frac{r^{\cancel{4}}|y'|^2}{\cancel{r^2} s'^2} + 2ru_s\frac{\cancel{r^2}|y'|^2}{\cancel{r^2}s'}\ \  \frac{dy'}{r^n}\frac{ds'}{r^2}\\
-	&= \frac{1}{r^{n+1}} \iint_{E(r)} \sum u_{y_i}y_i\frac{|y|^2}{s^2} + 2u_s\frac{|y|^2}{s}\ dyds\\
+	&= \frac{1}{r^{n+1}} \iint_{E(r)} \sum u_{y_i}y_i\frac{|y|^2}{s^2} + 2u_s\frac{|y|^2}{s}\ dy ds\\
 	&= A + B
 \end{align*}
 Vamos definir \[\psi := \frac{-n}{2}\log (-4\pi s) + \frac{|y|^2}{4s} + n\log r\]
@@ -2068,23 +2068,23 @@ A partir daí, temos que \begin{align*}
 	B &= \frac{1}{r^{n+1}}\iint_{E(r)} 4u_s \sum y_i \psi_{y_i}\ dy ds\\
 	&=-\frac{1}{r^{n+1}} \iint_{E(t)} \sum \left(4u_sy_i\right)_{y_i} \psi\ dy ds\\
 	&=-\frac{1}{r^{n+1}} \iint_{E(t)} \sum \left(4u_{sy_i}y_i + 4u_s\right) \psi\ dy ds\\
-	&= -\frac{1}{r^{n+1}}\iint_{E(r)} 4n u_s\psi + 4\sum u_{sy_i} y_i \psi \ dyds 
+	&= -\frac{1}{r^{n+1}}\iint_{E(r)} 4n u_s\psi + 4\sum u_{sy_i} y_i \psi \ dy ds 
 \end{align*}
 Integração por partes em relação a \(s\) dá\begin{align*}
-	B&=\frac{1}{r^{n+1}} \iint_{E(r)} -4nu_s\psi + 4\sum u_{y_i} y_i \psi_s\ dyds\\
-	B&=\frac{1}{r^{n+1}} \iint_{E(r)} -4nu_s\psi + 4\sum u_{y_i} y_i \left(-\frac{n}{2s}-\frac{|y|^2}{4s^2}\right)\ dyds\\
+	B&=\frac{1}{r^{n+1}} \iint_{E(r)} -4nu_s\psi + 4\sum u_{y_i} y_i \psi_s\ dy ds\\
+	B&=\frac{1}{r^{n+1}} \iint_{E(r)} -4nu_s\psi + 4\sum u_{y_i} y_i \left(-\frac{n}{2s}-\frac{|y|^2}{4s^2}\right)\ dy ds\\
 	&=\frac{1}{r^{n+1}} \iint_{E(r)} -4nu_s\psi -\frac{2n}{s}\sum u_{y_i}y_i\ dy ds - A 
 \end{align*}
 Como \(u\) é solução do calor, então \(u_s = \Delta u\). Portanto \begin{align*}
 	\phi'(r) &= A + B \\
-	&=\frac{1}{r^{n+1}} \iint_{E(r)} -4n\Delta u\cdot \psi - \frac{2n}{s}\sum u_{y_i}y_i\ dyds\\
-	&=\sum \frac{1}{r^{n+1}} \iint_{E(r)} 4n u_{y_i}\cdot \psi_{y_i} - \frac{2n}{s} u_{y_i}y_i\ dyds\\
-	&=\sum \frac{1}{r^{n+1}} \iint_{E(r)} 4n u_{y_i}\cdot \frac{y_i}{2s} - \frac{2n}{s} u_{y_i}y_i\ dyds \\
+	&=\frac{1}{r^{n+1}} \iint_{E(r)} -4n\Delta u\cdot \psi - \frac{2n}{s}\sum u_{y_i}y_i\ dy ds\\
+	&=\sum \frac{1}{r^{n+1}} \iint_{E(r)} 4n u_{y_i}\cdot \psi_{y_i} - \frac{2n}{s} u_{y_i}y_i\ dy ds\\
+	&=\sum \frac{1}{r^{n+1}} \iint_{E(r)} 4n u_{y_i}\cdot \frac{y_i}{2s} - \frac{2n}{s} u_{y_i}y_i\ dy ds \\
 	&=0
 \end{align*}
 Então \(\phi(r)\) é constante! Agora é só provar que para algum valor ela é igual a \(4u\) (porque definimos ela como \( \frac{1}{r^{n}} \) e não \( \frac{1}{4r^n} \)).
 \[\phi(r) = \lim_{t\rightarrow 0}\phi(t) = 4u(0,0)\]
-Porque \[\frac{1}{t^n}\iint_{E(t)}\frac{|y|^2}{s^2}\ dyds = \iint_{E(1)} \frac{|y|^2}{s^2}\ dy ds = 4\] (cálculos omitidos)
+Porque \[\frac{1}{t^n}\iint_{E(t)}\frac{|y|^2}{s^2}\ dy ds = \iint_{E(1)} \frac{|y|^2}{s^2}\ dy ds = 4\] (cálculos omitidos)
 
 
 \subsection{Princípio do Máximo}
@@ -2200,7 +2200,7 @@ A solução fundamental satisfaz \(\Phi_t - \Delta\Phi =0 \), a solução acima 
 Fixe \(\Omega = B(x_0, r)\times(0,T)\), fixando \(x_0, T\).
 
  Aplique integração por partes \begin{align*}
-	0 = \int_0^T\int_\Omega v (u_t - \Delta u)\ dxdt = &- \cancel{\int_0^T\int_\Omega u(v_t + \Delta v)\ dxdt} \\ &+ \left[\int_\Omega vu\ dx\right]^{t=T}_{t=0} - \int_0^T \int_{\p\Omega} \left(v \dirdev{u} - u\dirdev{v}\right)\ dSdt
+	0 = \int_0^T\int_\Omega v (u_t - \Delta u)\ dx dt = &- \cancel{\int_0^T\int_\Omega u(v_t + \Delta v)\ dx dt} \\ &+ \left[\int_\Omega vu\ dx\right]^{t=T}_{t=0} - \int_0^T \int_{\p\Omega} \left(v \dirdev{u} - u\dirdev{v}\right)\ dSdt
 \end{align*}
 
 Mandando \(\e \rightarrow 0\), temos que a primeira integral fica \[
