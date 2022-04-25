@@ -1340,7 +1340,7 @@ A exigência de que $u=0$ em $\pu$ é normalmente chamada de condição de front
 \paragraph{Definição} O operador diferencial parcial $L$ é (uniformemente) elíptico se existe uma constante $\theta>0$ tal que \[
 	\sum_{i,j=1}^n a^{i,j}(x) \xi_i \xi_j \geq \theta|\xi|^2
 \]
-para quase todo $x \in U$ e todo $\xi \in \rn$.
+para quase todo $x \in U$ e todo $\xi \in \rn$. Isso é equivalente a aplicar a a matriz no vetor $\xi$, e depois fazer o produto escalar com o $\xi$.
 
 Ou seja, para cada ponto $x \in U$, a matriz simétrica $n\times n$ dada por $A(x)= ((a^{i,j}(x)))$ é \href{https://en.wikipedia.org/wiki/Definite_matrix}{positive definite}, com o menor autovalor $\geq \theta$.
 
@@ -1363,7 +1363,7 @@ Para definir uma solução fraca, primeiro vamos assumir que $u$ é suave e mult
 \[
 \int_U \sum_{i,j=1}^n a^{i,j} u_{x_i} v_{x_j} + \int_{i=1}^n b^i u_{x_i} v + cuv\ dx = \int_U fv \ dx 	
 \]
-fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave pode ser substituída por $v \in H^1_0(U)$. Fazendo isso, a equação resultante faz sentido somente se $u \in H^1_0(U)$. Esse espaço foi escolhido para incorporar a condição de que $u=0$ em $\pu$. (\textbf{???} Por que $H^1_0$ e não outros $W^{1,p}_0$?)
+fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave pode ser substituída por $v \in H^1_0(U)$ (existe uma sequência de funções em $C^\infty_c$ que converge, em $H^1_0(U)$, para $v$). Fazendo isso, a equação resultante faz sentido somente se $u \in H^1_0(U)$. Esse espaço foi escolhido para incorporar a condição de que $u=0$ em $\pu$, e pois, para demonstrar que as integrais acima fazem sentido, utilizamos a desigualdade de Hölder com $p=p'=2$. Dessa forma, fazemos com que as derivadas estejam em $L^2$. Assim, temos a simetria necessária para a forma bilinear e o Teorema de Lax-Milgram.
 
 \paragraph{Definições}
 \begin{enumerate}[(i)]
@@ -1430,6 +1430,8 @@ Finalmente, seja $f: H \rightarrow {\mathbb{R}^n}$ um funcional linear e limitad
 	B[u,v] = \langle f, v \rangle	
 \]
 para todo $v \in H$.
+
+\paragraph*{Nota} No caso, o Teorema de Lax-Milgram é  uma generalização do Teorema da Representação de Riesz para a forma bilinear, que é uma generalização do produto interno. No caso, o produto interno satisfaz a primeira hipótese com $\alpha=1$ (Cauchy-Schwartz), e a segunda é uma igualdade também com $\beta=1$.
 
 \textit{Demonstração.} Para cada elemento $u \in H$, o mapeamento $v \rightarrowtail B[u,v]$ é um funcional linear e limitado em $H$. Logo, pelo Teorema da Representação de Riesz, existe um único elemento $w \in H$ tal que
 \[
