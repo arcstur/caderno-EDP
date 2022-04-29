@@ -1207,13 +1207,13 @@ Escreveremos $f=f^0 - \sum_{i=1}^{n} f^i_{x_i}$ quando (i) for verdade. Escrever
 	\]
 	Agora, como $u \in H^1_0(U)$, então $u$ e $Du$ estão em $L^2(U)$, logo $f^i \in L^2(U)$.
 
-	Por fim, devemos provar que $f$ desta forma é linear e limitado\footnote{Ser limitado significa que a norma do funcional é limitada pela norma do elemento / da função.}. Que $f$ é linear vem da linearidade da integral (veja o produto interno). Para sua continuidade (ser limitado), usamos Hölder:
+	Por fim, devemos provar que $f$ desta forma é linear e limitado\footnote{Ser limitado significa que a norma do funcional é limitada pela norma do elemento.}. Que $f$ é linear vem da linearidade da integral (veja o produto interno). Para sua continuidade (ser limitado), usamos Hölder:
 	\begin{align*}
 		| \langle f, v \rangle  &\leq \int_U | Du \cdot Dv | \ dx + \int_U | u \cdot v | \ dx  \\
 		&\leq \|Du\|_{L^2(U)}\|Dv\|_{L^2(U)} + \|u\|_{L^2(U)}\|v\|_{L^2(U)} < C \|v\|_{H^1_0(U)}
 	\end{align*}	
 
-	\item Agora seja $f \in H^{-1}(U)$. O acima não demonstra que as tal definição para as $f^i$ é a única, então seja \[
+	\item Agora seja $f \in H^{-1}(U)$. O acima não demonstra que as $f^i$ são únicas, então seja \[
 	\langle f, v \rangle = \int_{U} g^0 v + \sum_{i=1}^{n}g^i v_{x_i}\ dx	
 	\]
 	para $g^0, \dots, g^n \in L^2(U)$. Fazendo $v=u$ no produto interno e usando a equação acima, \[
@@ -1346,7 +1346,7 @@ Ou seja, para cada ponto $x \in U$, a matriz simétrica $n\times n$ dada por $A(
 
 Um exemplo é o laplaciano $L=-\Delta$. As soluções de $Lu=0$ são similares em muitas maneiras às funções harmônicas. Entretanto, para estas equações, não teremos fórmulas explícitas.
 
-\paragraph{Interpretação} Essas equações generalizam as equações de Laplace e Poisson. A função $u$ geralmente representa uma densidade de alguma quantidade, como uma concentração química, em equilíbrio na região $U$. O termo de segunda ordem $A: D^2u = \sum a^{i,j}u_{x_ix_j}$ (\textbf{???} esse $:$ é um produto-ponto duplo?) representa a difusão de $u$, com os coeficientes descrevendo a natureza heterogênea e anisotrópica do meio. No caso, $F := - ADu$ é a densidade difusiva do fluxo, e a elipticidade implica que $F \cdot Du \leq 0$. Ou seja, o fluxo vai e regiões de maior para menor concentração. O termo de primeira ordem representa o transporte em $U$, e o termo de ordem zero descreve a criação ou depleção local da quantidade química.
+\paragraph{Interpretação} Essas equações generalizam as equações de Laplace e Poisson. A função $u$ geralmente representa uma densidade de alguma quantidade, como uma concentração química, em equilíbrio na região $U$. O termo de segunda ordem $A: D^2u = \sum a^{i,j}u_{x_ix_j}$ representa a difusão de $u$, com os coeficientes descrevendo a natureza heterogênea e anisotrópica do meio. No caso, $F := - ADu$ é a densidade difusiva do fluxo, e a elipticidade implica que $F \cdot Du \leq 0$. Ou seja, o fluxo vai e regiões de maior para menor concentração. O termo de primeira ordem representa o transporte em $U$, e o termo de ordem zero descreve a criação ou depleção local da quantidade química.
 
 Equações elípticas de segunda ordem não-lineares também aparecem no cálculo de variações e na geometria diferencial.
 
@@ -1373,7 +1373,7 @@ fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave 
 
 	\item Dizemos que $u \in H^1_0(U)$ é solução fraca do problema \eqref{prob:eliptico} se \[
 	B[u,v] = (f,v)
-	\] para toda $v \in H^1_0(U)$, em que $(\ {,} \ )$ denota o produto interno em $L^2(U)$. \textbf{???} por que em $L^2$? na equação acima o lado direito é $\int_U fv \ dx$.
+	\] para toda $v \in H^1_0(U)$, em que $(\ {,} \ )$ denota o produto interno em $L^2(U)$. \textbf{???} por que em $L^2$? na equação do problema, multiplicando por $v$ e integrando, o lado direito fica $\int_U fv \ dx$, e não``o'` produto interno do $L^2$.
 \end{enumerate}
 
 Agora, outro problema: 
@@ -1399,7 +1399,7 @@ para toda $v \in H^1_0(U)$, em que $\langle f, v \rangle = \int_U f^0v + \sum_{i
 \end{cases}	
 \]
 
-Isso significa que $u=g \text{ em } \partial U$ no sentido de traços, e que a identidade na forma bilinear é válida para toda $v \in H^1_0(U)$. Para que isso seja possível, é necessário que $g$ seja o traço de uma função $H^1$, que vamos chamar de $w$ (\textbf{???}). Então, $\tilde{u} := u - w \in H^1_0(U)$ (possui traço nulo) e é uma solução de 
+Isso significa que $u=g \text{ em } \partial U$ no sentido de traços. Para que a identidade na forma bilinear seja válida para toda $v \in H^1_0(U)$, é necessário que $g$ seja o traço de uma função $H^1$, que vamos chamar de $w$. Então, $\tilde{u} := u - w$, a subtração de duas funções em $H^1(U)$, possui traço nulo e, portanto, está em $H^1_0(U)$ e é uma solução de 
 \[
 \begin{cases}
 	L\tilde{u} = \tilde{f} &\text{ em } U \\
@@ -1431,7 +1431,7 @@ Finalmente, seja $f: H \rightarrow {\mathbb{R}^n}$ um funcional linear e limitad
 \]
 para todo $v \in H$.
 
-\paragraph*{Nota} No caso, o Teorema de Lax-Milgram é  uma generalização do Teorema da Representação de Riesz para a forma bilinear, que é uma generalização do produto interno. No caso, o produto interno satisfaz a primeira hipótese com $\alpha=1$ (Cauchy-Schwartz), e a segunda é uma igualdade também com $\beta=1$.
+\paragraph*{Nota} O Teorema de Lax-Milgram é  uma generalização do Teorema da Representação de Riesz para a forma bilinear, que é uma generalização do produto interno. O produto interno satisfaz a primeira hipótese com $\alpha=1$ (Cauchy-Schwartz), e a segunda é uma igualdade com $\beta=1$.
 
 \textit{Demonstração.} Para cada elemento $u \in H$, o mapeamento $v \rightarrowtail B[u,v]$ é um funcional linear e limitado em $H$. Logo, pelo Teorema da Representação de Riesz, existe um único elemento $w \in H$ tal que
 \[
@@ -1451,19 +1451,23 @@ Além disso, lembrando-nos das hipóteses,
 \]
 Então, $\| Au \| \leq \alpha \| u \|$ para todo $u \in H$, então $A$ é limitado. 
 
-Continuando, vamos demonstrar que (\textbf{???} que isso?)
+Continuando, vamos demonstrar que
 \[\begin{cases}
-	A \text{é um-pra-um } \\
-	R(A), \text{o range de} A, \text{é fechado em} H
+	A \ \text{é um-pra-um (injetivo)} \\
+	R(A), \text{o range de}\ A, \text{é fechado em} H
 \end{cases}\]
 
 Por hipótese,
 \[
 \beta \|u\|^2 \leq B[u,u] = (Au, u) \leq \|Au\| \|u\|	
 \]
-Então, $\beta \| u\| \leq \| Au \|$, o que demonstra as duas propriedades acima.
+Então, $\beta \| u\| \leq \| Au \|$, o que demonstra as duas propriedades acima. \textbf{??? caramba como?}
 
-(E continua...)
+
+
+Agora, demonstraremos que $R(A)=H$. Suponhamos o contrário. Então, como $R(A)$ é fechado, existe um elemento não-nulo $w \in H$ tal que $w \in R(A)^{\perp}$ (complemento ortogonal, com produto interno nulo), o que contradiz a segunda propriedade, pois então $B \| w \|^2 \leq B[w,w] = (Aw,w)=0$.
+
+(e continua...)
 
 
 
