@@ -1219,10 +1219,18 @@ Escreveremos $f=f^0 - \sum_{i=1}^{n} f^i_{x_i}$ quando (i) for verdade. Escrever
 	para $g^0, \dots, g^n \in L^2(U)$. Fazendo $v=u$ no produto interno e usando a equação acima, \[
 	(u,u) = \int_U |Du|^2 + |u|^2 \ dx = \langle f, u \rangle = \int_U g^0u + \sum_{i=1}^{n}g^i u_{x_i}\ dx 
 	\]
+	Então, utilizando Cauchy-Schwarz e Hölder,
+	\begin{align*}
+		\int_U (g, u)\ dx &\leq \int_U |g| |u| \ dx \\
+		&\leq \int_U \sqrt{|g^0|^2 + \cdots |g^n|^2} \cdot \sqrt{|u|^2 + |u_{x_i}|^2 + \cdots + |u_{x_n}|^2} \ dx  \\
+		&\leq \left( \int_U \sum_{i=0}^{n} |g^i|^2 \ dx \right)^{\frac{1}{2}} \left( \int_U |u|^2 + |Du|^2 \ dx \right)^{\frac{1}{2}}
+	\end{align*}
 
-	Agora por algum motivo a desigualdade é válida \textbf{???}: provavelmente Hölder, \[
-		\int_U \sum_{i=0}^{n} |f^i|^2 \ dx = \int_U |Du|^2 + |u|^2 \ dx \leq \int_U \sum_{i=0}^{n} |g^i|^2 \ dx
-	\]
+	Então, \begin{align*}
+		\int_U \sum_{i=0}^{n} |f^i|^2 \ dx = \int_U |Du|^2 + |u|^2 \ dx &= \int_U (g, u)\ dx \\
+		\int_U |Du|^2 + |u|^2 \ dx &\leq \left( \int_U \sum_{i=0}^{n} |g^i|^2 \ dx \right)^{\frac{1}{2}} \left( \int_U |u|^2 + |Du|^2 \ dx \right)^{\frac{1}{2}} \\
+		\int_U \sum_{i=0}^{n} |f^i|^2 \ dx &\leq \int_U \sum_{i=0}^{n} |g^i|^2 \ dx
+	\end{align*}
 
 	Isso demonstra que as $f^i$ escolhidas pelo item 1 tem uma norma $L^2$ ínfima em comparação a outras escolhas.
 
