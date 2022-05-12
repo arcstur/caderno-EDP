@@ -1371,7 +1371,7 @@ Para definir uma solução fraca, primeiro vamos assumir que $u$ é suave e mult
 \[
 \int_U \sum_{i,j=1}^n a^{i,j} u_{x_i} v_{x_j} + \int_{i=1}^n b^i u_{x_i} v + cuv\ dx = \int_U fv \ dx 	
 \]
-fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave pode ser substituída por $v \in H^1_0(U)$ (existe uma sequência de funções em $C^\infty_c$ que converge, em $H^1_0(U)$, para $v$). Fazendo isso, a equação resultante faz sentido somente se $u \in H^1_0(U)$. Esse espaço foi escolhido para incorporar a condição de que $u=0$ em $\pu$, e pois, para demonstrar que as integrais acima fazem sentido, utilizamos a desigualdade de Hölder com $p=p'=2$. Dessa forma, fazemos com que as derivadas estejam em $L^2$. Assim, temos a simetria necessária para a forma bilinear e o Teorema de Lax-Milgram.
+fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave pode ser substituída por $v \in H^1_0(U)$ (existe uma sequência de funções em $C^\infty_c$ que converge, em $H^1_0(U)$, para $v$). Fazendo isso, a equação resultante faz sentido somente se $u \in H^1_0(U)$. Esse espaço foi escolhido para incorporar a condição de que $u=0$ em $\pu$, e pois, para demonstrar que as integrais acima fazem sentido, utilizamos a desigualdade de Hölder com $p=p'=2$. Dessa forma, fazemos com que as derivadas estejam em $L^2$. Assim, temos a a forma bilinear para usar o Teorema de Lax-Milgram.
 
 \paragraph{Definições}
 \begin{enumerate}[(i)]
@@ -1381,7 +1381,7 @@ fazendo integração por partes no primeiro termo. Por aproximação, $v$ suave 
 
 	\item Dizemos que $u \in H^1_0(U)$ é solução fraca do problema \eqref{prob:eliptico} se \[
 	B[u,v] = (f,v)
-	\] para toda $v \in H^1_0(U)$, em que $(\ {,} \ )$ denota o produto interno em $L^2(U)$. \textbf{???} por que em $L^2$? na equação do problema, multiplicando por $v$ e integrando, o lado direito fica $\int_U fv \ dx$, e não``o'` produto interno do $L^2$.
+	\] para toda $v \in H^1_0(U)$, em que $(\ {,} \ )$ denota o produto interno em $L^2(U)$. Lembrando que o produto interno em $L^2$ é aquele no qual o produto interno de uma função com ela mesma dá a norma ao quadrado (espaço de Hilbert).
 \end{enumerate}
 
 Agora, outro problema: 
@@ -1428,8 +1428,8 @@ O Teorema de Lax-Milgram é útil pois não supõe a simetria de $B[u,v]$. Ao su
 Seja $B: H \times H \rightarrow {\mathbb{R}^n}$ um mapeamento bilinear, tal que existam constantes $\alpha, \beta > 0$ tal que 
 \[
 \begin{cases}
-	| B[u,v] | \leq \alpha \|u\| \|v\| & (u,v \in H) \\
-	\beta \|u\|^2 \leq B[u,u] & (u \in H)
+	| B[u,v] | \leq \alpha \|u\| \|v\| & (u,v \in H) \quad B \text{ é limitado}\\
+	\beta \|u\|^2 \leq B[u,u] & (u \in H) \quad B \text{ é coercivo}
 \end{cases}	
 \]
 
@@ -1451,7 +1451,7 @@ Vamos escrever $Au=w$ sempre que a equação acima for verdadeira, tal que
 	B[u,v] = (Au, v) \;\; (u, v \in H)	
 \]
 
-Primeiro, vamos demonstrar que $A: H \rightarrow H$ é um operador linear e limitado. A sua linearidade provém da linearidade de $B$ e das propriedades do produto interno (basta calcular $A(\lambda_1u_1 \lambda_2u_2))$.
+Primeiro, vamos demonstrar que $A: H \rightarrow H$ é um operador linear e limitado. A sua linearidade provém da linearidade de $B$ e das propriedades do produto interno (basta calcular $A(\lambda_1u_1 + \lambda_2u_2))$.
 
 Além disso, lembrando-nos das hipóteses,
 \[
@@ -1462,18 +1462,25 @@ Então, $\| Au \| \leq \alpha \| u \|$ para todo $u \in H$, então $A$ é limita
 Continuando, vamos demonstrar que
 \[\begin{cases}
 	A \ \text{é um-pra-um (injetivo)} \\
-	R(A), \text{o range de}\ A, \text{é fechado em} H
+	R(A), \text{o range (a imagem) de}\ A, \text{é fechado em } H
 \end{cases}\]
 
 Por hipótese,
 \[
 \beta \|u\|^2 \leq B[u,u] = (Au, u) \leq \|Au\| \|u\|	
 \]
-Então, $\beta \| u\| \leq \| Au \|$, o que demonstra as duas propriedades acima. \textbf{??? caramba como?}
+Então, $\beta \| u\| \leq \| Au \|$. Com isso, conseguimos demonstrar a injetividade. Queremos demonstrar que $u\neq v \Rightarrow Au \neq Av$, então, como $u \neq v$,
+\[
+	0 < \beta \| u - v \| \leq \| Au - Av \| \Rightarrow Au \neq Av
+\]
 
+Agora, $A(H)\subset H$, por definição. Queremos demonstrar que $A(H)$ é fechado. Seja uma sequência $\{Au_n\} \rightarrow v$ em $H$. Como ela converge, é de Cauchy. Logo, $\| Au_n - Au_m \| < \e$ para $n,m > N$. Agora, pelo que acabamos de provar, temos que \[
+\e > \| Au_n - Au_m \| > \| u_n - u_m \| > 0	
+\] Logo, $\{u_n\}$ também é de Cauchy, então possui uma subsequência convergente. Então $\{u_{n_k}\} \rightarrow w, \{ Au_{n_k} \} \rightarrow A(w) = v$ (unicidade do limite). Logo, todo limite de uma sequência em $A(H)$ está em $A(H)$, então $A(H)$ é fechado.
 
+Aqui, vamos utilizar uma propriedade dos espaços de Hilbert. Dado um subconjunto fechado $A \subset H$, então podemos escrever o espaço de Hilbert como $H = A \cup A^{\perp}$, com $A \cap A^{\perp} = 0$. Lembrando que esse complemento ortogonal significa que $x \in A, y \in A^{\perp} \Rightarrow (x, y) = 0$.
 
-Agora, demonstraremos que $R(A)=H$. Suponhamos o contrário. Então, como $R(A)$ é fechado, existe um elemento não-nulo $w \in H$ tal que $w \in R(A)^{\perp}$ (complemento ortogonal, com produto interno nulo), o que contradiz a segunda propriedade, pois então $B \| w \|^2 \leq B[w,w] = (Aw,w)=0$.
+Agora, demonstraremos que $R(A)=H$. Suponhamos o contrário. Então, como $R(A)$ é fechado, existe um elemento não-nulo $w \in H$ tal que $w \in R(A)^{\perp}$ (complemento ortogonal, com produto interno nulo), o que contradiz a segunda propriedade, pois então $B \| w \|^2 \leq B[w,w] = (Aw,w)$, e teríamos $(Aw,w)=0$ pois $Aw \in R(A)$.
 
 (e continua...)
 
