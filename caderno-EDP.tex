@@ -525,7 +525,7 @@ Aqui, vamos assumir que $ 1 \leq p < n $, o caso (i) das opções anteriores. Va
 
 Vamos fazer uma função escalada da $ u $, para encontrar a relação entre $ q $ e $ p $: Usando $ u_{\lambda}(x):=u(\lambda x) $, temos que \[ \nor{u_{\lambda}}{L^q(\Rn)} \leq C \nor{Du_\lambda}{L^p(\Rn)}\] Aí, podemos calcular \[ \int_\Rn |u_{\lambda}|^q\ dx =  \int_\Rn |u(\lambda x)|^q\ dx = \frac{1}{\lambda^n} \int_\Rn |u(y)|^q\ dy\] Da mesma forma para $ Du $, \[ \int_\Rn |Du_{\lambda}|^p\ dx =  \lambda^p \int_\Rn |Du(\lambda x)|^p\ dx = \frac{\lambda^p}{\lambda^n} \int_\Rn |Du(y)|^p\ dy\]
 
-Combinando isso na desigualdade, encontramos que \[ \nor{u}{L^q(\Rn)} \leq C \lambda^{1 - \frac{n}{p} + \frac{n}{q} }\] Caso o expoente de $\lambda$ não dê zero, poderíamos encontrar uma contradição mandando-o para 0 ou $\infty$. Logo, para que não haja contradição $ q = \frac{np}{n-p} $
+Combinando isso na desigualdade, encontramos que \[ \nor{u}{L^q(\Rn)} \leq C \lambda^{1 - \frac{n}{p} + \frac{n}{q} } \|Du\|_{L^p(\Rn)}\] Caso o expoente de $\lambda$ não dê zero, poderíamos encontrar uma contradição mandando-o para 0 ou $\infty$. Logo, para que não haja contradição $ q = \frac{np}{n-p} $
 
 \paragraph{Definição do Conjugado de Sobolev} Se $ 1\leq p < n $, o conjugado de Sobolev de $p$ é \[ p^* := \frac{np}{n-p} \] Perceba que $ \frac{1}{p^*} = \frac{1}{p} - \frac{1}{n}, \qquad p^* > p $
 
